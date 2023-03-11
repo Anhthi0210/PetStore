@@ -1,7 +1,8 @@
 ﻿.menu1 a{
-    font-size: 12px;
+    font-size: 16px;
     color: white;
-    text-align: right;
+    text-align: center;
+    margin-right: 0 10px;
 }
 
 body {
