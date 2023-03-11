@@ -1,19 +1,18 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/CSS/Bootstrap.css" rel="Bootstrap.css" />
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/CSS/Bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/script.js"></script>
 </head>
 <body>
     @*doc*@
-    <nav class="navbar bg-body-tertiary fixed-top" style="background-color: #e3f2fd">
-        <div class="container-fluid">
+    <nav class="navbar bg-body-tertiary fixed-top" style="background-color: #ff8bd5">
+        <div class="container-fluid" >
             <a class="navbar-brand" href="#">Trang chủ</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -50,11 +49,10 @@
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                     @*dark mode*@
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-bs-theme="dark">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Drak mode</label>
-                     
-                </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Drak mode</label>
+                    </div>                  
                 </div>
             </div>
         </div>

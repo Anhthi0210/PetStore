@@ -1,5 +1,15 @@
 ﻿body {
+    transition: background 0.2s linear;
+}
+body.dark {
+    background-color: #000000;
+}
+
+body.dark p {
+    color: white;
 }
 .navbar {
-    padding-bottom: 100px;
+  
 }
+
+
