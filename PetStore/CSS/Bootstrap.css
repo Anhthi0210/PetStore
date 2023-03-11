@@ -1,5 +1,7 @@
 ﻿.menu1 a{
     font-size: 12px;
+    color: white;
+    text-align: right;
 }
 
 body {
@@ -11,13 +13,20 @@ body.dark p {
 .navbar a{
     padding-left: 20px;
 }
-/* icon gio hang*/
-    /*.giohang {
-        padding-left: 900px;
-    }*/
+ /*icon gio hang*/
+.menu2 {
+    
+}
 /*tim kiếm*/
-/*.timkiem{
-    padding-bottom: 50px;
-}*/
+.container {
+    flex-basis: 25%;
+    display: inline-block;
+}
+    .timkiem, .giohang {
+        padding: 50px;
+        margin: 10px;
+        float: left;
+    }
+
 
 
