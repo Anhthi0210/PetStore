@@ -1,15 +1,23 @@
-﻿body {
-    transition: background 0.2s linear;
-}
-body.dark {
-    background-color: #000000;
+﻿.menu1 a{
+    font-size: 12px;
 }
 
+body {
+    transition: background 0.2s linear;
+}
 body.dark p {
     color: white;
 }
-.navbar {
-  
+.navbar a{
+    padding-left: 20px;
 }
+/* icon gio hang*/
+    /*.giohang {
+        padding-left: 900px;
+    }*/
+/*tim kiếm*/
+/*.timkiem{
+    padding-bottom: 50px;
+}*/
 
 
