@@ -15,11 +15,62 @@ body {
         font-size: 16px;
         color: white;
     }
-.navbar a{
-    padding-left: 20px;
+/*menu2*/
+.menu2{
+    width: 1200px;
+    margin: 0px auto;
+    display: inline-block;
+
 }
+.timkiem{
+    width: 900px;
+    float:left;
+    padding-top: 5px;
+    padding-left: 300px;
+}
+.giohang{
+    float: right;
+}
+/*menu 3*/
+/*@media screen and (max-width: 1000px) {
+    .navbar-collapse {
+        display: none;
+    }
 
+        .navbar-collapse.show {
+            display: block;
+        }
 
-
+    .navbar-toggler {
+        display: block;
+    }
+}*/
+.menu3{
+    width: 1200px;
+    margin: 0px auto;
+}
+    .menu3 .sanphamchung {
+        width: 250px;
+        background-color: #00962a;
+        color: white;
+        float:left;
+    }
+.menu3 a{
+    display: inline-block;
+    padding: 20px 20px;
+}
+.menu3a{
+    width: 250px;
+    /*margin: 0px auto;*/
+    margin: 0px 168px;
+}
+    .menu3a a{
+        width:250px;
+    }
+    .nav-item:hover a {
+        background-color: gray;
+        color: white;
+        padding-left: 10px;
+    }
 
 
