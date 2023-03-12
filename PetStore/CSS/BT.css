@@ -1,0 +1,25 @@
+﻿
+body {
+    transition: background 0.2s linear;
+}
+/*menu 1*/
+.menu1 {
+    width: 1200px;
+    margin: 0px auto;
+}
+#dangnhap a {
+    display: inline-block;
+    float: right;
+}
+    .menu1 a {
+        font-size: 16px;
+        color: white;
+    }
+.navbar a{
+    padding-left: 20px;
+}
+
+
+
+
+
