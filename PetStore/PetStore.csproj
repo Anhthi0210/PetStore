@@ -144,6 +144,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\images\caticon.png" />
+    <Content Include="Content\images\dog icon.png" />
+    <Content Include="Content\images\homeicon.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\rabbiticon.png" />
     <Content Include="CSS\BT.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

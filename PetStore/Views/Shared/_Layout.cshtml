@@ -32,6 +32,9 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary col-auto">
         <div class="menu2">
             <div class="container">
+                <div class="logo">
+                    <img src="~/Content/images/logo.png" />
+                </div> 
                 <div class="timkiem ">
                     <form class="d-flex mt-0" role="search">
                         <input class="form-control col-md-8 search_input me-2" type="search" placeholder="Search" aria-label="Search">
@@ -50,38 +53,228 @@
     </nav>
     <hr />
     @*menu 3*@
-    <nav class="navbar3">
         <div class="menu3">
             <div class="sanphamchung">
                 <a href="#" class="nav-link">SẢN PHẨM CHUNG</a>
-            </div>          
-            <a class="nav-link" href="#">Trang chủ</a>
-            <a class="nav-link" href="#">Chó</a>
-            <a class="nav-link" href="#">Mèo</a>
-            <a class="nav-link" href="#">Thỏ</a>
+            </div>
+            <nav  class="style-5 hidden-xs hidden-sm">
+                <ul id="primary-menu">
+                    @*trang chu*@
+                    <li class="trangchu">
+                        <a  href="/">
+                            <div>
+                                <div class="menu_icon hidden-xs hidden-sm">
+                                    <img alt="Trang chủ" src="~/Content/images/homeicon.png">
+                                    Trang chủ
+                                </div>
+                                
+                            </div>
+                        </a>
+                    </li>
+                    <li class="cho">
+                        <a class="menu" href="/cho-dogs">
+                            <div>
+                                <div class="menu_icon hidden-xs hidden-sm">
+                                    <img alt="Chó" src="~/Content/images/dog icon.png">
+                                    Chó
+                                </div>
+                               
+                            </div>
+                        </a>
+                    </li>
+                    <li class="meo">
+                        <a class="menu" href="/meo-cats">
+                            <div>
+                                <div class="menu_icon hidden-xs hidden-sm">
+                                    <img alt="Mèo" src="~/Content/images/caticon.png">
+                                    Mèo
+                                </div>
+                                
+                            </div>
+                        </a>
+                    </li>
+                    <li class="tho">
+                        <a class="menu" href="/tho-small-pet">
+                            <div>
+                                <div class="menu_icon hidden-xs hidden-sm">
+                                    <img alt="Thỏ - Small Pet" src="~/Content/images/rabbiticon.png">
+                                    Thỏ
+                                </div>
+                                
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+            <!--<nav id="primary-menu" class="style-5 hidden-xs hidden-sm">
+                <ul>
+                    <li class="">
+                        <a href="/">
+                            <div>
+                                <div class="menu_icon hidden-xs hidden-sm">
+
+                                    <img alt="Trang chủ" src="//bizweb.dktcdn.net/100/240/380/themes/570657/assets/main_menu_icon_1.png?1646886129389">
+
+                                </div>
+                                Trang chủ
+                            </div>
+                        </a>
+                    </li>-->
+                    <!-- normal sub menu -->
+                    <!--<li class="">
+                        <a class="menu" href="/cho-dogs">
+                            <div>
+                                <div class="menu_icon hidden-xs hidden-sm">
+
+                                    <img alt="Chó" src="//bizweb.dktcdn.net/100/240/380/themes/570657/assets/main_menu_icon_2.png?1646886129389">
+
+                                </div>
+                                Chó
+                            </div>
+                        </a>
+                        <i class="fa fa-angle-right hidden-lg hidden-md submenu_toggle" style="position:absolute; right: 0; font-size: 16px; width: 25px; margin:0;"></i>
+                        <ul>
+
+
+                            <li class=""><a class="sub-menu" href="/hat-kho-dry-food"><div>Hạt Khô - Dry Food</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/thuc-an-dang-pate"><div>Thức Ăn Ướt - Pate Wet Foods</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/xuong-banh-thuong"><div>Xương &amp; Bánh thưởng - Snacks &amp; Treats</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/do-choi"><div>Đồ Chơi - Toys</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/chuong-long-van-chuyen"><div>Chuồng Rào - Crates &amp; Gates</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/ve-sinh-huan-luyen"><div>Vệ Sinh - Training Toilets</div></a></li>
+
+
+                        </ul>
+                    </li>-->
+                    <!-- end normal sub menu -->
+                    <!-- normal sub menu -->
+                    <!--<li class="">
+                        <a class="menu" href="/meo-cats">
+                            <div>
+                                <div class="menu_icon hidden-xs hidden-sm">
+
+                                    <img alt="Mèo" src="//bizweb.dktcdn.net/100/240/380/themes/570657/assets/main_menu_icon_3.png?1646886129389">
+
+                                </div>
+                                Mèo
+                            </div>
+                        </a>
+                        <i class="fa fa-angle-right hidden-lg hidden-md submenu_toggle" style="position:absolute; right: 0; font-size: 16px; width: 25px; margin:0;"></i>
+                        <ul>
+
+
+                            <li class=""><a class="sub-menu" href="/hat-kho-dry-food-1"><div>Hạt Khô - Dry Foods</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/thuc-an-dang-pate-meo"><div>Thức Ăn Uớt  - Pate Wet Foods</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/xuong-banh-thuong-1"><div>Bánh Thưởng - Snacks &amp; Treats</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/do-choi-meo"><div>Đồ Chơi - Cat Toys</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/chuong-long-van-chuyen"><div>Chuồng Rào - Crates &amp; Gates</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/ve-sinh-huan-luyen-meo"><div>Vệ Sinh - Training Toilets</div></a></li>
+
+
+
+                            <li class=""><a class="sub-menu" href="/tru-cao-mong-nha-cay-scratchers-funiture"><div>Trụ Cào Móng,Nhà Cây - Scratchers,Funiture</div></a></li>
+
+
+                        </ul>
+                    </li>-->
+                    <!-- end normal sub menu -->
+                    <!-- normal sub menu -->
+                    <!--<li class="">
+                        <a class="menu" href="/tho-small-pet">
+                            <div>
+                                <div class="menu_icon hidden-xs hidden-sm">
+
+                                    <img alt="Thỏ - Small Pet" src="//bizweb.dktcdn.net/100/240/380/themes/570657/assets/main_menu_icon_4.png?1646886129389">
+
+                                </div>
+                                Thỏ - Small Pet
+                            </div>
+                        </a>
+                        <i class="fa fa-angle-right hidden-lg hidden-md submenu_toggle" style="position:absolute; right: 0; font-size: 16px; width: 25px; margin:0;"></i>
+                        <ul>
+                        </ul>
+                    </li>-->
+                    <!-- end normal sub menu -->
+                    <!--<li class="">
+                        <a href="/hinh-anh">
+                            <div>
+                                <div class="menu_icon hidden-xs hidden-sm">
+
+                                    <img alt="Hình ảnh" src="//bizweb.dktcdn.net/100/240/380/themes/570657/assets/main_menu_icon_5.png?1646886129389">
+
+                                </div>
+                                Hình ảnh
+                            </div>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/lien-he-1">
+                            <div>
+                                <div class="menu_icon hidden-xs hidden-sm">
+
+                                    <img alt="Liên hệ" src="//bizweb.dktcdn.net/100/240/380/themes/570657/assets/main_menu_icon_6.png?1646886129389">
+
+                                </div>
+                                Liên hệ
+                            </div>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </nav>-->
             @*<button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
             </button>*@
-        </div>
-        <div class="menu3a">
+        <nav class="menu3a">
             <div class="navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Trang chủ</a>
+                        <a class="nav-link" href="#">Quần áo - Phụ kiện</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Chó</a>
+                        <a class="nav-link" href="#">Sữa Tắm</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Mèo</a>
+                        <a class="nav-link" href="#">Dụng cụ ăn uống</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Thỏ</a>
+                        <a class="nav-link" href="#">Dụng cụ làm đẹp</a>
                     </li>
                 </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
