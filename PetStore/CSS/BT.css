@@ -19,18 +19,30 @@ body {
 .menu2{
     width: 1200px;
     margin: 0px auto;
+    height: 60px;
     display: inline-block;
 
 }
+    .menu2 img {
+        width: 200px;
+        height: 100px;
+        float: left;
+        margin: 0px auto;
+        padding-right: 20px;
+        padding-bottom: 5px;
+    }
 .timkiem{
-    width: 900px;
+    width: 500px;
     float:left;
-    padding-top: 5px;
-    padding-left: 300px;
+    padding-top: 20px;
+    padding-left: 200px;
 }
 .giohang{
+    padding-top: 15px;
+    /*padding-left:50px;*/
     float: right;
 }
+
 /*menu 3*/
 /*@media screen and (max-width: 1000px) {
     .navbar-collapse {
@@ -47,6 +59,7 @@ body {
 }*/
 .menu3{
     width: 1200px;
+    height: 64px;
     margin: 0px auto;
 }
     .menu3 .sanphamchung {
@@ -54,6 +67,9 @@ body {
         background-color: #00962a;
         color: white;
         float:left;
+    }
+    .nav .style-5{
+        width: 150px;
     }
 .menu3 a{
     display: inline-block;
@@ -63,14 +79,47 @@ body {
     width: 250px;
     /*margin: 0px auto;*/
     margin: 0px 148px;
+
 }
     .menu3a a{
         width:250px;
     }
     .nav-item:hover a {
-        background-color: gray;
-        color: white;
+        background-color: lightgray;
+        color: black;
         padding-left: 10px;
     }
+
+ul li{
+    list-style: none;
+    text-decoration: none;
+    color: #000000;
+}
+#primary-menu {
+}
+    #primary-menu a {
+        
+        text-decoration: none;
+        color:black;
+        text-align: center;
+        float: left;
+        height:64px;
+    }
+.menu_icon img{
+    width:30px;
+}
+.trangchu:hover a{
+    background-color: lightgray;
+}
+.cho:hover a {
+    background-color: lightgray;
+}
+.meo:hover a {
+    background-color: lightgray;
+}
+.tho:hover a {
+    background-color: lightgray;
+}
+
 
 
