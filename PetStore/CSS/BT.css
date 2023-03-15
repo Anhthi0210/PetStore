@@ -75,8 +75,13 @@ body {
     display: inline-block;
     padding: 20px 20px;
 }
+.menu3a img{
+    width: 25px;
+    height: 25px;
+    color: black;
+}
 .menu3a{
-    width: 250px;
+    width: 1200px;
     /*margin: 0px auto;*/
     margin: 0px 148px;
 
@@ -89,7 +94,10 @@ body {
         color: black;
         padding-left: 10px;
     }
-
+.navbar-nav{
+    float:left;
+}
+/*primary menu */
 ul li{
     list-style: none;
     text-decoration: none;
@@ -104,6 +112,7 @@ ul li{
         text-align: center;
         float: left;
         height:64px;
+        width: 14%;
     }
 .menu_icon img{
     width:30px;
@@ -117,8 +126,28 @@ ul li{
 .meo:hover a {
     background-color: lightgray;
 }
-.tho:hover a {
+.smallpet:hover a {
     background-color: lightgray;
+}
+/*slide banner*/
+.carousel-inner {
+    margin: 0px auto;
+    float: right;
+    width:950px;
+}
+.slide img {
+    height: 400px;
+}
+img{
+   /* vertical-align: middle;*/
+}
+.carousel-control-prev-icon {
+    background-color: gray;
+    height: 50px;
+}
+.carousel-control-next-icon {
+    background-color: gray;
+    height: 50px;
 }
 
 
