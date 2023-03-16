@@ -4,63 +4,107 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/CSS/BT.css" rel="stylesheet" />
     <script src="~/Scripts/script.js"></script>
     <link href="~/CSS/Style.css" rel="stylesheet" />
 </head>
-<body>
+<body class="p-3 m-0 border-0 bd-example">
+    @*banner*@
+        <div class="slide">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary " style="background-color: #00962a">
-        <div class="menu1">
-            <div class="container" id="dangnhap">
-                <a class="navbar-brand" href="#">
-                    Đăng nhập
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-                    </svg>
-                </a>
-                <a class="navbar-brand" href="#">
-                    Đăng kí
-                </a>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="~/Content/images/banner2.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="~/Content/images/banner1.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="~/Content/images/banner3.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
             </div>
         </div>
-    </nav>
 
-    @*menu 2*@
-    <nav class="navbar navbar-expand-lg bg-body-tertiary col-auto">
-        <div class="menu2">
-            <div class="container">
-                <div class="logo">
-                    <img src="~/Content/images/logo.png" />
-                </div>
-                <div class="timkiem ">
-                    <form class="d-flex mt-0" role="search">
-                        <input class="form-control col-md-8 search_input me-2" type="search" placeholder="Search" aria-label="Search">
+        @*doc*@
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" href="#">Hidden brand</a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/demo/index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Demo/Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Demo/Card">List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
-                <div class="giohang">
-                    <button type="button" class="btn btn-outline-success">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z" />
-                        </svg>
-                    </button>
+            </div>
+        </nav>
+        @*menu 2*@
+        @*<nav class="navbar navbar-expand-lg bg-body-tertiary col-auto">
+            <div class="menu2">
+                <div class="container">
+                    <div class="logo">
+                        <img src="~/Content/images/logo.png" />
+                    </div>
+                    <div class="timkiem ">
+                        <form class="d-flex mt-0" role="search">
+                            <input class="form-control col-md-8 search_input me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                    <div class="giohang">
+                        <button type="button" class="btn btn-outline-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <hr />
-    @*menu 3*@
-    <div class="menu3">
+        </nav>
+        <hr />*@
+        @*menu 3*@
+        <!--<div class="menu3">
         <div class="sanphamchung">
             <a href="#" class="nav-link">SẢN PHẨM CHUNG</a>
         </div>
         <nav class="style-5 hidden-xs hidden-sm">
-            <ul id="primary-menu">
-                @*trang chu*@
-                <li class="trangchu">
+            <ul id="primary-menu">-->
+        @*trang chu*@
+        <!--<li class="trangchu">
                     <a href="/">
                         <div>
                             <div class="menu_icon hidden-xs hidden-sm">
@@ -106,8 +150,8 @@
                 </li>
             </ul>
         </nav>
-    </div>
-    <!--<nav id="primary-menu" class="style-5 hidden-xs hidden-sm">
+    </div>-->
+        <!--<nav id="primary-menu" class="style-5 hidden-xs hidden-sm">
         <ul>
             <li class="">
                 <a href="/">
@@ -121,8 +165,8 @@
                     </div>
                 </a>
             </li>-->
-    <!-- normal sub menu -->
-    <!--<li class="">
+        <!-- normal sub menu -->
+        <!--<li class="">
         <a class="menu" href="/cho-dogs">
             <div>
                 <div class="menu_icon hidden-xs hidden-sm">
@@ -162,9 +206,9 @@
 
         </ul>
     </li>-->
-    <!-- end normal sub menu -->
-    <!-- normal sub menu -->
-    <!--<li class="">
+        <!-- end normal sub menu -->
+        <!-- normal sub menu -->
+        <!--<li class="">
         <a class="menu" href="/meo-cats">
             <div>
                 <div class="menu_icon hidden-xs hidden-sm">
@@ -208,9 +252,9 @@
 
         </ul>
     </li>-->
-    <!-- end normal sub menu -->
-    <!-- normal sub menu -->
-    <!--<li class="">
+        <!-- end normal sub menu -->
+        <!-- normal sub menu -->
+        <!--<li class="">
         <a class="menu" href="/tho-small-pet">
             <div>
                 <div class="menu_icon hidden-xs hidden-sm">
@@ -225,8 +269,8 @@
         <ul>
         </ul>
     </li>-->
-    <!-- end normal sub menu -->
-    <!--<li class="">
+        <!-- end normal sub menu -->
+        <!--<li class="">
                 <a href="/hinh-anh">
                     <div>
                         <div class="menu_icon hidden-xs hidden-sm">
@@ -254,97 +298,75 @@
 
         </ul>
     </nav>-->
-    @*<button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        @*<button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
         </button>*@
-    <nav class="menu3a">
-        <div class="navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    
-                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door" viewBox="0 1 16 16">
-                    <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
-                    </svg>
-                    NHÀ Ổ NỆM</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <img src="~/Content/images/soap.png" />
-                        SỮA TẮM
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag-check-fill" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
-                    </svg>
-                        TÚI XÁCH - VẬN CHUYỂN</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <img src="~/Content/images/clothes.png" />
-                        QUẦN ÁO - PHỤ KIỆN
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <img src="~/Content/images/vongco.png" />
-                        VÒNG CỔ - DÂY YẾM
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <img src="~/Content/images/dogbowl.png" />
-                        DỤNG CỤ ĂN UỐNG
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <img src="~/Content/images/keo.png" />
-                        DỤNG CỤ LÀM ĐẸP
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <img src="~/Content/images/health.png" />
-                        SỨC KHỎE
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <img src="~/Content/images/personandpet.png" />
-                        DÀNH CHO CHỦ NUÔI
-                    </a>
-                </li>
-            </ul>
-        </div>
+        @*<nav class="menu3a">
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
 
-        <div class="slide">
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="5000">
-                        <img src="~/Content/images/banner3.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="5000">
-                        <img src="~/Content/images/banner2.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="5000">
-                        <img src="~/Content/images/banner1.png" class="d-block w-100" alt="...">
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-                
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door" viewBox="0 1 16 16">
+                                <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
+                            </svg>
+                            NHÀ Ổ NỆM
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="~/Content/images/soap.png" />
+                            SỮA TẮM
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag-check-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                            </svg>
+                            TÚI XÁCH - VẬN CHUYỂN
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="~/Content/images/clothes.png" />
+                            QUẦN ÁO - PHỤ KIỆN
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="~/Content/images/vongco.png" />
+                            VÒNG CỔ - DÂY YẾM
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="~/Content/images/dogbowl.png" />
+                            DỤNG CỤ ĂN UỐNG
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="~/Content/images/keo.png" />
+                            DỤNG CỤ LÀM ĐẸP
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="~/Content/images/health.png" />
+                            SỨC KHỎE
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="~/Content/images/personandpet.png" />
+                            DÀNH CHO CHỦ NUÔI
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </nav>
-    
-</body>
+        </nav>*@
+    </body>
 <hr />
     @RenderBody()
 

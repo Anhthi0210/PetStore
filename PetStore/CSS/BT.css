@@ -130,13 +130,12 @@ ul li{
     background-color: lightgray;
 }
 /*slide banner*/
-.carousel-inner {
-    margin: 0px auto;
-    float: right;
-    width:950px;
-}
+/*.carousel-inner {
+    width: 100%;
+}*/
 .slide img {
-    height: 400px;
+    width: 100%;
+    height: 500px;
 }
 img{
    /* vertical-align: middle;*/
