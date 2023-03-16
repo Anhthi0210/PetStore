@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="Models\BAIDANG.cs" />
     <Compile Include="Models\CHITIETDONHANG.cs" />
+    <Compile Include="Models\ConnectDb.cs" />
     <Compile Include="Models\DANHMUC.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\DONHANG.cs" />
@@ -207,6 +208,7 @@
     <Content Include="Areas\Public\dist\js\pages\dashboard.js" />
     <Content Include="Areas\Public\dist\js\pages\dashboard2.js" />
     <Content Include="Areas\Public\dist\js\pages\dashboard3.js" />
+    <Content Include="Areas\Public\images\logo.jpg" />
     <Content Include="Areas\Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Areas\Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Areas\Public\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
