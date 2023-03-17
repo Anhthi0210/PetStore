@@ -2102,7 +2102,7 @@
     <Content Include="Content\images\health.png" />
     <Content Include="Content\images\homeicon.png" />
     <Content Include="Content\images\keo.png" />
-    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo.jpg" />
     <Content Include="Content\images\personandpet.png" />
     <Content Include="Content\images\rabbiticon.png" />
     <Content Include="Content\images\soap.png" />
