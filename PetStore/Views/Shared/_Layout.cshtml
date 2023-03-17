@@ -11,7 +11,7 @@
 <body class="p-3 m-0 border-0 bd-example">
     @*banner*@
     <div class="slide">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="5000">
@@ -41,56 +41,73 @@
         </div>
     </div>
 
-    @*doc*@   
-<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;>
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Trang Chủ</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        CHÓ
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        MÈO
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        SMALL PET
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+    @*menu2*@
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #cdb8cc;">
+        <div class="container-fluid" >
+            <div id="trangchu">
+                <img alt="Trang chủ" src="~/Content/images/homeicon.png">
+                <a class="navbar-brand" href="#">Trang Chủ</a>
+            </div>          
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+                    <li class="nav-item dropdown" id="dog">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img alt="Chó" src="~/Content/images/dog icon.png">
+                            CHÓ
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">HẠT KHÔ</a></li>
+                            <li><a class="dropdown-item" href="#">THỨC ĂN ƯỚT</a></li>
+                            <li><a class="dropdown-item" href="#">XƯƠNG VÀ BÁNH THƯỞNG</a></li>
+                            <li><a class="dropdown-item" href="#">ĐỒ CHƠI</a></li>
+                            <li><a class="dropdown-item" href="#">CHUỒNG RÀO</a></li>
+                            <li><a class="dropdown-item" href="#">VỆ SINH</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown" id="cat">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img alt="Mèo" src="~/Content/images/caticon.png">
+                            MÈO
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">HẠT KHÔ</a></li>
+                            <li><a class="dropdown-item" href="#">THỨC ĂN ƯỚT</a></li>
+                            <li><a class="dropdown-item" href="#">XƯƠNG VÀ BÁNH THƯỞNG</a></li>
+                            <li><a class="dropdown-item" href="#">ĐỒ CHƠI</a></li>
+                            <li><a class="dropdown-item" href="#">CHUỒNG RÀO</a></li>
+                            <li><a class="dropdown-item" href="#">VỆ SINH</a></li>
+                            <li><a class="dropdown-item" href="#">TRỤ CÀO MÓNG</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown" id="chuot">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="~/Content/images/hamter.png" />
+                            CHUỘT HAMTER
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">CHƯA CÓ SẢN PHẨM</a></li>
+                        </ul>
+                    </li>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <div class="giohang">
+                        <button type="button" class="btn btn-outline-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </ul>
+
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     @*menu 2*@
     @*<nav class="navbar navbar-expand-lg bg-body-tertiary col-auto">
             <div class="menu2">

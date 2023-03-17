@@ -38,10 +38,9 @@ body {
     padding-left: 200px;
 }
 .giohang {
-    padding-top: 0px;
-     padding-left: 50px; 
-    float: right;
-    margin: 0px 50px px;
+    padding-top: 10px; 
+/*    float: right;*/
+    margin: -10px 50px ;
 }
 
 /*menu 3*/
@@ -119,6 +118,19 @@ img{
 .carousel-control-next-icon {
     background-color: gray;
     height: 50px;
+}
+/*icon menu*/
+#dog img{
+    width: 30px;
+}
+#cat img {
+    width: 30px;
+}
+#chuot img {
+    width: 30px;
+}
+#trangchu img{
+    width: 30px;
 }
 
 
