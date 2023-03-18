@@ -164,6 +164,9 @@ img{
     .footer .footer-links li a {
         position: relative;
     }
+    .footer .footer-links li a img{
+        width: 20px;
+    }
 
         .footer .footer-links li a:after {
             content: "";
@@ -225,6 +228,12 @@ a {
 }
 #logo img{
     width: 100%;
+}
+
+
+.list-unstyled i{
+    width: 30px;
+    height: 30px;
 }
 
 
