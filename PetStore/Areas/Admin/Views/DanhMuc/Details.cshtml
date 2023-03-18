@@ -3,25 +3,60 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    <link href="~/CSS/Admin.css" rel="stylesheet" />
 }
 
-<h2>Details</h2>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
 
-<div>
-    <h4>DANHMUC</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDM)
-        </dt>
+        <!-- Default box -->
+        <div class="card pt-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-8  text-black">
+                        <strong>CHI TIẾT DANH MỤC</strong>
+                    </div>
+                    <div class="col-md-4 text-black text-right">
+                        <a class=" btn-back btn btn-sm" href="@Url.Action("Index","DanhMuc")"> Trở về</a>
+                        <a class=" btn-default btn btn-sm" href="@Url.Action("Edit", "DanhMuc", new { id = Model.MaDM })">Chỉnh sửa</a>
+                    </div>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenDM)
-        </dd>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="w-25">Tên trường</th>
+                            <th>Nội dung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.TenDM)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.TenDM)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    </dl>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                Footer
+            </div>
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDM }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<!-- /.content-wrapper -->
+
+

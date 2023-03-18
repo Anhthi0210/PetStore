@@ -1,0 +1,34 @@
+﻿@model IEnumerable<PetStore.Models.LOAIPET>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenLoaiPet)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLoaiPet)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaLoaiPet }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaLoaiPet }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaLoaiPet })
+        </td>
+    </tr>
+}
+
+</table>

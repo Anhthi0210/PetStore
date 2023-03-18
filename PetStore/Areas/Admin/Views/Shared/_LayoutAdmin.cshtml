@@ -181,7 +181,8 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
+                        @*San Pham*@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-list-alt"></i>
@@ -198,6 +199,18 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="@Url.Action("Index","LoaiPet")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Loài Thú cưng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","NhaCungCap")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Nhà Cung Cấp</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="@Url.Action("Index","SanPham")" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh sách Sản phẩm</p>
@@ -205,6 +218,117 @@
                                 </li>
                             </ul>
                         </li>
+                        @*                        End SanPham
+
+                        *@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-list-alt"></i>
+                                <p>
+                                    Đơn hàng
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","DonHang")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách Đơn hàng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","PhuongThucGiaoHang")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Phương thức Giao hàng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","PhuongThucThanhToan")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Phương thức Thanh toán</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-list-alt"></i>
+                                <p>
+                                    Khách hàng
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","KhachHang")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách Khách hàng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","YKienKhachHang")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ý kiến Khách hàng</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-list-alt"></i>
+                                <p>
+                                    Khuyến mại
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","Voucher")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Voucher</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-list-alt"></i>
+                                <p>
+                                    Quản trị
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","PhanQuyen")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Phân quyền</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","TaiKhoan")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Tài khoản</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","BaiDang")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Bài đăng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","TrangThai")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách Trạng thái</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
                             <a href="../widgets.html" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>

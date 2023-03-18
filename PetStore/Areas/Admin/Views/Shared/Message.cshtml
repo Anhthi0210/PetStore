@@ -1,0 +1,7 @@
+﻿@if (TempData.ContainsKey("message"))
+{
+    PushNoti message =(PushNoti) TempData["message"];
+    <div class="alert alert-@message.TypeNoti">
+        @message.Content
+    </div>
+}

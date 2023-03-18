@@ -18,11 +18,19 @@
                         <strong>DANH MỤC SẢN PHẨM</strong>
                     </div>
                     <div class="col-md-4 text-black text-right">
-                        <a class=" btn-create btn btn-sm fa fa-plus" href="@Url.Action("Create","DanhMuc")"> Thêm</a>
+                        <a class=" btn-create btn btn-sm" href="@Url.Action("Create","DanhMuc")"> Thêm</a>
+                        <a class=" btn-delete btn btn-sm" href="@Url.Action("Delete","DanhMuc")"> Xóa</a>
                     </div>
                 </div>
             </div>
             <div class="card-body">
+                @Html.Partial("Message")
+                <script>
+                    $(document).ready(function () {
+                        hideMessage();
+                    });
+                </script>
+
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -45,13 +53,17 @@
                                     @Html.DisplayFor(modelItem => item.TenDM)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaDM }) |
-                                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM })
+                                    <a class=" btn btn-sm btn-default fa fa-eye " href="@Url.Action("Details","DanhMuc",new { id = item.MaDM })"></a>
+                                    <a class=" btn btn-sm btn-info fa fa-edit " href="@Url.Action("Edit","DanhMuc",new { id = item.MaDM })"></a>
+                                    <a class=" btn btn-sm btn-delete fa fa-trash-alt" href="@Url.Action("Delete","DanhMuc",new { id = item.MaDM })"></a>
+
+                                    @*@Html.ActionLink("Sửa", "Edit", new { id = item.MaDM }) |
+                                        @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM })*@
                                 </td>
                             </tr>
                         }
                     </tbody>
-                   
+
 
                 </table>
             </div>
@@ -67,6 +79,4 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-
-
+<script src="~/Areas/Public/dist/js/hideMessage.js"></script>

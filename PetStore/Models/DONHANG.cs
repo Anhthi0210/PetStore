@@ -5,6 +5,7 @@ namespace PetStore.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Runtime.InteropServices;
 
     [Table("DONHANG")]
     public partial class DONHANG
@@ -17,27 +18,36 @@ namespace PetStore.Models
 
         [Key]
         [StringLength(50)]
+        [Display(Name = "Mã Hóa đơn")]
         public string MaDH { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Người nhận")]
+
         public string TenNguoiNhan { get; set; }
 
         [Required]
+        [Display(Name = "Địa chỉ nhận")]
         public string DiaChiNhan { get; set; }
 
         [Required]
+        [Display(Name = "SĐT")]
         [StringLength(50)]
         public string SĐT { get; set; }
 
+        [Display(Name = "Ngày Đặt")]
         public DateTime NgayDatHang { get; set; }
 
+        [Display(Name = "Ngày Giao")]
         public DateTime NgayGiaoHang { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Ghi chú")]
         public string Note { get; set; }
 
+        [Display(Name = "Thành tiền")]
         [Column(TypeName = "money")]
         public decimal TongTien { get; set; }
 

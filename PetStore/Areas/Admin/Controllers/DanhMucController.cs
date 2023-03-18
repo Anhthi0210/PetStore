@@ -7,17 +7,18 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PetStore.Models;
+using PetStore.DAL;
 
 namespace PetStore.Areas.Admin.Controllers
 {
     public class DanhMucController : Controller
     {
-        private DataContext db = new DataContext();
+        DANHMUC_DAL dANHMUC_DAL= new DANHMUC_DAL();
 
         // GET: Admin/DanhMuc
         public ActionResult Index()
         {
-            return View(db.DANHMUCs.ToList());
+            return View(dANHMUC_DAL.getList());
         }
 
         // GET: Admin/DanhMuc/Details/5
@@ -27,7 +28,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DANHMUC dANHMUC = db.DANHMUCs.Find(id);
+            DANHMUC dANHMUC = dANHMUC_DAL.getRow(id);
             if (dANHMUC == null)
             {
                 return HttpNotFound();
@@ -50,8 +51,8 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.DANHMUCs.Add(dANHMUC);
-                db.SaveChanges();
+                dANHMUC_DAL.Insert(dANHMUC);
+                TempData["message"] = new PushNoti("success", "Thêm Danh mục thành công !");
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +66,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DANHMUC dANHMUC = db.DANHMUCs.Find(id);
+            DANHMUC dANHMUC = dANHMUC_DAL.getRow(id);
             if (dANHMUC == null)
             {
                 return HttpNotFound();
@@ -82,8 +83,8 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(dANHMUC).State = EntityState.Modified;
-                db.SaveChanges();
+                dANHMUC_DAL.Edit(dANHMUC);
+                TempData["Message"] = new PushNoti("info", "Cập nhật Danh mục thành công !");
                 return RedirectToAction("Index");
             }
             return View(dANHMUC);
@@ -96,7 +97,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DANHMUC dANHMUC = db.DANHMUCs.Find(id);
+            DANHMUC dANHMUC = dANHMUC_DAL.getRow(id);
             if (dANHMUC == null)
             {
                 return HttpNotFound();
@@ -109,20 +110,12 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            DANHMUC dANHMUC = db.DANHMUCs.Find(id);
-            db.DANHMUCs.Remove(dANHMUC);
-            db.SaveChanges();
+            DANHMUC dANHMUC = dANHMUC_DAL.getRow(id);
+            dANHMUC_DAL.Delete(dANHMUC);
+            TempData["message"] = new PushNoti("danger", "Xóa Danh mục thành công !");
             return RedirectToAction("Index");
         }
 
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }
