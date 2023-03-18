@@ -15,7 +15,8 @@ namespace PetStore.Controllers
         // GET: Petstore
         public ActionResult Index()
         {
-            return View();
+            var all_sp = from s in data.SANPHAMs select s;
+            return View(all_sp);
         }
     }
 }
