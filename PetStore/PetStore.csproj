@@ -56,8 +56,15 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -2129,14 +2136,69 @@
     <Content Include="Content\images\clothes.png" />
     <Content Include="Content\images\dog icon.png" />
     <Content Include="Content\images\dogbowl.png" />
+    <Content Include="Content\images\hamter.png" />
     <Content Include="Content\images\health.png" />
     <Content Include="Content\images\homeicon.png" />
     <Content Include="Content\images\keo.png" />
-    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\locationicon.png" />
+    <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\mailicon.png" />
     <Content Include="Content\images\personandpet.png" />
+    <Content Include="Content\images\phoneicon.png" />
     <Content Include="Content\images\rabbiticon.png" />
     <Content Include="Content\images\soap.png" />
+    <Content Include="Content\images\sp1.jpg" />
+    <Content Include="Content\images\sp10.jpg" />
+    <Content Include="Content\images\sp11.jpg" />
+    <Content Include="Content\images\sp12.jpg" />
+    <Content Include="Content\images\sp13.jpg" />
+    <Content Include="Content\images\sp14.jpg" />
+    <Content Include="Content\images\sp15.jpg" />
+    <Content Include="Content\images\sp17.jpg" />
+    <Content Include="Content\images\SP18.jpg" />
+    <Content Include="Content\images\sp19.jpg" />
+    <Content Include="Content\images\sp2.jpg" />
+    <Content Include="Content\images\sp20.jpg" />
+    <Content Include="Content\images\sp21.jpg" />
+    <Content Include="Content\images\sp22.jpg" />
+    <Content Include="Content\images\sp23.jpg" />
+    <Content Include="Content\images\sp24.jpg" />
+    <Content Include="Content\images\sp25.jpg" />
+    <Content Include="Content\images\sp26.jpg" />
+    <Content Include="Content\images\sp27.jpg" />
+    <Content Include="Content\images\sp28.jpg" />
+    <Content Include="Content\images\sp29.jpg" />
+    <Content Include="Content\images\sp3.jpg" />
+    <Content Include="Content\images\sp30.jpg" />
+    <Content Include="Content\images\sp31.jpg" />
+    <Content Include="Content\images\sp32.jpg" />
+    <Content Include="Content\images\sp33.jpg" />
+    <Content Include="Content\images\sp34.jpg" />
+    <Content Include="Content\images\sp35.jpg" />
+    <Content Include="Content\images\sp36.jpg" />
+    <Content Include="Content\images\sp37.jpg" />
+    <Content Include="Content\images\sp38.jpg" />
+    <Content Include="Content\images\sp39.jpg" />
+    <Content Include="Content\images\sp4.jpg" />
+    <Content Include="Content\images\sp40.jpg" />
+    <Content Include="Content\images\sp41.jpg" />
+    <Content Include="Content\images\sp42.jpg" />
+    <Content Include="Content\images\sp43.jpg" />
+    <Content Include="Content\images\sp44.jpg" />
+    <Content Include="Content\images\sp45.jpg" />
+    <Content Include="Content\images\sp46.jpg" />
+    <Content Include="Content\images\sp47.jpg" />
+    <Content Include="Content\images\sp48.jpg" />
+    <Content Include="Content\images\sp49.jpg" />
+    <Content Include="Content\images\sp5.jpg" />
+    <Content Include="Content\images\sp50.jpg" />
+    <Content Include="Content\images\sp51.jpg" />
+    <Content Include="Content\images\sp6.jpg" />
+    <Content Include="Content\images\sp7.jpg" />
+    <Content Include="Content\images\sp8.jpg" />
+    <Content Include="Content\images\sp9.jpg" />
     <Content Include="Content\images\vongco.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="CSS\BT.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -2410,6 +2472,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -37,10 +37,10 @@ body {
     padding-top: 20px;
     padding-left: 200px;
 }
-.giohang{
-    padding-top: 15px;
-    /*padding-left:50px;*/
-    float: right;
+.giohang {
+    padding-top: 10px; 
+/*    float: right;*/
+    margin: -10px 50px ;
 }
 
 /*menu 3*/
@@ -57,42 +57,9 @@ body {
         display: block;
     }
 }*/
-.menu3{
-    width: 1200px;
-    height: 64px;
-    margin: 0px auto;
-}
-    .menu3 .sanphamchung {
-        width: 250px;
-        background-color: #00962a;
-        color: white;
-        float:left;
-    }
-    .nav .style-5{
-        width: 150px;
-    }
-.menu3 a{
-    display: inline-block;
-    padding: 20px 20px;
-}
-.menu3a img{
-    width: 25px;
-    height: 25px;
-    color: black;
-}
-.menu3a{
-    width: 1200px;
-    /*margin: 0px auto;*/
-    margin: 0px 148px;
 
-}
     .menu3a a{
         width:250px;
-    }
-    .nav-item:hover a {
-        background-color: lightgray;
-        color: black;
-        padding-left: 10px;
     }
 .navbar-nav{
     float:left;
@@ -130,16 +97,19 @@ ul li{
     background-color: lightgray;
 }
 /*slide banner*/
-.carousel-inner {
-    margin: 0px auto;
-    float: right;
-    width:950px;
-}
+/*.carousel-inner {
+    width: 100%;
+}*/
 .slide img {
-    height: 400px;
+    width: 100%;
+    height: 700px;
+}
+.navbar-brand{
+    /*width:7%;*/
 }
 img{
    /* vertical-align: middle;*/
+   width: 2%;
 }
 .carousel-control-prev-icon {
     background-color: gray;
@@ -149,6 +119,121 @@ img{
     background-color: gray;
     height: 50px;
 }
+/*icon menu*/
+#dog img{
+    width: 30px;
+}
+#cat img {
+    width: 30px;
+}
+#chuot img {
+    width: 30px;
+}
+#trangchu img{
+    width: 30px;
+}
+/*footer*/
+.footer {
+    background-color: #cdb8cc;
+}
+.footer .footer-socila-icon a {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #F84E77;
+    color: #ffffff;
+    border-radius: 50%;
+    margin-right: 8px;
+    font-size: 15px;
+}
 
+    .footer .footer-socila-icon a:hover {
+        background: #1baaa0;
+    }
+
+.footer .footer-links {
+    margin: 0;
+}
+
+    .footer .footer-links li + li {
+        padding-top: 10px;
+    }
+
+    .footer .footer-links li a {
+        position: relative;
+    }
+    .footer .footer-links li a img{
+        width: 20px;
+    }
+
+        .footer .footer-links li a:after {
+            content: "";
+            position: absolute;
+            width: 0px;
+            left: auto;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            transition: ease all 0.35s;
+            background: #F84E77;
+        }
+
+        .footer .footer-links li a:hover:after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+.footer .footer-top {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+    .footer .footer-top h5,
+    .footer .footer-top .h5 {
+        position: relative;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
+
+@media (min-width: 768px) {
+    .footer .footer-top {
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .footer .footer-top {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+    }
+}
+
+.footer .footer-border-top {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+    .footer .footer-border-top.dark {
+        border-top: 1px solid rgba(16, 16, 16, 0.1);
+    }
+.white-link a {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+a {
+    text-decoration: none
+}
+#logo img{
+    width: 100%;
+}
+
+
+.list-unstyled i{
+    width: 30px;
+    height: 30px;
+}
 
 
