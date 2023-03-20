@@ -1,4 +1,4 @@
-namespace PetStore.Models
+﻿namespace PetStore.Models
 {
     using System;
     using System.Collections.Generic;
@@ -19,10 +19,12 @@ namespace PetStore.Models
 
         [Key]
         [StringLength(50)]
+        [Display(Name = "Tài Khoản")]
         public string TenDangNhap { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Mật khẩu")]
         public string MatKhau { get; set; }
 
         [Required]

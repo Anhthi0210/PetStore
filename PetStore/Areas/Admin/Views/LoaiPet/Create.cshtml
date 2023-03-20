@@ -1,0 +1,55 @@
+﻿@model PetStore.Models.LOAIPET
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card pt-2">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-8  text-black">
+                            <strong>THÊM MỚI LOÀI PET</strong>
+                        </div>
+                        <div class="col-md-4 text-black text-right">
+                            <a class=" btn-back btn btn-sm" href="@Url.Action("Index","LoaiPet")"> Trở về</a>
+                            <button class="btn btn-sm btn-success" type="submit" name="create">Lưu</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Mã Loài Pet<span class="text-danger">(*)</span></label>
+                                @Html.EditorFor(model => model.MaLoaiPet, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MaLoaiPet, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+
+                            <div class="form-group">
+                                <label>Tên Loài Pet<span class="text-danger">(*)</span></label>
+                                @Html.EditorFor(model => model.TenLoaiPet, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TenLoaiPet, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+}

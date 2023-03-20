@@ -1,0 +1,48 @@
+﻿@model PetStore.Models.LOAIPET
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card pt-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-8  text-black">
+                        <strong class="text-danger">TIẾN HÀNH XÓA LOÀI PET</strong>
+                    </div>
+                    <div class="col-md-4 text-black text-right">
+                        <a class=" btn-back btn btn-sm" href="@Url.Action("Index","LoaiPet")"> Trở về</a>
+                        <button class="btn btn-sm btn-danger" type="submit" name="create">Xóa</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TenLoaiPet)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TenLoaiPet)
+                    </dd>
+
+                </dl>
+            </div>
+            <!-- /.card-body -->
+
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+

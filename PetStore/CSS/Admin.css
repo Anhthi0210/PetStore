@@ -1,3 +1,20 @@
-﻿body {
+﻿.main-header {
+    background-color: #b38ea9;
 }
+.card-header {
+    background-color: #cdb8cc ;
+}
+.btn-create {
+    background-color: #5df073
+}
+.btn-delete{
+    background-color: red;
+}
+.btn-back {
+    background-color: cornflowerblue;
+}
+.btn-edit{
+    background-color: deepskyblue;
+}
+
 
