@@ -2462,11 +2462,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Petstore\Index.cshtml" />
+    <Content Include="Views\DanhSachSanPham\Details.cshtml" />
+    <Content Include="Views\DanhSachSanPham\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Views\Petstore\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

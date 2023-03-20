@@ -13,9 +13,5 @@ namespace PetStore.Controllers
     {
         private DataContext data = new DataContext();
         // GET: Petstore
-        public ActionResult Index()
-        {
-            return View();
-        }
     }
 }
