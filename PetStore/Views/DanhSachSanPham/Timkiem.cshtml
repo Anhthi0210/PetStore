@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Timkiem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string key = Request.QueryString["key"];
+}
+
+<h2>Timkiem @key</h2>
+
+@{ 
+    if(key=="" || key.Length < 1)
+            {
+                <h3>Vui lòng nhập sản phẩm muốn tìm kiếm</h3>
+            }
+}
