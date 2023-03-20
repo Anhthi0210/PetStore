@@ -416,17 +416,13 @@ a {
     font-size: 18px;
     font-weight: 300;
 }
-.col_group #col_group_1 {
+.row #col_group_1 {
+
 }
 /*page*/
 
 /*border card*/
 .border-info {
     width: 200%;
-}
-
-.card {
-/*    display: flex;
-    height: 300px;*/
 }
 
