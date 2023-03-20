@@ -6,18 +6,18 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PetStore.DAL;
 using PetStore.Models;
 
 namespace PetStore.Areas.Admin.Controllers
 {
     public class LoaiPetController : Controller
     {
-        private DataContext db = new DataContext();
-
+        LOAIPET_DAL lOAIPET_DAL=new LOAIPET_DAL();
         // GET: Admin/LoaiPet
         public ActionResult Index()
         {
-            return View(db.LOAIPETs.ToList());
+            return View(lOAIPET_DAL.getList());
         }
 
         // GET: Admin/LoaiPet/Details/5
@@ -27,7 +27,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LOAIPET lOAIPET = db.LOAIPETs.Find(id);
+            LOAIPET lOAIPET= lOAIPET_DAL.getRow(id);
             if (lOAIPET == null)
             {
                 return HttpNotFound();
@@ -50,8 +50,8 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.LOAIPETs.Add(lOAIPET);
-                db.SaveChanges();
+                lOAIPET_DAL.Insert(lOAIPET);
+                TempData["message"] = new PushNoti("success", "Thêm Loài Pet thành công !");
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +65,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LOAIPET lOAIPET = db.LOAIPETs.Find(id);
+            LOAIPET lOAIPET = lOAIPET_DAL.getRow(id);
             if (lOAIPET == null)
             {
                 return HttpNotFound();
@@ -82,8 +82,8 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(lOAIPET).State = EntityState.Modified;
-                db.SaveChanges();
+                lOAIPET_DAL.Edit(lOAIPET);
+                TempData["Message"] = new PushNoti("info", "Cập nhật Loài Pet thành công!");
                 return RedirectToAction("Index");
             }
             return View(lOAIPET);
@@ -96,7 +96,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LOAIPET lOAIPET = db.LOAIPETs.Find(id);
+            LOAIPET lOAIPET = lOAIPET_DAL.getRow(id);
             if (lOAIPET == null)
             {
                 return HttpNotFound();
@@ -109,19 +109,13 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            LOAIPET lOAIPET = db.LOAIPETs.Find(id);
-            db.LOAIPETs.Remove(lOAIPET);
-            db.SaveChanges();
+            LOAIPET lOAIPET = lOAIPET_DAL.getRow(id);
+            lOAIPET_DAL.Delete(lOAIPET);
+            TempData["Message"] = new PushNoti("danger", "Xóa loài thú cưng Thành công!");
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+
         }
     }
-}
+

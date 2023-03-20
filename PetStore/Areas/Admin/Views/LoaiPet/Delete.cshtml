@@ -5,29 +5,44 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Delete</h2>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>LOAIPET</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenLoaiPet)
-        </dt>
+        <!-- Default box -->
+        <div class="card pt-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-8  text-black">
+                        <strong class="text-danger">TIẾN HÀNH XÓA LOÀI PET</strong>
+                    </div>
+                    <div class="col-md-4 text-black text-right">
+                        <a class=" btn-back btn btn-sm" href="@Url.Action("Index","LoaiPet")"> Trở về</a>
+                        <button class="btn btn-sm btn-danger" type="submit" name="create">Xóa</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.TenLoaiPet)
-        </dd>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TenLoaiPet)
+                    </dt>
 
-    </dl>
+                    <dd>
+                        @Html.DisplayFor(model => model.TenLoaiPet)
+                    </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                </dl>
+            </div>
+            <!-- /.card-body -->
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
         </div>
-    }
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
+

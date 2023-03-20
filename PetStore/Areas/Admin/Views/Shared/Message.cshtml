@@ -1,7 +1,8 @@
-﻿@if (TempData.ContainsKey("message"))
+﻿@if (TempData.ContainsKey("Message"))
 {
-    PushNoti message =(PushNoti) TempData["message"];
-    <div class="alert alert-@message.TypeNoti">
+    PushNoti message =(PushNoti) TempData["Message"];
+    <div class="alert alert-@message.TypeNoti alert-dismissible">
         @message.Content
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     </div>
 }

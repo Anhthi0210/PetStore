@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 
 namespace PetStore
@@ -9,6 +10,8 @@ namespace PetStore
     {
         public string TypeNoti { get; set; }
         public string Content { get; set; }
+
+
         public PushNoti() { }
         public PushNoti(string typeNoti, string content)
         {
