@@ -1,15 +1,32 @@
-﻿
+﻿@using PetStore.DAL
 @{
     ViewBag.Title = "Timkiem";
     Layout = "~/Views/Shared/_Layout.cshtml";
     string key = Request.QueryString["key"];
+    List<PetStore.Models.SANPHAM> result = new List<PetStore.Models.SANPHAM>
 }
 
 <h2>Timkiem @key</h2>
 
-@{ 
-    if(key=="" || key.Length < 1)
+@{
+    if (string.IsNullOrEmpty(key))
+    {
+
+    }
+    else
+    {
+        if (key == "" || key.Length < 1)
+        {
+            <h3>Vui lòng nhập sản phẩm muốn tìm kiếm</h3>
+        }
+        else
+        {
+            result = new SANPHAM_DAL().SearchByKey(key);
+            foreach (var item in result)
             {
-                <h3>Vui lòng nhập sản phẩm muốn tìm kiếm</h3>
+                <p>@item.TenSP</p>
             }
+        }
+    }
+
 }

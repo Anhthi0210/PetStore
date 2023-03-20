@@ -16,7 +16,7 @@ namespace PetStore
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Petstore", action = "ListSanpham", id = UrlParameter.Optional }
+                defaults: new { controller = "Petstore", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
