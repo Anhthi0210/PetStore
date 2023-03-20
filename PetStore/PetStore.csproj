@@ -137,6 +137,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DanhMucController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashbroadController.cs" />
+    <Compile Include="Controllers\DanhSachSanPhamController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PetstoreController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2365,11 +2366,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Petstore\Index.cshtml" />
+    <Content Include="Views\DanhSachSanPham\Details.cshtml" />
+    <Content Include="Views\DanhSachSanPham\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Views\Petstore\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

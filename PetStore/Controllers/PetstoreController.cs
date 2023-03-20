@@ -13,10 +13,5 @@ namespace PetStore.Controllers
     {
         private DataContext data = new DataContext();
         // GET: Petstore
-        public ActionResult Index()
-        {
-            var all_sp = from s in data.SANPHAMs select s;
-            return View(all_sp);
-        }
     }
 }
