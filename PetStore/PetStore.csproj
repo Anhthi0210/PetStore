@@ -2136,6 +2136,7 @@
     <Content Include="Content\images\clothes.png" />
     <Content Include="Content\images\dog icon.png" />
     <Content Include="Content\images\dogbowl.png" />
+    <Content Include="Content\images\giohangtrong.png" />
     <Content Include="Content\images\hamter.png" />
     <Content Include="Content\images\health.png" />
     <Content Include="Content\images\homeicon.png" />
@@ -2464,6 +2465,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\DanhSachSanPham\Details.cshtml" />
     <Content Include="Views\DanhSachSanPham\Index.cshtml" />
+    <Content Include="Views\DanhSachSanPham\Timkiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
