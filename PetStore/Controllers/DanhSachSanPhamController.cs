@@ -21,7 +21,7 @@ namespace PetStore.Controllers
         {
             if (page == null) page = 1;
             //var all_Sach = (from s in data.Saches select s).OrderBy(m => m.masach);
-            int pageSize = 16;
+            int pageSize = 15;
             int pageNum = page ?? 1;
 
             //return View(all_Sach.ToPagedList(pageNum, pageSize));

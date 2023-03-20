@@ -13,11 +13,6 @@
 <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col_group" id="col_group_1">
-                <div class="col-lg-3">
-
-                </div>
-                <div class="col-lg-9">
                     <div class="col-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="container bootdey">
                             <div class="row product-list">
@@ -44,13 +39,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>            
+                    </div>       
         }    
 </div>
 <div>
-    
     <div class="MenuTrang">
         @Html.PagedListPager(Model, page => Url.Action("Index", new
         {
@@ -58,10 +50,42 @@
        }))
     </div>
 </div>
+<style>
+    .pro-title {
+        overflow: hidden;
+        display: block;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
 
+    .MenuTrang li {
+        display: inline;
+    }
 
-    
+    .MenuTrang {
+        margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+    }
 
+    #mau-nut a {
+        clear: both;
+        background-color: orange;
+        color: snow;
+    }
+
+        #mau-nut a:hover {
+            background-color: darkcyan;
+            color: snow;
+        }
+
+    .pagination li a {
+        color: darkcyan;
+        border: 1px solid #808080;
+        padding: 10px 20px;
+    }
+</style>
 @*<script>
         $(document).ready(function () {
             var maxLength = 100;

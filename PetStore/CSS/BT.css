@@ -417,43 +417,9 @@ a {
     font-weight: 300;
 }
 .col_group #col_group_1 {
-    overflow: hidden;
 }
 /*page*/
-.pro-title {
-    overflow: hidden;
-    display: block;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-}
 
-.MenuTrang li {
-    display: inline;
-}
-
-.MenuTrang {
-    margin: 1rem 0;
-    display: flex;
-    justify-content: center;
-}
-
-#mau-nut a {
-    clear: both;
-    background-color: orange;
-    color: snow;
-}
-
-    #mau-nut a:hover {
-        background-color: darkcyan;
-        color: snow;
-    }
-
-.pagination li a {
-    color: darkcyan;
-    border: 1px solid #808080;
-    padding: 10px 20px;
-}
 /*border card*/
 .border-info {
     width: 200%;
