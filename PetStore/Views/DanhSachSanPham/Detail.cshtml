@@ -11,11 +11,11 @@
     <h4>THÔNG TIN CHI TIẾT SẢN PHẨM</h4>
     <hr />
     <dl class="dl-horizontal">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
             <div class="container bootdey">
                 <div class="product-list">
                     <div class="col-md-4">
-                        <div class="card border-info mb-3" style="max-width: 15rem;">
+                        <div class="card border-info mb-3" style="max-width: 1200px;">
                             <section class="panel">
 
                                 <div class="pro-img-box">
@@ -35,6 +35,8 @@
                         <p style="width: 500px">@Model.MoTa</p>
                         <h2 style="font-size:20px">Đối tượng:</h2>
                         <p style="width: 500px">@Html.DisplayFor(model => model.LOAIPET.TenLoaiPet)</p>
+                        <h2 style="font-size:20px; width: 500px">Nhà cung cấp:</h2>
+                        <p style="width: 500px">@Html.DisplayFor(model => model.NHACUNGCAP.TenNCC)</p>
                         <div class="DatMua" style="">
                             <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
                                                     new { @id = Model.MaSP, @strURL = Request.Url.ToString() })">Đặt mua</a>
