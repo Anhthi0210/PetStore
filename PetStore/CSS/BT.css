@@ -447,14 +447,13 @@ a {
 .row #col_group_1 {
 
 }
-#dssp:hover {
-    padding-bottom: 2px;
-}
-/*page*/
+/*detail*/
 
 /*border card*/
 .border-info {
     width: 200%;
 }
-
+.hinhxemthem img{
+    width: 800px;
+}
 /*search*/

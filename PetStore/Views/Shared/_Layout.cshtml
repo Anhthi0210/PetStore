@@ -15,8 +15,8 @@
     <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary" style="background-color: #cdb8cc;">
         <div class="container-fluid">
             <div id="trangchu">
-                <img alt="Trang chủ" src="~/Content/images/homeicon.png">
-                <a class="navbar-brand" href="#">Trang Chủ</a>
+                <img alt="Trang chủ" href="/DanhSachSanPham/Index" src="~/Content/images/homeicon.png">
+                <a class="navbar-brand" href="/DanhSachSanPham/Index">Trang Chủ</a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -62,8 +62,8 @@
                             <li><a class="dropdown-item" href="#">CHƯA CÓ SẢN PHẨM</a></li>
                         </ul>
                     </li>
-                    <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" role="search" method="post" action="/DanhSachSanPham/Search">
+                            <input class="form-control me-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                     <div class="giohang">
