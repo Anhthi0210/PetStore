@@ -17,7 +17,7 @@ namespace PetStore.Controllers
         private DataContext db = new DataContext();
 
         // GET: DanhSachSanPham
-        public ActionResult Index(int ? page)
+        public ActionResult Index(int? page)
         {
             if (page == null) page = 1;
             //var all_Sach = (from s in data.Saches select s).OrderBy(m => m.masach);
@@ -30,17 +30,17 @@ namespace PetStore.Controllers
         }
 
         // GET: DanhSachSanPham/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Detail(string id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SANPHAM sANPHAM = db.SANPHAMs.Find(id);
-            if (sANPHAM == null)
-            {
-                return HttpNotFound();
-            }
-            return View(sANPHAM);
+            var D_sach = db.SANPHAMs.Where(m => m.MaSP == id).First();
+            return View(D_sach);
         }
+        public ActionResult Search(string keyword)
+        {
+
+            var all = db.SANPHAMs.Where(x => x.TenSP.Contains(keyword));
+
+            return View(all);
+        }
+    }
 }

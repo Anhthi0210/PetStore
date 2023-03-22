@@ -13,8 +13,7 @@
 <div class="row">
         @foreach (var item in Model)
         {
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="dssp" >
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
                         <div class="container bootdey">
                             <div class="product-list">
                                 <div class="col-md-4">
@@ -23,10 +22,16 @@
                                             <div class="pro-img-box">
                                                 <img src="@item.Hinh" alt="" />
                                             </div>
-                                            <div class="DatMua">
-                                                <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
+                                            <div class="xemthem">
+                                                <div class="DatMua"  style="display: inline-block; justify-content: left">
+                                                    <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
                                                     new { @id = item.MaSP, @strURL = Request.Url.ToString() })">Đặt mua</a>
-                                            </div>
+                                                </div>
+                                                <div class="detail" style="; display: inline-block; justify-content: right">
+                                                    <a class="btn btn-success" href="@Url.Action("Detail", "DanhSachSanPham",
+                                                    new { @id = item.MaSP, @strURL = Request.Url.ToString() })">Detail</a>
+                                                </div>
+                                            </div>                                     
                                             <div class="panel-body text-center">
                                                 <h4>
                                                     <a href="#" class="pro-title">

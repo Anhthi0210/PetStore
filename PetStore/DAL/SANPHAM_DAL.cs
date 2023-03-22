@@ -16,11 +16,6 @@ namespace PetStore.DAL
         {
             return db.SANPHAMs.ToList();
         }
-        public List<SANPHAM> SearchByKey(string key)
-        {
-            return db.SANPHAMs.SqlQuery("Select * from SANPHAM where TenSP like '%"+key+"%'").ToList();
-        }
-        //return 1 item
 
         public SANPHAM getRow(string id)
         {
