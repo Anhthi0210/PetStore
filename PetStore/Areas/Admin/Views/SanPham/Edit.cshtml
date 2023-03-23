@@ -37,13 +37,7 @@
                             @Html.HiddenFor(model => model.MaSP)
 
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.MaSP, htmlAttributes: new { @class = "control-label " })
-                                        @Html.EditorFor(model => model.MaSP, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.MaSP, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-9">
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.TenSP, htmlAttributes: new { @class = "control-label " })
