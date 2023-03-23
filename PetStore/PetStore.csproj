@@ -152,6 +152,7 @@
     <Compile Include="Areas\Admin\Controllers\YKienKhachHangController.cs" />
     <Compile Include="Areas\Public\messages\PushNoti.cs" />
     <Compile Include="Controllers\DanhSachSanPhamController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PetstoreController.cs" />
     <Compile Include="DAL\BAIDANG_DAL.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Models\DANHMUC.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\DONHANG.cs" />
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\KHACHHANG.cs" />
     <Compile Include="Models\LOAIPET.cs" />
     <Compile Include="Models\NHACUNGCAP.cs" />
@@ -2471,6 +2473,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Views\GioHang\" />
     <Folder Include="Views\Petstore\" />
   </ItemGroup>
   <ItemGroup>
