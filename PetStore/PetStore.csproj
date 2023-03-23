@@ -2469,11 +2469,14 @@
     <Content Include="Views\DanhSachSanPham\Index.cshtml" />
     <Content Include="Views\DanhSachSanPham\Search.cshtml" />
     <Content Include="Views\DanhSachSanPham\Detail.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\GioHang\XacnhanDonhang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Views\GioHang\" />
     <Folder Include="Views\Petstore\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,117 @@
+﻿@model IEnumerable<PetStore.Models.Giohang>
+
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/CSS/BT.css" rel="stylesheet" />
+}
+
+<h2>DatHang</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iSoluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dThanhtien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td><img src="@item.Hinh" alt="Alternate Text" width="200" /></td>
+            @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @id = item.MaSP }))
+            {
+                <td>
+                    @String.Format("{0:#,##0.000}", item.DonGia) VNĐ
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iSoluong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dThanhtien)
+                </td>
+            }
+        </tr>
+    }
+    <tr style="font-weight: bold; text-align:right; color:red">
+        <td colspan="3">Số lượng sách: @ViewBag.Tongsoluong</td>
+        <td colspan="4">Số loại sách: @ViewBag.Tongsoluongsanpham</td>
+        <td colspan="5">
+            Tổng tiền:
+            @String.Format("{0:#,##0.000}", ViewBag.Tongtien) VNĐ
+        </td>
+    </tr>
+    <tr style="font-weight:bold; text-align:right">
+        <td colspan="6">@Html.ActionLink("Trở về giỏ hàng", "Giohang", "GioHang")</td>
+    </tr>
+
+</table>
+@using PetStore.Models
+<h2 style="text-align: center">Thông tin đặt hàng</h2>
+@{
+    KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+}
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>Họ tên khách hàng:</td>
+            <td style="font-weight: bold">@kh.TenKH</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Email:</td>
+            <td style="font-weight: bold">@kh.Email</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Địa chỉ:</td>
+            <td style="font-weight: bold">@kh.DiaChi</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Điện thoại:</td>
+            <td style="font-weight: bold">@kh.SĐT</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày đặt:</td>
+            <td style="font-weight: bold">@DateTime.Now.ToShortDateString()</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày giao:</td>
+            <td style="font-weight: bold">
+                <input type="date" name="NgayGiao" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td style="font-weight: bold">
+                <input type="submit" value="Xác nhận" class="btn btn-success" />
+            </td>
+        </tr>
+    }
+</table>
+

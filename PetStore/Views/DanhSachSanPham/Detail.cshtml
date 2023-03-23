@@ -2,7 +2,9 @@
 
 @{
     ViewBag.Title = "Detail";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/CSS/BT.css" rel="stylesheet" />
 }
 
 <h2></h2>
@@ -31,12 +33,16 @@
                                 </div>
                             </section>
                         </div>
-                        <h2 style="font-size:20px">Mô tả:</h2>
-                        <p style="width: 500px">@Model.MoTa</p>
-                        <h2 style="font-size:20px">Đối tượng:</h2>
-                        <p style="width: 500px">@Html.DisplayFor(model => model.LOAIPET.TenLoaiPet)</p>
-                        <h2 style="font-size:20px; width: 500px">Nhà cung cấp:</h2>
-                        <p style="width: 500px">@Html.DisplayFor(model => model.NHACUNGCAP.TenNCC)</p>
+                        <div class="mota">
+                            <h2 >Mô tả:</h2>
+                            <p >@Model.MoTa</p>
+                            <h2 >Đối tượng:</h2>
+                            <p >@Html.DisplayFor(model => model.LOAIPET.TenLoaiPet)</p>
+                            <h2 >Nhà cung cấp:</h2>
+                            <p >@Html.DisplayFor(model => model.NHACUNGCAP.TenNCC)</p>
+                            <h2 >Số lượng còn:</h2>
+                            <p >@Model.SoLuong</p>
+                        </div>                      
                         <div class="DatMua" style="">
                             <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
                                                     new { @id = Model.MaSP, @strURL = Request.Url.ToString() })">Đặt mua</a>
@@ -47,3 +53,9 @@
         </div>
     </dl>
 </div>
+<style>
+.mota{
+    font-size: 20px;
+    width: 500px;
+}
+</style>

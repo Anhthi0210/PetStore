@@ -1,0 +1,83 @@
+﻿@model IEnumerable<PetStore.Models.Giohang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/CSS/BT.css" rel="stylesheet" />
+}
+
+<h2>GioHang</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iSoluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dThanhtien)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                <img src="@item.Hinh" alt="Alternate Text" />
+            </td>
+            @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @id = item.MaSP }))
+            {
+                <td> @String.Format("{0:#,##0.000}", item.DonGia) VNĐ</td>
+                <td> <input type="number" min="1" name="txtSoLg" value="@item.iSoluong" /></td>
+                <td> @Html.DisplayFor( modelItem => item.dThanhtien, "{0:C}")  VNĐ </td>
+                <td>
+                    <a href="@Url.Action("Detail", "DanhSachSanPham", new { id = item.MaSP })">
+                        Chi
+                        tiết
+                    </a>| @Html.ActionLink("Xóa", "XoaGioHang", new { @id = item.MaSP })
+                </td>
+                <td><input type="submit" value="cập nhật" class="btn btn-success" /></td>
+            }
+        </tr>
+    }
+    <tr style="font-weight: bold; text-align:left; color: red">
+        <td colspan="2"> Số loại sản phẩm: @ViewBag.Tongsoluongsanpham </td>
+        <td colspan="2"> Số lượng sản phẩm: @ViewBag.Tongsoluong </td>
+        <td colspan="4">
+            Tổng tiền:@String.Format("{0:#,##0.000}", ViewBag.Tongtien) VNĐ 
+        </td>
+
+    </tr>
+    <tr style="font-weight:bold; color:blue; text-align: right">
+        <td colspan="5">
+            @Html.ActionLink("Xóa giỏ hàng", "XoaTatCaGioHang")
+        </td>
+    </tr>
+    <tr style="font-weight:bold; color:yellow; text-align: right">
+        <td colspan="5">
+            @Html.ActionLink("Đặt hàng", "Dathang", "GioHang")
+        </td>
+    </tr>
+
+</table>
+<style>
+    img{
+        width:180px;
+    }
+</style>

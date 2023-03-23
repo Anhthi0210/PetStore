@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "XacnhanDonhang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="xacnhandonhang">
+    <img src="~/Content/images/logo.jpg" style="width:500px;" />
+    <h2>Đơn hàng đã được xác nhận</h2>
+    <h3>Chúng tôi sẽ giao hàng cho bạn sớm nhất có thể!</h3>
+    <p>
+        @Html.ActionLink("Về trang chủ", "Index", "DanhSachSanPham")
+    </p>
+</div>
+
+<style>
+    .xacnhandonhang{
+        display:grid;
+        text-align:center;
+        justify-content: center;
+    }
+    .xacnhandonhang img{
+        margin: 0px 100px;
+    }
+</style>
