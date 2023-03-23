@@ -23,7 +23,7 @@
 
         [Required]
         [StringLength(255)]
-        [Display(Name = "Tên")]
+        [Display(Name = "Tên Sản phẩm")]
         public string TenSP { get; set; }
 
         [Column(TypeName = "money")]

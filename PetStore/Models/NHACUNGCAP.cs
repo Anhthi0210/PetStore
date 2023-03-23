@@ -22,7 +22,7 @@ namespace PetStore.Models
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Tên")]
+        [Display(Name = "Tên Nhà Cung")]
         public string TenNCC { get; set; }
 
         [Required]

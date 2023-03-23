@@ -6,6 +6,17 @@
     <link href="~/CSS/Admin.css" rel="stylesheet" />
 
 }
+@section header{
+    <link href="~/Areas/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer{
+    <script src="~/Areas/Public/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        })
+    </script>
+}
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Main content -->
@@ -26,7 +37,7 @@
             </div>
             <div class="card-body">
                 @Html.Partial("Message")
-                <table id="example1" class="table table-bordered table-hover table-striped">
+                <table id="myTable" class="table table-bordered table-hover table-striped ">
                     <thead>
                         <tr>
 
@@ -71,4 +82,3 @@
 
 </div>
 <!-- /.content-wrapper -->
-

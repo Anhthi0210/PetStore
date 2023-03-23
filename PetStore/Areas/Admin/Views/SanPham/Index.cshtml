@@ -5,72 +5,125 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DANHMUC.TenDM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LOAIPET.TenLoaiPet)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NHACUNGCAP.TenNCC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TenSP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DonGia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoLuong)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hinh)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DANHMUC.TenDM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LOAIPET.TenLoaiPet)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NHACUNGCAP.TenNCC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenSP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DonGia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MoTa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoLuong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hinh)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaSP }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaSP }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaSP })
-        </td>
-    </tr>
+@section header{
+    <link href="~/Areas/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
 }
+@section footer{
+    <script src="~/Areas/Public/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        })
+    </script>
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
 
-</table>
+        <!-- Default box -->
+        <div class="card pt-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-8  text-black">
+                        <strong>DANH SÁCH SẢN PHẨM</strong>
+                    </div>
+                    <div class="col-md-4 text-black text-right">
+                        <a class=" btn-create btn btn-sm" href="@Url.Action("Create","SanPham")"> Thêm</a>
+                        <a class=" btn-delete btn btn-sm" href="@Url.Action("Delete","SanPham")"> Xóa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                @Html.Partial("Message")
+                <table id="myTable" class="table table-bordered table-hover table-striped ">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TenSP)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DANHMUC.TenDM)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LOAIPET.TenLoaiPet)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NHACUNGCAP.TenNCC)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.DonGia)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MoTa)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SoLuong)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Hinh)
+                            </th>
+                            <th>
+                                Chức năng
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenSP)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DANHMUC.TenDM)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LOAIPET.TenLoaiPet)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NHACUNGCAP.TenNCC)
+                                </td>
+
+                                <td>
+                                    <p>@String.Format("{0:#,##0.000}", item.DonGia) VNĐ</p>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MoTa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SoLuong)
+                                </td>
+                                <td>
+                                    <img src="@item.Hinh" alt="Hinh SP" />
+                                    @* @Html.DisplayFor(modelItem => item.Hinh)*@
+                                </td>
+                                <td>
+                                    <a class=" btn btn-sm btn-default fa fa-eye " href="@Url.Action("Details","SanPham",new { id = item.MaSP })"></a>
+                                    <a class=" btn btn-sm btn-info fa fa-edit " href="@Url.Action("Edit","SanPham",new { id = item.MaSP })"></a>
+                                    <a class=" btn btn-sm btn-delete fa fa-trash-alt" href="@Url.Action("Delete","SanPham",new { id = item.MaSP })"></a>
+
+                                    @*@Html.ActionLink("Sửa", "Edit", new { id = item.MaDM }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM })*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->
+
+
+

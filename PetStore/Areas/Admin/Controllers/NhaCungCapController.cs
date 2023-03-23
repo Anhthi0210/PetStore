@@ -52,6 +52,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.NHACUNGCAPs.Add(nHACUNGCAP);
                 db.SaveChanges();
+                TempData["message"] = new PushNoti("success", "Thêm Danh mục thành công !");
                 return RedirectToAction("Index");
             }
 
@@ -84,6 +85,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.Entry(nHACUNGCAP).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["Message"] = new PushNoti("info", "Cập nhật Danh mục thành công !");
                 return RedirectToAction("Index");
             }
             return View(nHACUNGCAP);
@@ -112,6 +114,7 @@ namespace PetStore.Areas.Admin.Controllers
             NHACUNGCAP nHACUNGCAP = db.NHACUNGCAPs.Find(id);
             db.NHACUNGCAPs.Remove(nHACUNGCAP);
             db.SaveChanges();
+            TempData["message"] = new PushNoti("danger", "Xóa Danh mục thành công !");
             return RedirectToAction("Index");
         }
 

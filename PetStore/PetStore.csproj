@@ -183,6 +183,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Public\css\jquery.dataTables.min.css" />
     <Content Include="Areas\Public\dist\css\adminlte.css" />
     <Content Include="Areas\Public\dist\css\adminlte.min.css" />
     <Content Include="Areas\Public\dist\css\alt\adminlte.components.css" />
@@ -238,6 +239,7 @@
     <Content Include="Areas\Public\dist\js\pages\dashboard2.js" />
     <Content Include="Areas\Public\dist\js\pages\dashboard3.js" />
     <Content Include="Areas\Public\images\logo.jpg" />
+    <Content Include="Areas\Public\js\jquery.dataTables.min.js" />
     <Content Include="Areas\Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Areas\Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Areas\Public\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />

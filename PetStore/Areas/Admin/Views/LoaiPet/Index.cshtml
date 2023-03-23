@@ -5,7 +5,17 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 
 }
-
+@section header{
+    <link href="~/Areas/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer{
+    <script src="~/Areas/Public/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        })
+    </script>
+}
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Main content -->
@@ -19,14 +29,14 @@
                         <strong>DANH SÁCH LOÀI THÚ CƯNG</strong>
                     </div>
                     <div class="col-md-4 text-black text-right">
-                        <a class=" btn-create btn btn-sm" href="@Url.Action("Create","DanhMuc")"> Thêm</a>
-                        <a class=" btn-delete btn btn-sm" href="@Url.Action("Delete","DanhMuc")"> Xóa</a>
+                        <a class=" btn-create btn btn-sm" href="@Url.Action("Create","LoaiPet")"> Thêm</a>
+                        <a class=" btn-delete btn btn-sm" href="@Url.Action("Delete","LoaiPet")"> Xóa</a>
                     </div>
                 </div>
             </div>
             <div class="card-body">
                 <div id="card">@Html.Partial("Message")</div>
-                <table class="table table-bordered table-hover">
+                <table id="myTable" class="table table-bordered table-hover">
                     <thead>
                         <tr>
 
@@ -70,4 +80,3 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
