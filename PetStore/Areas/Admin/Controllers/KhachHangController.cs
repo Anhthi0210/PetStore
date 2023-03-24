@@ -39,7 +39,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/KhachHang/Create
         public ActionResult Create()
         {
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau");
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap","TenDangNhap");
             return View();
         }
 
@@ -54,10 +54,11 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.KHACHHANGs.Add(kHACHHANG);
                 db.SaveChanges();
+                TempData["message"] = new PushNoti("success", "Thêm Khách hàng thành công !");
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap", kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
@@ -73,7 +74,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap", kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
@@ -88,9 +89,10 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.Entry(kHACHHANG).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["Message"] = new PushNoti("info", "Cập nhật Khách hàng thành công !");
                 return RedirectToAction("Index");
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap",kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
@@ -117,6 +119,7 @@ namespace PetStore.Areas.Admin.Controllers
             KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
             db.KHACHHANGs.Remove(kHACHHANG);
             db.SaveChanges();
+            TempData["message"] = new PushNoti("danger", "Xóa Khách hàng thành công !");
             return RedirectToAction("Index");
         }
 

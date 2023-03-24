@@ -16,7 +16,7 @@
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Tên")]
+        [Display(Name = "Tên Voucher")]
         public string TenMaGiam { get; set; }
 
         [Required]

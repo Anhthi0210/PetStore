@@ -22,7 +22,7 @@
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Tên")]
+        [Display(Name = "PTTT")]
         public string TenPTTT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

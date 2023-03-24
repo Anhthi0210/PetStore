@@ -5,30 +5,81 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenPTGH)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenPTGH)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaPTGH }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaPTGH }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaPTGH })
-        </td>
-    </tr>
+@section header{
+    <link href="~/Areas/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
 }
+@section footer{
+    <script src="~/Areas/Public/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        })
+    </script>
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
 
-</table>
+        <!-- Default box -->
+        <div class="card pt-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-8  text-black">
+                        <strong>DANH SÁCH PHƯƠNG THỨC GIAO HÀNG</strong>
+                    </div>
+                    <div class="col-md-4 text-black text-right">
+                        <a class=" btn-create btn btn-sm" href="@Url.Action("Create","PhuongThucGiaoHang")"> Thêm</a>
+                        <a class=" btn-delete btn btn-sm" href="@Url.Action("Delete","PhuongThucGiaoHang")"> Xóa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                @Html.Partial("Message")
+                <table id="myTable" class="table table-bordered table-hover table-striped ">
+                    <thead>
+                        <tr>
+
+                            <th>
+                                PHƯƠNG THỨC
+                                @*@Html.DisplayNameFor(model => model.TenDM)*@
+                            </th>
+                            <th>
+                                Chức năng
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenPTGH)
+                                </td>
+                                <td>
+                                    <a class=" btn btn-sm btn-default fa fa-eye " href="@Url.Action("Details","PhuongThucGiaoHang",new { id = item.MaPTGH })"></a>
+                                    <a class=" btn btn-sm btn-info fa fa-edit " href="@Url.Action("Edit","PhuongThucGiaoHang",new { id = item.MaPTGH })"></a>
+                                    <a class=" btn btn-sm btn-delete fa fa-trash-alt" href="@Url.Action("Delete","PhuongThucGiaoHang",new { id = item.MaPTGH })"></a>
+
+                                    @*@Html.ActionLink("Sửa", "Edit", new { id = item.MaDM }) |
+                                        @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM })*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->
+
+

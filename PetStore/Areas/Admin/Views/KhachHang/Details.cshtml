@@ -5,79 +5,118 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Details</h2>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
 
-<div>
-    <h4>KHACHHANG</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TAIKHOAN.MatKhau)
-        </dt>
+        <!-- Default box -->
+        <div class="card pt-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-8  text-black">
+                        <strong>CHI TIẾT KHÁCH HÀNG</strong>
+                    </div>
+                    <div class="col-md-4 text-black text-right">
+                        <a class=" btn-back btn btn-sm" href="@Url.Action("Index","KhachHang")"> Trở về</a>
+                        <a class=" btn-default btn btn-sm" href="@Url.Action("Edit", "KhachHang", new { id = Model.MaKH })">Chỉnh sửa</a>
+                    </div>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TAIKHOAN.MatKhau)
-        </dd>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="w-25">Tên trường</th>
+                            <th>Nội dung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.TAIKHOAN.TenDangNhap)
+                            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenKH)
-        </dt>
+                            <td>
+                                @Html.DisplayFor(model => model.TAIKHOAN.TenDangNhap)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.TenKH)
+                            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenKH)
-        </dd>
+                            <td>
+                                @Html.DisplayFor(model => model.TenKH)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.GioTinh)
+                            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GioTinh)
-        </dt>
+                            <td>
+                                @Html.DisplayFor(model => model.GioTinh)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.NgaySinh)
+                            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.GioTinh)
-        </dd>
+                            <td>
+                                @Html.DisplayFor(model => model.NgaySinh)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.DiaChi)
+                            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgaySinh)
-        </dt>
+                            <td>
+                                @Html.DisplayFor(model => model.DiaChi)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.SĐT)
+                            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgaySinh)
-        </dd>
+                            <td>
+                                @Html.DisplayFor(model => model.SĐT)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
+                            <td>
+                                @Html.DisplayFor(model => model.Email)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.DiemTichLuy)
+                            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
+                            <td>
+                                @Html.DisplayFor(model => model.DiemTichLuy)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SĐT)
-        </dt>
+            </div>
+            <!-- /.card-body -->
 
-        <dd>
-            @Html.DisplayFor(model => model.SĐT)
-        </dd>
+        </div>
+        <!-- /.card -->
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DiemTichLuy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DiemTichLuy)
-        </dd>
-
-    </dl>
+    </section>
+    <!-- /.content -->
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaKH }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<!-- /.content-wrapper -->
+
+

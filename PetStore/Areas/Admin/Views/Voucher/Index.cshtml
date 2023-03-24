@@ -5,7 +5,105 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
+@section header{
+    <link href="~/Areas/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer{
+    <script src="~/Areas/Public/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        })
+    </script>
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card pt-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-8  text-black">
+                        <strong>DANH MỤC VOUCHER</strong>
+                    </div>
+                    <div class="col-md-4 text-black text-right">
+                        <a class=" btn-create btn btn-sm" href="@Url.Action("Create","Voucher")"> Thêm</a>
+                        <a class=" btn-delete btn btn-sm" href="@Url.Action("Delete","Voucher")"> Xóa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                @Html.Partial("Message")
+                <table id="myTable" class="table table-bordered table-hover table-striped ">
+                    <thead>
+                        <tr>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.TenMaGiam)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MaKH)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SoLuong)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NgayBatDau)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NgayKetThuc)
+                            </th>
+                            <th>
+                                Chức năng
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenMaGiam)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MaKH)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SoLuong)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgayBatDau)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgayKetThuc)
+                                </td>
+                                <td>
+                                    <a class=" btn btn-sm btn-default fa fa-eye " href="@Url.Action("Details","Voucher",new { id = item.MaGiam })"></a>
+                                    <a class=" btn btn-sm btn-info fa fa-edit " href="@Url.Action("Edit","Voucher",new { id = item.MaGiam })"></a>
+                                    <a class=" btn btn-sm btn-delete fa fa-trash-alt" href="@Url.Action("Delete","Voucher",new { id = item.MaGiam })"></a>
+
+                                    @*@Html.ActionLink("Sửa", "Edit", new { id = item.MaDM }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM })*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -30,29 +128,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenMaGiam)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaKH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoLuong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayBatDau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayKetThuc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaGiam }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaGiam }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaGiam })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenMaGiam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayBatDau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKetThuc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaGiam }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaGiam }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaGiam })
+            </td>
+        </tr>
+    }
 
 </table>

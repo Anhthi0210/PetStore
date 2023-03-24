@@ -52,6 +52,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.PHUONGTHUCGIAOHANGs.Add(pHUONGTHUCGIAOHANG);
                 db.SaveChanges();
+                TempData["message"] = new PushNoti("success", "Thêm thành công !");
                 return RedirectToAction("Index");
             }
 
@@ -84,6 +85,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.Entry(pHUONGTHUCGIAOHANG).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["Message"] = new PushNoti("info", "Cập nhật thành công !");
                 return RedirectToAction("Index");
             }
             return View(pHUONGTHUCGIAOHANG);
@@ -112,6 +114,7 @@ namespace PetStore.Areas.Admin.Controllers
             PHUONGTHUCGIAOHANG pHUONGTHUCGIAOHANG = db.PHUONGTHUCGIAOHANGs.Find(id);
             db.PHUONGTHUCGIAOHANGs.Remove(pHUONGTHUCGIAOHANG);
             db.SaveChanges();
+            TempData["message"] = new PushNoti("danger", "Xóa thành công !");
             return RedirectToAction("Index");
         }
 

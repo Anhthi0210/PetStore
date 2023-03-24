@@ -5,90 +5,137 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.KHACHHANG.TenKH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PHUONGTHUCGIAOHANG.TenPTGH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PHUONGTHUCTHANHTOAN.TenPTTT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TRANGTHAI.TenTT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TenNguoiNhan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaChiNhan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SĐT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayDatHang)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayGiaoHang)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Note)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TongTien)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.KHACHHANG.TenKH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PHUONGTHUCGIAOHANG.TenPTGH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PHUONGTHUCTHANHTOAN.TenPTTT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TRANGTHAI.TenTT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenNguoiNhan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChiNhan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SĐT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayDatHang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayGiaoHang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Note)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TongTien)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaDH }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaDH }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaDH })
-        </td>
-    </tr>
+@section header{
+    <link href="~/Areas/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
 }
+@section footer{
+    <script src="~/Areas/Public/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        })
+    </script>
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
 
-</table>
+        <!-- Default box -->
+        <div class="card pt-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-8  text-black">
+                        <strong>DANH SÁCH ĐƠN HÀNG</strong>
+                    </div>
+                    <div class="col-md-4 text-black text-right">
+                        <a class=" btn-create btn btn-sm" href="@Url.Action("Create","DonHang")"> Thêm</a>
+                        <a class=" btn-delete btn btn-sm" href="@Url.Action("Delete","DonHang")"> Xóa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                @Html.Partial("Message")
+                <table id="myTable" class="table table-bordered table-hover table-striped ">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.KHACHHANG.TenKH)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PHUONGTHUCGIAOHANG.TenPTGH)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PHUONGTHUCTHANHTOAN.TenPTTT)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TRANGTHAI.TenTT)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TenNguoiNhan)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DiaChiNhan)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SĐT)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NgayDatHang)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NgayGiaoHang)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Note)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TongTien)
+                            </th>
+                            <th>
+                                Chức năng
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.KHACHHANG.TenKH)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PHUONGTHUCGIAOHANG.TenPTGH)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PHUONGTHUCTHANHTOAN.TenPTTT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TRANGTHAI.TenTT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenNguoiNhan)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DiaChiNhan)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SĐT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgayDatHang)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgayGiaoHang)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Note)
+                                </td>
+                                <td>
+                                    <p>@String.Format("{0:#,##0.000}", item.TongTien) VNĐ</p>
+                                </td>
+                                <td>
+                                    <a class=" btn btn-sm btn-default fa fa-eye " href="@Url.Action("Details","DonHang",new { id = item.MaDH })"></a>
+                                    <a class=" btn btn-sm btn-info fa fa-edit " href="@Url.Action("Edit","DonHang",new { id = item.MaDH })"></a>
+                                    <a class=" btn btn-sm btn-delete fa fa-trash-alt" href="@Url.Action("Delete","DonHang",new { id = item.MaDH })"></a>
+
+                                    @*@Html.ActionLink("Sửa", "Edit", new { id = item.MaDM }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM })*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->

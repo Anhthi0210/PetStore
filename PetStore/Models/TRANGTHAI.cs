@@ -23,7 +23,7 @@
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Tên Trạng thái")]
+        [Display(Name = "Trạng thái")]
         public string TenTT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

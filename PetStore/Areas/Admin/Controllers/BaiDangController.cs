@@ -20,7 +20,15 @@ namespace PetStore.Areas.Admin.Controllers
             var bAIDANGs = db.BAIDANGs.Include(b => b.TAIKHOAN);
             return View(bAIDANGs.ToList());
         }
-
+        public string ProcessUpload(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return "";
+            }
+            file.SaveAs(Server.MapPath("~/Content/images/" + file.FileName));
+            return "/Content/images/" + file.FileName;
+        }
         // GET: Admin/BaiDang/Details/5
         public ActionResult Details(string id)
         {
@@ -39,7 +47,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/BaiDang/Create
         public ActionResult Create()
         {
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau");
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap");
             return View();
         }
 
@@ -57,7 +65,7 @@ namespace PetStore.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", bAIDANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap", bAIDANG.TenDangNhap);
             return View(bAIDANG);
         }
 
@@ -73,7 +81,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", bAIDANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap", bAIDANG.TenDangNhap);
             return View(bAIDANG);
         }
 
@@ -90,7 +98,7 @@ namespace PetStore.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", bAIDANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap", bAIDANG.TenDangNhap);
             return View(bAIDANG);
         }
 
