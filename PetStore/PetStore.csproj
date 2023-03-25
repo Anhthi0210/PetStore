@@ -154,6 +154,7 @@
     <Compile Include="Controllers\DanhSachSanPhamController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\PetstoreController.cs" />
     <Compile Include="DAL\BAIDANG_DAL.cs" />
     <Compile Include="DAL\CHITIETDONHANG_DAL.cs" />
@@ -2473,6 +2474,7 @@
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\GioHang\XacnhanDonhang.cshtml" />
+    <Content Include="Views\NguoiDung\Dangky.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

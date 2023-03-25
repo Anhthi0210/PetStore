@@ -57,7 +57,7 @@ namespace PetStore.Models
         public string TenDangNhap { get; set; }
         [Required]
         [StringLength(50)]
-        public string MMatKhau { get; set; }
+        public string MatKhau { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DONHANG> DONHANGs { get; set; }
