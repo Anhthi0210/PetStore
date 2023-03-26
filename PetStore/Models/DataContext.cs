@@ -100,11 +100,6 @@ namespace PetStore.Models
                 .Property(e => e.MatKhau)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<KHACHHANG>()
-                .HasMany(e => e.DONHANG)
-                .WithRequired(e => e.KHACHHANG)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<LOAIPET>()
                 .Property(e => e.MaLoaiPet)
                 .IsUnicode(false);
@@ -140,19 +135,9 @@ namespace PetStore.Models
                 .Property(e => e.MaPTGH)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHUONGTHUCGIAOHANG>()
-                .HasMany(e => e.DONHANG)
-                .WithRequired(e => e.PHUONGTHUCGIAOHANG)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<PHUONGTHUCTHANHTOAN>()
                 .Property(e => e.MaPTTT)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<PHUONGTHUCTHANHTOAN>()
-                .HasMany(e => e.DONHANG)
-                .WithRequired(e => e.PHUONGTHUCTHANHTOAN)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SANPHAM>()
                 .Property(e => e.MaSP)
@@ -204,11 +189,6 @@ namespace PetStore.Models
             modelBuilder.Entity<TRANGTHAI>()
                 .Property(e => e.MaTT)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<TRANGTHAI>()
-                .HasMany(e => e.DONHANG)
-                .WithRequired(e => e.TRANGTHAI)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<VOUCHER>()
                 .Property(e => e.MaGiam)

@@ -144,6 +144,7 @@ namespace PetStore.Controllers
             }
             return this.DangKy();
         }
+        [HttpGet]
         public ActionResult Dangnhap()
         {
             return View();
@@ -152,36 +153,32 @@ namespace PetStore.Controllers
         [HttpPost]
         public ActionResult Dangnhap(FormCollection collection)
         {
-            var tendn = collection["TenDangNhap"];
+            var email = collection["Email"];
             var mk = collection["MatKhau"];
-            if (String.IsNullOrEmpty(tendn))
+            KHACHHANG kh = data.KHACHHANG.SingleOrDefault(n => n.Email.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());
+            if (kh != null)
             {
-                ViewData["Loi1"] = "Phải nhập tên đăng nhập";
+                ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
+                Session["TaiKhoan"] = kh;
+                Session["Tenkh"] = kh.TenKH;
+
             }
-            else if (String.IsNullOrEmpty(mk))
+            else if (kh == null)
             {
-                ViewData["Loi2"] = "Phải nhập mật khẩu";
+                ViewData["ErrorAccount"] = "sai mật khẩu hoặc Tên đăng nhập không tồn tại vui lòng nhập lại";
+                return this.Dangnhap();
             }
             else
             {
-                KHACHHANG kh = data.KHACHHANG.SingleOrDefault(n => n.TenDangNhap.Trim() == tendn.Trim() && n.MatKhau.Trim() == mk.Trim());
-                if (kh != null)
-                {
-                    ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
-                    Session["Taikhoan"] = kh;
-                    Session["Taikhoandn"] = kh.TenKH;
-
-                    return RedirectToAction("GioHang", "Giohang");
-                }
-                else
-                    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                ViewData["ErrorPass"] = "Mật khẩu không đúng";
+                return this.Dangnhap();
             }
-            return View();
+            return RedirectToAction("GioHang", "GioHang");
         }
         public ActionResult Logout()
         {
 
-            Session["Taikhoan"] = null;
+            Session["TaiKhoan"] = null;
             Session["Taikhoandn"] = null;
 
             return RedirectToAction("Index", "ShopSecondHand");

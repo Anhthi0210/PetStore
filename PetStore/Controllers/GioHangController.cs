@@ -115,14 +115,14 @@ namespace PetStore.Controllers
         [HttpGet]
         public ActionResult DatHang()
         {
-            //if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
-            //{
-            //    return RedirectToAction("DangNhap", "NguoiDung");
-            //}
-            //if (Session["GioHang"] == null)
-            //{
-            //    return RedirectToAction("Index", "Sach");
-            //}
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "DanhSachSanPham");
+            }
             List<Giohang> lstGiohang = Laygiohang();
             ViewBag.Tongsoluong = TongSoLuong();
             ViewBag.Tongtien = TongTien();
@@ -135,17 +135,24 @@ namespace PetStore.Controllers
             DONHANG dh = new DONHANG();
             KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
             SANPHAM s = new SANPHAM();
+            PHUONGTHUCTHANHTOAN pttt = new PHUONGTHUCTHANHTOAN();
+            PHUONGTHUCGIAOHANG ptgh = new PHUONGTHUCGIAOHANG();
+            TRANGTHAI tt = new TRANGTHAI();
 
             List<Giohang> gh = Laygiohang();
-            var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);
+            var ngaygiao = String.Format("{0:dd/MM/yyyy}", collection["NgayGiao"]);
 
             dh.MaKH = kh.MaKH;
             dh.NgayDatHang = DateTime.Now;
             dh.NgayGiaoHang = DateTime.Parse(ngaygiao);
+            dh.DiaChiNhan = kh.DiaChi;
+            dh.MaPTTT = pttt.MaPTTT;
+            dh.MaPTGH = ptgh.MaPTGH;
+            dh.MaTT = tt.MaTT;
             //dh.Note = false;
             //dh.thanhtoan = false;
 
-            data.DONHANG.AddOrUpdate(dh);
+            data.DONHANG.Add(dh);
             data.SaveChanges();
             foreach (var item in gh)
             {
@@ -158,7 +165,7 @@ namespace PetStore.Controllers
                 s.SoLuong -= ctdh.SoLuongDat;
                 data.SaveChanges();
 
-                data.CHITIETDONHANG.AddOrUpdate(ctdh);
+                data.CHITIETDONHANG.Add(ctdh);
             }
             data.SaveChanges();
             Session["Giohang"] = null;

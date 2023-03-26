@@ -19,39 +19,32 @@ namespace PetStore.Models
         [StringLength(50)]
         public string MaDH { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string TenNguoiNhan { get; set; }
 
-        [Required]
         public string DiaChiNhan { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string SĐT { get; set; }
 
-        public DateTime NgayDatHang { get; set; }
+        public DateTime? NgayDatHang { get; set; }
 
-        public DateTime NgayGiaoHang { get; set; }
+        public DateTime? NgayGiaoHang { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string Note { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal TongTien { get; set; }
+        public decimal? TongTien { get; set; }
 
-        public int MaKH { get; set; }
+        public int? MaKH { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string MaPTTT { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string MaPTGH { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string MaTT { get; set; }
 

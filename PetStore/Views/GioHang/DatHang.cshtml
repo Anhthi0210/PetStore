@@ -74,7 +74,13 @@
 @using PetStore.Models
 <h2 style="text-align: center">Thông tin đặt hàng</h2>
 @{
+    DONHANG dh = new DONHANG();
     KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+    SANPHAM s = new SANPHAM();
+    PHUONGTHUCTHANHTOAN pttt = new PHUONGTHUCTHANHTOAN();
+    PHUONGTHUCGIAOHANG ptgh = new PHUONGTHUCGIAOHANG();
+    TRANGTHAI tt = new TRANGTHAI();
+
 }
 <table align="center">
     @using (Html.BeginForm())
@@ -105,6 +111,26 @@
             <td style="font-weight: bold">
                 <input type="date" name="NgayGiao" />
             </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Giới tính:</td>
+            <td style="font-weight: bold">@kh.GioTinh</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Địa chỉ:</td>
+            <td style="font-weight: bold">@kh.DiaChi</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Phương thức thanh toán:</td>
+            <td style="font-weight: bold">@dh.MaPTTT</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Phương thức vận chuyển:</td>
+            <td style="font-weight: bold">@dh.MaPTGH</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Trạng thái:</td>
+            <td style="font-weight: bold">@dh.MaTT</td>
         </tr>
         <tr style="height:40px">
             <td></td>
