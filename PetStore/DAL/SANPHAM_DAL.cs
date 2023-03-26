@@ -11,11 +11,12 @@ namespace PetStore.DAL
     {
         private DataContext db = new DataContext();
         //return 1 list
+
         public List<SANPHAM> getList()
         {
-            return db.SANPHAMs.ToList();
+            return db.SANPHAM.ToList();
         }
-        //return 1 item
+
         public SANPHAM getRow(string id)
         {
             if (id == null)
@@ -24,13 +25,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.SANPHAMs.Find(id);
+                return db.SANPHAM.Find(id);
             }
         }
         //add item
         public int Insert(SANPHAM row)
         {
-            db.SANPHAMs.Add(row);
+            db.SANPHAM.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +43,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(SANPHAM row)
         {
-            db.SANPHAMs.Remove(row);
+            db.SANPHAM.Remove(row);
             return db.SaveChanges();
         }
     }

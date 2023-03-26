@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/BaiDang
         public ActionResult Index()
         {
-            var bAIDANGs = db.BAIDANGs.Include(b => b.TAIKHOAN);
+            var bAIDANGs = db.BAIDANG.Include(b => b.TAIKHOAN);
             return View(bAIDANGs.ToList());
         }
         public string ProcessUpload(HttpPostedFileBase file)
@@ -36,7 +36,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BAIDANG bAIDANG = db.BAIDANGs.Find(id);
+            BAIDANG bAIDANG = db.BAIDANG.Find(id);
             if (bAIDANG == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BAIDANG bAIDANG = db.BAIDANGs.Find(id);
+            BAIDANG bAIDANG = db.BAIDANG.Find(id);
             if (bAIDANG == null)
             {
                 return HttpNotFound();
@@ -122,8 +122,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            BAIDANG bAIDANG = db.BAIDANGs.Find(id);
-            db.BAIDANGs.Remove(bAIDANG);
+            BAIDANG bAIDANG = db.BAIDANG.Find(id);
+            db.BAIDANG.Remove(bAIDANG);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

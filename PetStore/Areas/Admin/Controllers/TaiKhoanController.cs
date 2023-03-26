@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/TaiKhoan
         public ActionResult Index()
         {
-            var tAIKHOANs = db.TAIKHOANs.Include(t => t.PHANQUYEN);
+            var tAIKHOANs = db.TAIKHOAN.Include(t => t.PHANQUYEN);
             return View(tAIKHOANs.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TAIKHOAN tAIKHOAN = db.TAIKHOANs.Find(id);
+            TAIKHOAN tAIKHOAN = db.TAIKHOAN.Find(id);
             if (tAIKHOAN == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/TaiKhoan/Create
         public ActionResult Create()
         {
-            ViewBag.MaPQ = new SelectList(db.PHANQUYENs, "MaPQ", "TenPQ");
+            ViewBag.MaPQ = new SelectList(db.PHANQUYEN, "MaPQ", "TenPQ");
             return View();
         }
 
@@ -52,13 +52,13 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.TAIKHOANs.Add(tAIKHOAN);
+                db.TAIKHOAN.Add(tAIKHOAN);
                 db.SaveChanges();
                 TempData["message"] = new PushNoti("success", "Thêm Tài khoản thành công !");
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaPQ = new SelectList(db.PHANQUYENs, "MaPQ", "TenPQ", tAIKHOAN.MaPQ);
+            ViewBag.MaPQ = new SelectList(db.PHANQUYEN, "MaPQ", "TenPQ", tAIKHOAN.MaPQ);
             return View(tAIKHOAN);
         }
 
@@ -69,12 +69,12 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TAIKHOAN tAIKHOAN = db.TAIKHOANs.Find(id);
+            TAIKHOAN tAIKHOAN = db.TAIKHOAN.Find(id);
             if (tAIKHOAN == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaPQ = new SelectList(db.PHANQUYENs, "MaPQ", "TenPQ", tAIKHOAN.MaPQ);
+            ViewBag.MaPQ = new SelectList(db.PHANQUYEN, "MaPQ", "TenPQ", tAIKHOAN.MaPQ);
             return View(tAIKHOAN);
         }
 
@@ -92,7 +92,7 @@ namespace PetStore.Areas.Admin.Controllers
                 TempData["Message"] = new PushNoti("info", "Cập nhật Tài khoản thành công !");
                 return RedirectToAction("Index");
             }
-            ViewBag.MaPQ = new SelectList(db.PHANQUYENs, "MaPQ", "TenPQ", tAIKHOAN.MaPQ);
+            ViewBag.MaPQ = new SelectList(db.PHANQUYEN, "MaPQ", "TenPQ", tAIKHOAN.MaPQ);
             return View(tAIKHOAN);
         }
 
@@ -103,7 +103,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TAIKHOAN tAIKHOAN = db.TAIKHOANs.Find(id);
+            TAIKHOAN tAIKHOAN = db.TAIKHOAN.Find(id);
             if (tAIKHOAN == null)
             {
                 return HttpNotFound();
@@ -116,8 +116,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            TAIKHOAN tAIKHOAN = db.TAIKHOANs.Find(id);
-            db.TAIKHOANs.Remove(tAIKHOAN);
+            TAIKHOAN tAIKHOAN = db.TAIKHOAN.Find(id);
+            db.TAIKHOAN.Remove(tAIKHOAN);
             db.SaveChanges();
             TempData["message"] = new PushNoti("danger", "Xóa Tài khoản thành công !");
             return RedirectToAction("Index");

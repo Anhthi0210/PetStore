@@ -12,12 +12,11 @@ namespace PetStore.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NHACUNGCAP()
         {
-            SANPHAMs = new HashSet<SANPHAM>();
+            SANPHAM = new HashSet<SANPHAM>();
         }
 
         [Key]
         [StringLength(50)]
-        [Display(Name = "Mã Nhà Cung")]
         public string MaNCC { get; set; }
 
         [Required]
@@ -27,14 +26,12 @@ namespace PetStore.Models
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Liên hệ")]
         public string SĐT { get; set; }
 
         [Required]
-        [Display(Name = "Địa chỉ")]
         public string DiaChi { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SANPHAM> SANPHAMs { get; set; }
+        public virtual ICollection<SANPHAM> SANPHAM { get; set; }
     }
 }

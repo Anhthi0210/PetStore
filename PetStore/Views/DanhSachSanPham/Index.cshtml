@@ -1,0 +1,120 @@
+﻿
+@model PagedList.IPagedList<PetStore.Models.SANPHAM>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/CSS/BT.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+}
+<h2></h2>
+<div class="row">
+        @foreach (var item in Model)
+        {
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                        <div class="container bootdey">
+                            <div class="product-list">
+                                <div class="col-md-4">
+                                    <div class="card border-info mb-3" style="max-width: 15rem;">
+                                        <section class="panel">
+                                            <div class="pro-img-box">
+                                                <img src="@item.Hinh" alt="" />
+                                            </div>
+                                            <div class="xemthem">
+                                                <div class="DatMua"  style="display: inline-block; justify-content: left">
+                                                    <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
+                                                    new { @id = item.MaSP, @strURL = Request.Url.ToString() })">Đặt mua</a>
+                                                </div>
+                                                <div class="detail" style="; display: inline-block; justify-content: right">
+                                                    <a class="btn btn-success" href="@Url.Action("Detail", "DanhSachSanPham",
+                                                    new { @id = item.MaSP, @strURL = Request.Url.ToString() })">Detail</a>
+                                                </div>
+                                            </div>                                     
+                                            <div class="panel-body text-center">
+                                                <h4>
+                                                    <a href="" class="pro-title">
+                                                        @item.TenSP
+                                                    </a>
+                                                </h4>
+                                                <p class="price">@String.Format("{0:#,##0.000}", item.DonGia) VNĐ</p>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>       
+        }    
+</div>
+<div>
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new
+        {
+            page = page
+       }))
+    </div>
+</div>
+<style>
+    .pro-title {
+        overflow: hidden;
+        display: block;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+
+    .MenuTrang li {
+        display: inline;
+    }
+
+    .MenuTrang {
+        margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    #mau-nut a {
+        clear: both;
+        background-color: orange;
+        color: snow;
+    }
+
+        #mau-nut a:hover {
+            background-color: darkcyan;
+            color: snow;
+        }
+
+    .pagination li a {
+        color: darkcyan;
+        border: 1px solid #808080;
+        padding: 10px 20px;
+    }
+</style>
+@*<script>
+        $(document).ready(function () {
+            var maxLength = 100;
+            $(".show-read-more").each(function () {
+                var myStr = $(this).text();
+                if ($.trim(myStr).length > maxLength) {
+                    var newStr = myStr.substring(0, maxLength);
+                    var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+                    $(this).empty().html(newStr);
+                    $(this).append(' <a href="javascript:void(0);" class="readmore">đọc tiếp...</a>');
+                    $(this).append('<span class="more-text">' + removedStr +
+                        '</span>');
+                }
+            });
+            $(".read-more").click(function () {
+                $(this).siblings(".more-text").contents().unwrap();
+
+                $(this).remove();
+            });
+        });
+    </script>*@
+@*<style>
+        .show-read-more .more-text {
+            display: none;
+        }
+    </style>*@

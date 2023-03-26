@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/KhachHang
         public ActionResult Index()
         {
-            var kHACHHANGs = db.KHACHHANGs.Include(k => k.TAIKHOAN);
+            var kHACHHANGs = db.KHACHHANG.Include(k => k.TenDangNhap);
             return View(kHACHHANGs.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
+            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
             if (kHACHHANG == null)
             {
                 return HttpNotFound();
@@ -52,7 +52,7 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.KHACHHANGs.Add(kHACHHANG);
+                db.KHACHHANG.Add(kHACHHANG);
                 db.SaveChanges();
                 TempData["message"] = new PushNoti("success", "Thêm Khách hàng thành công !");
                 return RedirectToAction("Index");
@@ -69,7 +69,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
+            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
             if (kHACHHANG == null)
             {
                 return HttpNotFound();
@@ -103,7 +103,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
+            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
             if (kHACHHANG == null)
             {
                 return HttpNotFound();
@@ -116,8 +116,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
-            db.KHACHHANGs.Remove(kHACHHANG);
+            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
+            db.KHACHHANG.Remove(kHACHHANG);
             db.SaveChanges();
             TempData["message"] = new PushNoti("danger", "Xóa Khách hàng thành công !");
             return RedirectToAction("Index");

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/CSS/BT.css" rel="stylesheet" />
+}
+
+<div class="small-container">
+    <h2></h2>
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="container bootdey">
+                    <div class="product-list">
+                        <div class="col-md-4">
+                            <div class="card border-info mb-3" style="max-width: 15rem;">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img src="@item.Hinh" alt="" />
+                                    </div>
+                                    <div class="DatMua">
+                                        <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
+                                                    new { @id = item.MaSP, @strURL = Request.Url.ToString() })">Đặt mua</a>
+                                    </div>
+                                    
+                                    <div class="panel-body text-center">
+                                        <h4>
+                                            <a href="#" class="pro-title">
+                                                @item.TenSP
+                                            </a>
+                                        </h4>
+                                        <p class="price">@String.Format("{0:#,##0.000}", item.DonGia) VNĐ</p>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+

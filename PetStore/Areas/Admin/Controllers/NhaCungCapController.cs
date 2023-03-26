@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/NhaCungCap
         public ActionResult Index()
         {
-            return View(db.NHACUNGCAPs.ToList());
+            return View(db.NHACUNGCAP.ToList());
         }
 
         // GET: Admin/NhaCungCap/Details/5
@@ -27,7 +27,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NHACUNGCAP nHACUNGCAP = db.NHACUNGCAPs.Find(id);
+            NHACUNGCAP nHACUNGCAP = db.NHACUNGCAP.Find(id);
             if (nHACUNGCAP == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.NHACUNGCAPs.Add(nHACUNGCAP);
+                db.NHACUNGCAP.Add(nHACUNGCAP);
                 db.SaveChanges();
                 TempData["message"] = new PushNoti("success", "Thêm Danh mục thành công !");
                 return RedirectToAction("Index");
@@ -66,7 +66,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NHACUNGCAP nHACUNGCAP = db.NHACUNGCAPs.Find(id);
+            NHACUNGCAP nHACUNGCAP = db.NHACUNGCAP.Find(id);
             if (nHACUNGCAP == null)
             {
                 return HttpNotFound();
@@ -98,7 +98,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NHACUNGCAP nHACUNGCAP = db.NHACUNGCAPs.Find(id);
+            NHACUNGCAP nHACUNGCAP = db.NHACUNGCAP.Find(id);
             if (nHACUNGCAP == null)
             {
                 return HttpNotFound();
@@ -111,8 +111,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            NHACUNGCAP nHACUNGCAP = db.NHACUNGCAPs.Find(id);
-            db.NHACUNGCAPs.Remove(nHACUNGCAP);
+            NHACUNGCAP nHACUNGCAP = db.NHACUNGCAP.Find(id);
+            db.NHACUNGCAP.Remove(nHACUNGCAP);
             db.SaveChanges();
             TempData["message"] = new PushNoti("danger", "Xóa Danh mục thành công !");
             return RedirectToAction("Index");

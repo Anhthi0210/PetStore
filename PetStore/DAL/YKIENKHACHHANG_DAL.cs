@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<YKIENKHACHHANG> getList()
         {
-            return db.YKIENKHACHHANGs.ToList();
+            return db.YKIENKHACHHANG.ToList();
         }
         //return 1 item
         public YKIENKHACHHANG getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.YKIENKHACHHANGs.Find(id);
+                return db.YKIENKHACHHANG.Find(id);
             }
         }
         //add item
         public int Insert(YKIENKHACHHANG row)
         {
-            db.YKIENKHACHHANGs.Add(row);
+            db.YKIENKHACHHANG.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(YKIENKHACHHANG row)
         {
-            db.YKIENKHACHHANGs.Remove(row);
+            db.YKIENKHACHHANG.Remove(row);
             return db.SaveChanges();
         }
     }

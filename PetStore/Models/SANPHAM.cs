@@ -13,7 +13,7 @@
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SANPHAM()
         {
-            CHITIETDONHANGs = new HashSet<CHITIETDONHANG>();
+            CHITIETDONHANG = new HashSet<CHITIETDONHANG>();
         }
 
         [Key]
@@ -56,7 +56,7 @@
         public string MaDM { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETDONHANG> CHITIETDONHANGs { get; set; }
+        public virtual ICollection<CHITIETDONHANG> CHITIETDONHANG { get; set; }
 
         public virtual DANHMUC DANHMUC { get; set; }
 

@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<VOUCHER> getList()
         {
-            return db.VOUCHERs.ToList();
+            return db.VOUCHER.ToList();
         }
         //return 1 item
         public VOUCHER getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.VOUCHERs.Find(id);
+                return db.VOUCHER.Find(id);
             }
         }
         //add item
         public int Insert(VOUCHER row)
         {
-            db.VOUCHERs.Add(row);
+            db.VOUCHER.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(VOUCHER row)
         {
-            db.VOUCHERs.Remove(row);
+            db.VOUCHER.Remove(row);
             return db.SaveChanges();
         }
     }

@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<PHUONGTHUCGIAOHANG> getList()
         {
-            return db.PHUONGTHUCGIAOHANGs.ToList();
+            return db.PHUONGTHUCGIAOHANG.ToList();
         }
         //return 1 item
         public PHUONGTHUCGIAOHANG getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.PHUONGTHUCGIAOHANGs.Find(id);
+                return db.PHUONGTHUCGIAOHANG.Find(id);
             }
         }
         //add item
         public int Insert(PHUONGTHUCGIAOHANG row)
         {
-            db.PHUONGTHUCGIAOHANGs.Add(row);
+            db.PHUONGTHUCGIAOHANG.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(PHUONGTHUCGIAOHANG row)
         {
-            db.PHUONGTHUCGIAOHANGs.Remove(row);
+            db.PHUONGTHUCGIAOHANG.Remove(row);
             return db.SaveChanges();
         }
     }

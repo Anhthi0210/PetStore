@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/Voucher
         public ActionResult Index()
         {
-            return View(db.VOUCHERs.ToList());
+            return View(db.VOUCHER.ToList());
         }
 
         // GET: Admin/Voucher/Details/5
@@ -27,7 +27,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VOUCHER vOUCHER = db.VOUCHERs.Find(id);
+            VOUCHER vOUCHER = db.VOUCHER.Find(id);
             if (vOUCHER == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.VOUCHERs.Add(vOUCHER);
+                db.VOUCHER.Add(vOUCHER);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VOUCHER vOUCHER = db.VOUCHERs.Find(id);
+            VOUCHER vOUCHER = db.VOUCHER.Find(id);
             if (vOUCHER == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VOUCHER vOUCHER = db.VOUCHERs.Find(id);
+            VOUCHER vOUCHER = db.VOUCHER.Find(id);
             if (vOUCHER == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            VOUCHER vOUCHER = db.VOUCHERs.Find(id);
-            db.VOUCHERs.Remove(vOUCHER);
+            VOUCHER vOUCHER = db.VOUCHER.Find(id);
+            db.VOUCHER.Remove(vOUCHER);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

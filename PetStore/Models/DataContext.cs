@@ -12,21 +12,21 @@ namespace PetStore.Models
         {
         }
 
-        public virtual DbSet<BAIDANG> BAIDANGs { get; set; }
-        public virtual DbSet<CHITIETDONHANG> CHITIETDONHANGs { get; set; }
-        public virtual DbSet<DANHMUC> DANHMUCs { get; set; }
-        public virtual DbSet<DONHANG> DONHANGs { get; set; }
-        public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
-        public virtual DbSet<LOAIPET> LOAIPETs { get; set; }
-        public virtual DbSet<NHACUNGCAP> NHACUNGCAPs { get; set; }
-        public virtual DbSet<PHANQUYEN> PHANQUYENs { get; set; }
-        public virtual DbSet<PHUONGTHUCGIAOHANG> PHUONGTHUCGIAOHANGs { get; set; }
-        public virtual DbSet<PHUONGTHUCTHANHTOAN> PHUONGTHUCTHANHTOANs { get; set; }
-        public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
-        public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
-        public virtual DbSet<TRANGTHAI> TRANGTHAIs { get; set; }
-        public virtual DbSet<VOUCHER> VOUCHERs { get; set; }
-        public virtual DbSet<YKIENKHACHHANG> YKIENKHACHHANGs { get; set; }
+        public virtual DbSet<BAIDANG> BAIDANG { get; set; }
+        public virtual DbSet<CHITIETDONHANG> CHITIETDONHANG { get; set; }
+        public virtual DbSet<DANHMUC> DANHMUC { get; set; }
+        public virtual DbSet<DONHANG> DONHANG { get; set; }
+        public virtual DbSet<KHACHHANG> KHACHHANG { get; set; }
+        public virtual DbSet<LOAIPET> LOAIPET { get; set; }
+        public virtual DbSet<NHACUNGCAP> NHACUNGCAP { get; set; }
+        public virtual DbSet<PHANQUYEN> PHANQUYEN { get; set; }
+        public virtual DbSet<PHUONGTHUCGIAOHANG> PHUONGTHUCGIAOHANG { get; set; }
+        public virtual DbSet<PHUONGTHUCTHANHTOAN> PHUONGTHUCTHANHTOAN { get; set; }
+        public virtual DbSet<SANPHAM> SANPHAM { get; set; }
+        public virtual DbSet<TAIKHOAN> TAIKHOAN { get; set; }
+        public virtual DbSet<TRANGTHAI> TRANGTHAI { get; set; }
+        public virtual DbSet<VOUCHER> VOUCHER { get; set; }
+        public virtual DbSet<YKIENKHACHHANG> YKIENKHACHHANG { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -55,7 +55,7 @@ namespace PetStore.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<DANHMUC>()
-                .HasMany(e => e.SANPHAMs)
+                .HasMany(e => e.SANPHAM)
                 .WithRequired(e => e.DANHMUC)
                 .WillCascadeOnDelete(false);
 
@@ -72,10 +72,6 @@ namespace PetStore.Models
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<DONHANG>()
-                .Property(e => e.MaKH)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DONHANG>()
                 .Property(e => e.MaPTTT)
                 .IsUnicode(false);
 
@@ -88,13 +84,9 @@ namespace PetStore.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<DONHANG>()
-                .HasMany(e => e.CHITIETDONHANGs)
+                .HasMany(e => e.CHITIETDONHANG)
                 .WithRequired(e => e.DONHANG)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KHACHHANG>()
-                .Property(e => e.MaKH)
-                .IsUnicode(false);
 
             modelBuilder.Entity<KHACHHANG>()
                 .Property(e => e.SĐT)
@@ -105,16 +97,15 @@ namespace PetStore.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<KHACHHANG>()
-                .HasMany(e => e.DONHANGs)
-                .WithRequired(e => e.KHACHHANG)
-                .WillCascadeOnDelete(false);
+                .Property(e => e.MatKhau)
+                .IsUnicode(false);
 
             modelBuilder.Entity<LOAIPET>()
                 .Property(e => e.MaLoaiPet)
                 .IsUnicode(false);
 
             modelBuilder.Entity<LOAIPET>()
-                .HasMany(e => e.SANPHAMs)
+                .HasMany(e => e.SANPHAM)
                 .WithRequired(e => e.LOAIPET)
                 .WillCascadeOnDelete(false);
 
@@ -127,7 +118,7 @@ namespace PetStore.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<NHACUNGCAP>()
-                .HasMany(e => e.SANPHAMs)
+                .HasMany(e => e.SANPHAM)
                 .WithRequired(e => e.NHACUNGCAP)
                 .WillCascadeOnDelete(false);
 
@@ -136,7 +127,7 @@ namespace PetStore.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHANQUYEN>()
-                .HasMany(e => e.TAIKHOANs)
+                .HasMany(e => e.TAIKHOAN)
                 .WithRequired(e => e.PHANQUYEN)
                 .WillCascadeOnDelete(false);
 
@@ -144,19 +135,9 @@ namespace PetStore.Models
                 .Property(e => e.MaPTGH)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHUONGTHUCGIAOHANG>()
-                .HasMany(e => e.DONHANGs)
-                .WithRequired(e => e.PHUONGTHUCGIAOHANG)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<PHUONGTHUCTHANHTOAN>()
                 .Property(e => e.MaPTTT)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<PHUONGTHUCTHANHTOAN>()
-                .HasMany(e => e.DONHANGs)
-                .WithRequired(e => e.PHUONGTHUCTHANHTOAN)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SANPHAM>()
                 .Property(e => e.MaSP)
@@ -179,7 +160,7 @@ namespace PetStore.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<SANPHAM>()
-                .HasMany(e => e.CHITIETDONHANGs)
+                .HasMany(e => e.CHITIETDONHANG)
                 .WithRequired(e => e.SANPHAM)
                 .WillCascadeOnDelete(false);
 
@@ -196,17 +177,12 @@ namespace PetStore.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<TAIKHOAN>()
-                .HasMany(e => e.BAIDANGs)
+                .HasMany(e => e.BAIDANG)
                 .WithRequired(e => e.TAIKHOAN)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TAIKHOAN>()
-                .HasMany(e => e.KHACHHANGs)
-                .WithRequired(e => e.TAIKHOAN)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TAIKHOAN>()
-                .HasMany(e => e.YKIENKHACHHANGs)
+                .HasMany(e => e.YKIENKHACHHANG)
                 .WithRequired(e => e.TAIKHOAN)
                 .WillCascadeOnDelete(false);
 
@@ -214,17 +190,8 @@ namespace PetStore.Models
                 .Property(e => e.MaTT)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<TRANGTHAI>()
-                .HasMany(e => e.DONHANGs)
-                .WithRequired(e => e.TRANGTHAI)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<VOUCHER>()
                 .Property(e => e.MaGiam)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<VOUCHER>()
-                .Property(e => e.MaKH)
                 .IsUnicode(false);
 
             modelBuilder.Entity<YKIENKHACHHANG>()

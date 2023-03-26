@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<KHACHHANG> getList()
         {
-            return db.KHACHHANGs.ToList();
+            return db.KHACHHANG.ToList();
         }
         //return 1 item
         public KHACHHANG getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.KHACHHANGs.Find(id);
+                return db.KHACHHANG.Find(id);
             }
         }
         //add item
         public int Insert(KHACHHANG row)
         {
-            db.KHACHHANGs.Add(row);
+            db.KHACHHANG.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(KHACHHANG row)
         {
-            db.KHACHHANGs.Remove(row);
+            db.KHACHHANG.Remove(row);
             return db.SaveChanges();
         }
     }

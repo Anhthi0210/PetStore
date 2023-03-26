@@ -1,17 +1,21 @@
-﻿//const form-check - input = document.getElementById('flexSwitchCheckDefault');
+﻿
+    $(document).ready(function () {
+        var maxLength = 100;
+    $(".show-read-more").each(function () {
+            var myStr = $(this).text();
+            if ($.trim(myStr).length > maxLength) {
+                var newStr = myStr.substring(0, maxLength);
+    var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+    $(this).empty().html(newStr);
+    $(this).append(' <a href="javascript:void(0);" class="readmore">đọc tiếp...</a>');
+    $(this).append('<span class="more-text">' + removedStr +
+        '</span>');
+            }
+        });
+    $(".read-more").click(function () {
+        $(this).siblings(".more-text").contents().unwrap();
 
-//                        form - check - input.addEventListener('change', () => {
-//        document.body.classList.toggle('dark');
-//                        });
-const body = document.body;
-const switch_mode = document.querySelector('flexSwitchCheckDefault');
-switch_mode.addEventListener('check', () => {
-    alert('checked');
-});
-//menu3
-const navbarToggler = document.querySelector('.navbar-toggler');
-const navbarCollapse = document.querySelector('.navbar-collapse');
+    $(this).remove();
+        });
+    });
 
-navbarToggler.addEventListener('click', () => {
-    navbarCollapse.classList.toggle('show');
-});

@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/PhuongThucGiaoHang
         public ActionResult Index()
         {
-            return View(db.PHUONGTHUCGIAOHANGs.ToList());
+            return View(db.PHUONGTHUCGIAOHANG.ToList());
         }
 
         // GET: Admin/PhuongThucGiaoHang/Details/5
@@ -27,7 +27,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PHUONGTHUCGIAOHANG pHUONGTHUCGIAOHANG = db.PHUONGTHUCGIAOHANGs.Find(id);
+            PHUONGTHUCGIAOHANG pHUONGTHUCGIAOHANG = db.PHUONGTHUCGIAOHANG.Find(id);
             if (pHUONGTHUCGIAOHANG == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PHUONGTHUCGIAOHANGs.Add(pHUONGTHUCGIAOHANG);
+                db.PHUONGTHUCGIAOHANG.Add(pHUONGTHUCGIAOHANG);
                 db.SaveChanges();
                 TempData["message"] = new PushNoti("success", "Thêm thành công !");
                 return RedirectToAction("Index");
@@ -66,7 +66,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PHUONGTHUCGIAOHANG pHUONGTHUCGIAOHANG = db.PHUONGTHUCGIAOHANGs.Find(id);
+            PHUONGTHUCGIAOHANG pHUONGTHUCGIAOHANG = db.PHUONGTHUCGIAOHANG.Find(id);
             if (pHUONGTHUCGIAOHANG == null)
             {
                 return HttpNotFound();
@@ -98,7 +98,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PHUONGTHUCGIAOHANG pHUONGTHUCGIAOHANG = db.PHUONGTHUCGIAOHANGs.Find(id);
+            PHUONGTHUCGIAOHANG pHUONGTHUCGIAOHANG = db.PHUONGTHUCGIAOHANG.Find(id);
             if (pHUONGTHUCGIAOHANG == null)
             {
                 return HttpNotFound();
@@ -111,8 +111,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            PHUONGTHUCGIAOHANG pHUONGTHUCGIAOHANG = db.PHUONGTHUCGIAOHANGs.Find(id);
-            db.PHUONGTHUCGIAOHANGs.Remove(pHUONGTHUCGIAOHANG);
+            PHUONGTHUCGIAOHANG pHUONGTHUCGIAOHANG = db.PHUONGTHUCGIAOHANG.Find(id);
+            db.PHUONGTHUCGIAOHANG.Remove(pHUONGTHUCGIAOHANG);
             db.SaveChanges();
             TempData["message"] = new PushNoti("danger", "Xóa thành công !");
             return RedirectToAction("Index");
