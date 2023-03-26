@@ -146,11 +146,6 @@ namespace PetStore.Controllers
             dh.NgayDatHang = DateTime.Now;
             dh.NgayGiaoHang = DateTime.Parse(ngaygiao);
             dh.DiaChiNhan = kh.DiaChi;
-            dh.MaPTTT = pttt.MaPTTT;
-            dh.MaPTGH = ptgh.MaPTGH;
-            dh.MaTT = tt.MaTT;
-            //dh.Note = false;
-            //dh.thanhtoan = false;
 
             data.DONHANG.Add(dh);
             data.SaveChanges();
