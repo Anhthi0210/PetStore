@@ -1,4 +1,4 @@
-﻿namespace PetStore.Models
+namespace PetStore.Models
 {
     using System;
     using System.Collections.Generic;
@@ -12,19 +12,16 @@
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TAIKHOAN()
         {
-            BAIDANGs = new HashSet<BAIDANG>();
-            KHACHHANGs = new HashSet<KHACHHANG>();
-            YKIENKHACHHANGs = new HashSet<YKIENKHACHHANG>();
+            BAIDANG = new HashSet<BAIDANG>();
+            YKIENKHACHHANG = new HashSet<YKIENKHACHHANG>();
         }
 
         [Key]
         [StringLength(50)]
-        [Display(Name = "Tài Khoản")]
         public string TenDangNhap { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Mật khẩu")]
         public string MatKhau { get; set; }
 
         [Required]
@@ -32,14 +29,11 @@
         public string MaPQ { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BAIDANG> BAIDANGs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KHACHHANG> KHACHHANGs { get; set; }
+        public virtual ICollection<BAIDANG> BAIDANG { get; set; }
 
         public virtual PHANQUYEN PHANQUYEN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<YKIENKHACHHANG> YKIENKHACHHANGs { get; set; }
+        public virtual ICollection<YKIENKHACHHANG> YKIENKHACHHANG { get; set; }
     }
 }

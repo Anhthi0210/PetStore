@@ -25,20 +25,20 @@ namespace PetStore.Controllers
             int pageNum = page ?? 1;
 
             //return View(all_Sach.ToPagedList(pageNum, pageSize));
-            var sANPHAMs = db.SANPHAMs.Include(s => s.DANHMUC).Include(s => s.LOAIPET).Include(s => s.NHACUNGCAP);
+            var sANPHAMs = db.SANPHAM.Include(s => s.DANHMUC).Include(s => s.LOAIPET).Include(s => s.NHACUNGCAP);
             return View(sANPHAMs.ToList().ToPagedList(pageNum, pageSize));
         }
 
         // GET: DanhSachSanPham/Details/5
         public ActionResult Detail(string id)
         {
-            var D_sach = db.SANPHAMs.Where(m => m.MaSP == id).First();
+            var D_sach = db.SANPHAM.Where(m => m.MaSP == id).First();
             return View(D_sach);
         }
         public ActionResult Search(string keyword)
         {
 
-            var all = db.SANPHAMs.Where(x => x.TenSP.Contains(keyword));
+            var all = db.SANPHAM.Where(x => x.TenSP.Contains(keyword));
 
             return View(all);
         }

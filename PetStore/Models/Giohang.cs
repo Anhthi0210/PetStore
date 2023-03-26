@@ -27,7 +27,7 @@ namespace PetStore.Models
         public Giohang(string id)
         {
             MaSP = id;
-            SANPHAM sach = data.SANPHAMs.Single(n => (n.MaSP == MaSP));
+            SANPHAM sach = data.SANPHAM.Single(n => (n.MaSP == MaSP));
             TenSP = sach.TenSP;
             Hinh = sach.Hinh;
             DonGia = double.Parse(sach.DonGia.ToString());

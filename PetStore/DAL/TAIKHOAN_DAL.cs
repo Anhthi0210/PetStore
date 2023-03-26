@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<DANHMUC> getList()
         {
-            return db.DANHMUCs.ToList();
+            return db.DANHMUC.ToList();
         }
         //return 1 item
         public DANHMUC getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.DANHMUCs.Find(id);
+                return db.DANHMUC.Find(id);
             }
         }
         //add item
         public int Insert(DANHMUC row)
         {
-            db.DANHMUCs.Add(row);
+            db.DANHMUC.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(DANHMUC row)
         {
-            db.DANHMUCs.Remove(row);
+            db.DANHMUC.Remove(row);
             return db.SaveChanges();
         }
     }

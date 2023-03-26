@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<NHACUNGCAP> getList()
         {
-            return db.NHACUNGCAPs.ToList();
+            return db.NHACUNGCAP.ToList();
         }
         //return 1 item
         public NHACUNGCAP getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.NHACUNGCAPs.Find(id);
+                return db.NHACUNGCAP.Find(id);
             }
         }
         //add item
         public int Insert(NHACUNGCAP row)
         {
-            db.NHACUNGCAPs.Add(row);
+            db.NHACUNGCAP.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(NHACUNGCAP row)
         {
-            db.NHACUNGCAPs.Remove(row);
+            db.NHACUNGCAP.Remove(row);
             return db.SaveChanges();
         }
     }

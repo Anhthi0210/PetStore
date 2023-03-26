@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<CHITIETDONHANG> getList()
         {
-            return db.CHITIETDONHANGs.ToList();
+            return db.CHITIETDONHANG.ToList();
         }
         //return 1 item
         public CHITIETDONHANG getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.CHITIETDONHANGs.Find(id);
+                return db.CHITIETDONHANG.Find(id);
             }
         }
         //add item
         public int Insert(CHITIETDONHANG row)
         {
-            db.CHITIETDONHANGs.Add(row);
+            db.CHITIETDONHANG.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(CHITIETDONHANG row)
         {
-            db.CHITIETDONHANGs.Remove(row);
+            db.CHITIETDONHANG.Remove(row);
             return db.SaveChanges();
         }
     }

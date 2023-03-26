@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/YKienKhachHang
         public ActionResult Index()
         {
-            var yKIENKHACHHANGs = db.YKIENKHACHHANGs.Include(y => y.TAIKHOAN);
+            var yKIENKHACHHANGs = db.YKIENKHACHHANG.Include(y => y.TAIKHOAN);
             return View(yKIENKHACHHANGs.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            YKIENKHACHHANG yKIENKHACHHANG = db.YKIENKHACHHANGs.Find(id);
+            YKIENKHACHHANG yKIENKHACHHANG = db.YKIENKHACHHANG.Find(id);
             if (yKIENKHACHHANG == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/YKienKhachHang/Create
         public ActionResult Create()
         {
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau");
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau");
             return View();
         }
 
@@ -52,12 +52,12 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.YKIENKHACHHANGs.Add(yKIENKHACHHANG);
+                db.YKIENKHACHHANG.Add(yKIENKHACHHANG);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", yKIENKHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau", yKIENKHACHHANG.TenDangNhap);
             return View(yKIENKHACHHANG);
         }
 
@@ -68,12 +68,12 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            YKIENKHACHHANG yKIENKHACHHANG = db.YKIENKHACHHANGs.Find(id);
+            YKIENKHACHHANG yKIENKHACHHANG = db.YKIENKHACHHANG.Find(id);
             if (yKIENKHACHHANG == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", yKIENKHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau", yKIENKHACHHANG.TenDangNhap);
             return View(yKIENKHACHHANG);
         }
 
@@ -90,7 +90,7 @@ namespace PetStore.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", yKIENKHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau", yKIENKHACHHANG.TenDangNhap);
             return View(yKIENKHACHHANG);
         }
 
@@ -101,7 +101,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            YKIENKHACHHANG yKIENKHACHHANG = db.YKIENKHACHHANGs.Find(id);
+            YKIENKHACHHANG yKIENKHACHHANG = db.YKIENKHACHHANG.Find(id);
             if (yKIENKHACHHANG == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            YKIENKHACHHANG yKIENKHACHHANG = db.YKIENKHACHHANGs.Find(id);
-            db.YKIENKHACHHANGs.Remove(yKIENKHACHHANG);
+            YKIENKHACHHANG yKIENKHACHHANG = db.YKIENKHACHHANG.Find(id);
+            db.YKIENKHACHHANG.Remove(yKIENKHACHHANG);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

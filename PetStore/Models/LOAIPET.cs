@@ -12,21 +12,18 @@ namespace PetStore.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LOAIPET()
         {
-            SANPHAMs = new HashSet<SANPHAM>();
+            SANPHAM = new HashSet<SANPHAM>();
         }
 
         [Key]
         [StringLength(50)]
-        [Display(Name = "Mã Loài")]
-
         public string MaLoaiPet { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Tên Loài")]
         public string TenLoaiPet { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SANPHAM> SANPHAMs { get; set; }
+        public virtual ICollection<SANPHAM> SANPHAM { get; set; }
     }
 }

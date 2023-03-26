@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<LOAIPET> getList()
         {
-            return db.LOAIPETs.ToList();
+            return db.LOAIPET.ToList();
         }
         //return 1 item
         public LOAIPET getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.LOAIPETs.Find(id);
+                return db.LOAIPET.Find(id);
             }
         }
         //add item
         public int Insert(LOAIPET row)
         {
-            db.LOAIPETs.Add(row);
+            db.LOAIPET.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(LOAIPET row)
         {
-            db.LOAIPETs.Remove(row);
+            db.LOAIPET.Remove(row);
             return db.SaveChanges();
         }
     }

@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/PhuongThucThanhToan
         public ActionResult Index()
         {
-            return View(db.PHUONGTHUCTHANHTOANs.ToList());
+            return View(db.PHUONGTHUCTHANHTOAN.ToList());
         }
 
         // GET: Admin/PhuongThucThanhToan/Details/5
@@ -27,7 +27,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PHUONGTHUCTHANHTOAN pHUONGTHUCTHANHTOAN = db.PHUONGTHUCTHANHTOANs.Find(id);
+            PHUONGTHUCTHANHTOAN pHUONGTHUCTHANHTOAN = db.PHUONGTHUCTHANHTOAN.Find(id);
             if (pHUONGTHUCTHANHTOAN == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PHUONGTHUCTHANHTOANs.Add(pHUONGTHUCTHANHTOAN);
+                db.PHUONGTHUCTHANHTOAN.Add(pHUONGTHUCTHANHTOAN);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PHUONGTHUCTHANHTOAN pHUONGTHUCTHANHTOAN = db.PHUONGTHUCTHANHTOANs.Find(id);
+            PHUONGTHUCTHANHTOAN pHUONGTHUCTHANHTOAN = db.PHUONGTHUCTHANHTOAN.Find(id);
             if (pHUONGTHUCTHANHTOAN == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PHUONGTHUCTHANHTOAN pHUONGTHUCTHANHTOAN = db.PHUONGTHUCTHANHTOANs.Find(id);
+            PHUONGTHUCTHANHTOAN pHUONGTHUCTHANHTOAN = db.PHUONGTHUCTHANHTOAN.Find(id);
             if (pHUONGTHUCTHANHTOAN == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            PHUONGTHUCTHANHTOAN pHUONGTHUCTHANHTOAN = db.PHUONGTHUCTHANHTOANs.Find(id);
-            db.PHUONGTHUCTHANHTOANs.Remove(pHUONGTHUCTHANHTOAN);
+            PHUONGTHUCTHANHTOAN pHUONGTHUCTHANHTOAN = db.PHUONGTHUCTHANHTOAN.Find(id);
+            db.PHUONGTHUCTHANHTOAN.Remove(pHUONGTHUCTHANHTOAN);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

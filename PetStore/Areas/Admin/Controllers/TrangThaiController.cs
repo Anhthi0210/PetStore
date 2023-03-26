@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/TrangThai
         public ActionResult Index()
         {
-            return View(db.TRANGTHAIs.ToList());
+            return View(db.TRANGTHAI.ToList());
         }
 
         // GET: Admin/TrangThai/Details/5
@@ -27,7 +27,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TRANGTHAI tRANGTHAI = db.TRANGTHAIs.Find(id);
+            TRANGTHAI tRANGTHAI = db.TRANGTHAI.Find(id);
             if (tRANGTHAI == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.TRANGTHAIs.Add(tRANGTHAI);
+                db.TRANGTHAI.Add(tRANGTHAI);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TRANGTHAI tRANGTHAI = db.TRANGTHAIs.Find(id);
+            TRANGTHAI tRANGTHAI = db.TRANGTHAI.Find(id);
             if (tRANGTHAI == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TRANGTHAI tRANGTHAI = db.TRANGTHAIs.Find(id);
+            TRANGTHAI tRANGTHAI = db.TRANGTHAI.Find(id);
             if (tRANGTHAI == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            TRANGTHAI tRANGTHAI = db.TRANGTHAIs.Find(id);
-            db.TRANGTHAIs.Remove(tRANGTHAI);
+            TRANGTHAI tRANGTHAI = db.TRANGTHAI.Find(id);
+            db.TRANGTHAI.Remove(tRANGTHAI);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

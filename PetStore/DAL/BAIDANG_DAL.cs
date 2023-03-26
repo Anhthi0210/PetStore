@@ -13,14 +13,14 @@ namespace PetStore.DAL
         //return 1 list
         public List<BAIDANG> getList()
         {
-            return db.BAIDANGs.ToList();
+            return db.BAIDANG.ToList();
         }
         public List<BAIDANG> getList(string id)
         {
             if (id == null) return null;
             else
             {
-                return db.BAIDANGs.Where(m => m.TenDangNhap == id).ToList();
+                return db.BAIDANG.Where(m => m.TenDangNhap == id).ToList();
             }
 
         }
@@ -33,13 +33,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.BAIDANGs.Find(id);
+                return db.BAIDANG.Find(id);
             }
         }
         //add item
         public int Insert(BAIDANG row)
         {
-            db.BAIDANGs.Add(row);
+            db.BAIDANG.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -51,7 +51,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(BAIDANG row)
         {
-            db.BAIDANGs.Remove(row);
+            db.BAIDANG.Remove(row);
             return db.SaveChanges();
         }
     }

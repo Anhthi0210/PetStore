@@ -145,7 +145,7 @@ namespace PetStore.Controllers
             //dh.Note = false;
             //dh.thanhtoan = false;
 
-            data.DONHANGs.AddOrUpdate(dh);
+            data.DONHANG.AddOrUpdate(dh);
             data.SaveChanges();
             foreach (var item in gh)
             {
@@ -154,11 +154,11 @@ namespace PetStore.Controllers
                 ctdh.MaSP = item.MaSP;
                 ctdh.SoLuongDat = item.iSoluong;
                 ctdh.DonGia = (decimal)item.DonGia;
-                s = data.SANPHAMs.Single(n => n.MaSP == item.MaSP);
+                s = data.SANPHAM.Single(n => n.MaSP == item.MaSP);
                 s.SoLuong -= ctdh.SoLuongDat;
                 data.SaveChanges();
 
-                data.CHITIETDONHANGs.AddOrUpdate(ctdh);
+                data.CHITIETDONHANG.AddOrUpdate(ctdh);
             }
             data.SaveChanges();
             Session["Giohang"] = null;

@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/KhachHang
         public ActionResult Index()
         {
-            var kHACHHANGs = db.KHACHHANGs.Include(k => k.TAIKHOAN);
+            var kHACHHANGs = db.KHACHHANG.Include(k => k.TenDangNhap);
             return View(kHACHHANGs.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
+            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
             if (kHACHHANG == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/KhachHang/Create
         public ActionResult Create()
         {
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau");
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau");
             return View();
         }
 
@@ -52,12 +52,12 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.KHACHHANGs.Add(kHACHHANG);
+                db.KHACHHANG.Add(kHACHHANG);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
@@ -68,12 +68,12 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
+            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
             if (kHACHHANG == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
@@ -90,7 +90,7 @@ namespace PetStore.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
@@ -101,7 +101,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
+            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
             if (kHACHHANG == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            KHACHHANG kHACHHANG = db.KHACHHANGs.Find(id);
-            db.KHACHHANGs.Remove(kHACHHANG);
+            KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
+            db.KHACHHANG.Remove(kHACHHANG);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

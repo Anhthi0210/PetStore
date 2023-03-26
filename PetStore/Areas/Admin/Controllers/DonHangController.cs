@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/DonHang
         public ActionResult Index()
         {
-            var dONHANGs = db.DONHANGs.Include(d => d.KHACHHANG).Include(d => d.PHUONGTHUCGIAOHANG).Include(d => d.PHUONGTHUCTHANHTOAN).Include(d => d.TRANGTHAI);
+            var dONHANGs = db.DONHANG.Include(d => d.KHACHHANG).Include(d => d.PHUONGTHUCGIAOHANG).Include(d => d.PHUONGTHUCTHANHTOAN).Include(d => d.TRANGTHAI);
             return View(dONHANGs.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DONHANG dONHANG = db.DONHANGs.Find(id);
+            DONHANG dONHANG = db.DONHANG.Find(id);
             if (dONHANG == null)
             {
                 return HttpNotFound();
@@ -39,10 +39,10 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/DonHang/Create
         public ActionResult Create()
         {
-            ViewBag.MaKH = new SelectList(db.KHACHHANGs, "MaKH", "TenKH");
-            ViewBag.MaPTGH = new SelectList(db.PHUONGTHUCGIAOHANGs, "MaPTGH", "TenPTGH");
-            ViewBag.MaPTTT = new SelectList(db.PHUONGTHUCTHANHTOANs, "MaPTTT", "TenPTTT");
-            ViewBag.MaTT = new SelectList(db.TRANGTHAIs, "MaTT", "TenTT");
+            ViewBag.MaKH = new SelectList(db.KHACHHANG, "MaKH", "TenKH");
+            ViewBag.MaPTGH = new SelectList(db.PHUONGTHUCGIAOHANG, "MaPTGH", "TenPTGH");
+            ViewBag.MaPTTT = new SelectList(db.PHUONGTHUCTHANHTOAN, "MaPTTT", "TenPTTT");
+            ViewBag.MaTT = new SelectList(db.TRANGTHAI, "MaTT", "TenTT");
             return View();
         }
 
@@ -55,15 +55,15 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.DONHANGs.Add(dONHANG);
+                db.DONHANG.Add(dONHANG);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaKH = new SelectList(db.KHACHHANGs, "MaKH", "TenKH", dONHANG.MaKH);
-            ViewBag.MaPTGH = new SelectList(db.PHUONGTHUCGIAOHANGs, "MaPTGH", "TenPTGH", dONHANG.MaPTGH);
-            ViewBag.MaPTTT = new SelectList(db.PHUONGTHUCTHANHTOANs, "MaPTTT", "TenPTTT", dONHANG.MaPTTT);
-            ViewBag.MaTT = new SelectList(db.TRANGTHAIs, "MaTT", "TenTT", dONHANG.MaTT);
+            ViewBag.MaKH = new SelectList(db.KHACHHANG, "MaKH", "TenKH", dONHANG.MaKH);
+            ViewBag.MaPTGH = new SelectList(db.PHUONGTHUCGIAOHANG, "MaPTGH", "TenPTGH", dONHANG.MaPTGH);
+            ViewBag.MaPTTT = new SelectList(db.PHUONGTHUCTHANHTOAN, "MaPTTT", "TenPTTT", dONHANG.MaPTTT);
+            ViewBag.MaTT = new SelectList(db.TRANGTHAI, "MaTT", "TenTT", dONHANG.MaTT);
             return View(dONHANG);
         }
 
@@ -74,15 +74,15 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DONHANG dONHANG = db.DONHANGs.Find(id);
+            DONHANG dONHANG = db.DONHANG.Find(id);
             if (dONHANG == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaKH = new SelectList(db.KHACHHANGs, "MaKH", "TenKH", dONHANG.MaKH);
-            ViewBag.MaPTGH = new SelectList(db.PHUONGTHUCGIAOHANGs, "MaPTGH", "TenPTGH", dONHANG.MaPTGH);
-            ViewBag.MaPTTT = new SelectList(db.PHUONGTHUCTHANHTOANs, "MaPTTT", "TenPTTT", dONHANG.MaPTTT);
-            ViewBag.MaTT = new SelectList(db.TRANGTHAIs, "MaTT", "TenTT", dONHANG.MaTT);
+            ViewBag.MaKH = new SelectList(db.KHACHHANG, "MaKH", "TenKH", dONHANG.MaKH);
+            ViewBag.MaPTGH = new SelectList(db.PHUONGTHUCGIAOHANG, "MaPTGH", "TenPTGH", dONHANG.MaPTGH);
+            ViewBag.MaPTTT = new SelectList(db.PHUONGTHUCTHANHTOAN, "MaPTTT", "TenPTTT", dONHANG.MaPTTT);
+            ViewBag.MaTT = new SelectList(db.TRANGTHAI, "MaTT", "TenTT", dONHANG.MaTT);
             return View(dONHANG);
         }
 
@@ -99,10 +99,10 @@ namespace PetStore.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaKH = new SelectList(db.KHACHHANGs, "MaKH", "TenKH", dONHANG.MaKH);
-            ViewBag.MaPTGH = new SelectList(db.PHUONGTHUCGIAOHANGs, "MaPTGH", "TenPTGH", dONHANG.MaPTGH);
-            ViewBag.MaPTTT = new SelectList(db.PHUONGTHUCTHANHTOANs, "MaPTTT", "TenPTTT", dONHANG.MaPTTT);
-            ViewBag.MaTT = new SelectList(db.TRANGTHAIs, "MaTT", "TenTT", dONHANG.MaTT);
+            ViewBag.MaKH = new SelectList(db.KHACHHANG, "MaKH", "TenKH", dONHANG.MaKH);
+            ViewBag.MaPTGH = new SelectList(db.PHUONGTHUCGIAOHANG, "MaPTGH", "TenPTGH", dONHANG.MaPTGH);
+            ViewBag.MaPTTT = new SelectList(db.PHUONGTHUCTHANHTOAN, "MaPTTT", "TenPTTT", dONHANG.MaPTTT);
+            ViewBag.MaTT = new SelectList(db.TRANGTHAI, "MaTT", "TenTT", dONHANG.MaTT);
             return View(dONHANG);
         }
 
@@ -113,7 +113,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DONHANG dONHANG = db.DONHANGs.Find(id);
+            DONHANG dONHANG = db.DONHANG.Find(id);
             if (dONHANG == null)
             {
                 return HttpNotFound();
@@ -126,8 +126,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            DONHANG dONHANG = db.DONHANGs.Find(id);
-            db.DONHANGs.Remove(dONHANG);
+            DONHANG dONHANG = db.DONHANG.Find(id);
+            db.DONHANG.Remove(dONHANG);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

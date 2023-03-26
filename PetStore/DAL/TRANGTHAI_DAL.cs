@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<TRANGTHAI> getList()
         {
-            return db.TRANGTHAIs.ToList();
+            return db.TRANGTHAI.ToList();
         }
         //return 1 item
         public TRANGTHAI getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.TRANGTHAIs.Find(id);
+                return db.TRANGTHAI.Find(id);
             }
         }
         //add item
         public int Insert(TRANGTHAI row)
         {
-            db.TRANGTHAIs.Add(row);
+            db.TRANGTHAI.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(TRANGTHAI row)
         {
-            db.TRANGTHAIs.Remove(row);
+            db.TRANGTHAI.Remove(row);
             return db.SaveChanges();
         }
     }

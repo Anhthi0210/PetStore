@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/PhanQuyen
         public ActionResult Index()
         {
-            return View(db.PHANQUYENs.ToList());
+            return View(db.PHANQUYEN.ToList());
         }
 
         // GET: Admin/PhanQuyen/Details/5
@@ -27,7 +27,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PHANQUYEN pHANQUYEN = db.PHANQUYENs.Find(id);
+            PHANQUYEN pHANQUYEN = db.PHANQUYEN.Find(id);
             if (pHANQUYEN == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PHANQUYENs.Add(pHANQUYEN);
+                db.PHANQUYEN.Add(pHANQUYEN);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PHANQUYEN pHANQUYEN = db.PHANQUYENs.Find(id);
+            PHANQUYEN pHANQUYEN = db.PHANQUYEN.Find(id);
             if (pHANQUYEN == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PHANQUYEN pHANQUYEN = db.PHANQUYENs.Find(id);
+            PHANQUYEN pHANQUYEN = db.PHANQUYEN.Find(id);
             if (pHANQUYEN == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            PHANQUYEN pHANQUYEN = db.PHANQUYENs.Find(id);
-            db.PHANQUYENs.Remove(pHANQUYEN);
+            PHANQUYEN pHANQUYEN = db.PHANQUYEN.Find(id);
+            db.PHANQUYEN.Remove(pHANQUYEN);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

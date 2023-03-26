@@ -17,7 +17,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/SanPham
         public ActionResult Index()
         {
-            var sANPHAMs = db.SANPHAMs.Include(s => s.DANHMUC).Include(s => s.LOAIPET).Include(s => s.NHACUNGCAP);
+            var sANPHAMs = db.SANPHAM.Include(s => s.DANHMUC).Include(s => s.LOAIPET).Include(s => s.NHACUNGCAP);
             return View(sANPHAMs.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SANPHAM sANPHAM = db.SANPHAMs.Find(id);
+            SANPHAM sANPHAM = db.SANPHAM.Find(id);
             if (sANPHAM == null)
             {
                 return HttpNotFound();
@@ -39,9 +39,9 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/SanPham/Create
         public ActionResult Create()
         {
-            ViewBag.MaDM = new SelectList(db.DANHMUCs, "MaDM", "TenDM");
-            ViewBag.MaLoaiPet = new SelectList(db.LOAIPETs, "MaLoaiPet", "TenLoaiPet");
-            ViewBag.MaNCC = new SelectList(db.NHACUNGCAPs, "MaNCC", "TenNCC");
+            ViewBag.MaDM = new SelectList(db.DANHMUC, "MaDM", "TenDM");
+            ViewBag.MaLoaiPet = new SelectList(db.LOAIPET, "MaLoaiPet", "TenLoaiPet");
+            ViewBag.MaNCC = new SelectList(db.NHACUNGCAP, "MaNCC", "TenNCC");
             return View();
         }
 
@@ -54,14 +54,14 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.SANPHAMs.Add(sANPHAM);
+                db.SANPHAM.Add(sANPHAM);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaDM = new SelectList(db.DANHMUCs, "MaDM", "TenDM", sANPHAM.MaDM);
-            ViewBag.MaLoaiPet = new SelectList(db.LOAIPETs, "MaLoaiPet", "TenLoaiPet", sANPHAM.MaLoaiPet);
-            ViewBag.MaNCC = new SelectList(db.NHACUNGCAPs, "MaNCC", "TenNCC", sANPHAM.MaNCC);
+            ViewBag.MaDM = new SelectList(db.DANHMUC, "MaDM", "TenDM", sANPHAM.MaDM);
+            ViewBag.MaLoaiPet = new SelectList(db.LOAIPET, "MaLoaiPet", "TenLoaiPet", sANPHAM.MaLoaiPet);
+            ViewBag.MaNCC = new SelectList(db.NHACUNGCAP, "MaNCC", "TenNCC", sANPHAM.MaNCC);
             return View(sANPHAM);
         }
 
@@ -72,14 +72,14 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SANPHAM sANPHAM = db.SANPHAMs.Find(id);
+            SANPHAM sANPHAM = db.SANPHAM.Find(id);
             if (sANPHAM == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaDM = new SelectList(db.DANHMUCs, "MaDM", "TenDM", sANPHAM.MaDM);
-            ViewBag.MaLoaiPet = new SelectList(db.LOAIPETs, "MaLoaiPet", "TenLoaiPet", sANPHAM.MaLoaiPet);
-            ViewBag.MaNCC = new SelectList(db.NHACUNGCAPs, "MaNCC", "TenNCC", sANPHAM.MaNCC);
+            ViewBag.MaDM = new SelectList(db.DANHMUC, "MaDM", "TenDM", sANPHAM.MaDM);
+            ViewBag.MaLoaiPet = new SelectList(db.LOAIPET, "MaLoaiPet", "TenLoaiPet", sANPHAM.MaLoaiPet);
+            ViewBag.MaNCC = new SelectList(db.NHACUNGCAP, "MaNCC", "TenNCC", sANPHAM.MaNCC);
             return View(sANPHAM);
         }
 
@@ -96,9 +96,9 @@ namespace PetStore.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaDM = new SelectList(db.DANHMUCs, "MaDM", "TenDM", sANPHAM.MaDM);
-            ViewBag.MaLoaiPet = new SelectList(db.LOAIPETs, "MaLoaiPet", "TenLoaiPet", sANPHAM.MaLoaiPet);
-            ViewBag.MaNCC = new SelectList(db.NHACUNGCAPs, "MaNCC", "TenNCC", sANPHAM.MaNCC);
+            ViewBag.MaDM = new SelectList(db.DANHMUC, "MaDM", "TenDM", sANPHAM.MaDM);
+            ViewBag.MaLoaiPet = new SelectList(db.LOAIPET, "MaLoaiPet", "TenLoaiPet", sANPHAM.MaLoaiPet);
+            ViewBag.MaNCC = new SelectList(db.NHACUNGCAP, "MaNCC", "TenNCC", sANPHAM.MaNCC);
             return View(sANPHAM);
         }
 
@@ -109,7 +109,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SANPHAM sANPHAM = db.SANPHAMs.Find(id);
+            SANPHAM sANPHAM = db.SANPHAM.Find(id);
             if (sANPHAM == null)
             {
                 return HttpNotFound();
@@ -122,8 +122,8 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            SANPHAM sANPHAM = db.SANPHAMs.Find(id);
-            db.SANPHAMs.Remove(sANPHAM);
+            SANPHAM sANPHAM = db.SANPHAM.Find(id);
+            db.SANPHAM.Remove(sANPHAM);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<DONHANG> getList()
         {
-            return db.DONHANGs.ToList();
+            return db.DONHANG.ToList();
         }
         //return 1 item
         public DONHANG getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.DONHANGs.Find(id);
+                return db.DONHANG.Find(id);
             }
         }
         //add item
         public int Insert(DONHANG row)
         {
-            db.DONHANGs.Add(row);
+            db.DONHANG.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(DONHANG row)
         {
-            db.DONHANGs.Remove(row);
+            db.DONHANG.Remove(row);
             return db.SaveChanges();
         }
     }

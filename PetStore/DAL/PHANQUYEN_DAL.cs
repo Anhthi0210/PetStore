@@ -13,7 +13,7 @@ namespace PetStore.DAL
         //return 1 list
         public List<PHANQUYEN> getList()
         {
-            return db.PHANQUYENs.ToList();
+            return db.PHANQUYEN.ToList();
         }
         //return 1 item
         public PHANQUYEN getRow(string id)
@@ -24,13 +24,13 @@ namespace PetStore.DAL
             }
             else
             {
-                return db.PHANQUYENs.Find(id);
+                return db.PHANQUYEN.Find(id);
             }
         }
         //add item
         public int Insert(PHANQUYEN row)
         {
-            db.PHANQUYENs.Add(row);
+            db.PHANQUYEN.Add(row);
             return db.SaveChanges();
         }
         //update
@@ -42,7 +42,7 @@ namespace PetStore.DAL
         //delete
         public int Delete(PHANQUYEN row)
         {
-            db.PHANQUYENs.Remove(row);
+            db.PHANQUYEN.Remove(row);
             return db.SaveChanges();
         }
     }
