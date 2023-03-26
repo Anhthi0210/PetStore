@@ -141,12 +141,11 @@ namespace PetStore.Controllers
 
             List<Giohang> gh = Laygiohang();
             var ngaygiao = String.Format("{0:dd/MM/yyyy}", collection["NgayGiao"]);
-
+            dh.MaDH = 
             dh.MaKH = kh.MaKH;
             dh.NgayDatHang = DateTime.Now;
             dh.NgayGiaoHang = DateTime.Parse(ngaygiao);
             dh.DiaChiNhan = kh.DiaChi;
-
             data.DONHANG.Add(dh);
             data.SaveChanges();
             foreach (var item in gh)
