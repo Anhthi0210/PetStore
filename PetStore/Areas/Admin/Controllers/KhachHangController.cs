@@ -39,7 +39,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/KhachHang/Create
         public ActionResult Create()
         {
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap","TenDangNhap");
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap","TenDangNhap");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace PetStore.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap", kHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "TenDangNhap", kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
@@ -74,7 +74,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap", kHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "TenDangNhap", kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
@@ -92,7 +92,7 @@ namespace PetStore.Areas.Admin.Controllers
                 TempData["Message"] = new PushNoti("info", "Cập nhật Khách hàng thành công !");
                 return RedirectToAction("Index");
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap",kHACHHANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "TenDangNhap",kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 

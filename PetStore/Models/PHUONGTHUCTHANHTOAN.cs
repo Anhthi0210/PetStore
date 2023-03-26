@@ -1,4 +1,4 @@
-namespace PetStore.Models
+﻿namespace PetStore.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,6 +17,7 @@ namespace PetStore.Models
 
         [Key]
         [StringLength(50)]
+        [Display(Name = "Mã Phương thức")]
         public string MaPTTT { get; set; }
 
         [Required]

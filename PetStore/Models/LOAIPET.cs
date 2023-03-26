@@ -14,13 +14,14 @@ namespace PetStore.Models
         {
             SANPHAM = new HashSet<SANPHAM>();
         }
-
         [Key]
         [StringLength(50)]
+        [Display(Name = "Mã Loài")]
         public string MaLoaiPet { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Tên Loài")]
         public string TenLoaiPet { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
