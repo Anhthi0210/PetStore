@@ -953,6 +953,7 @@
             <ul id="navbar">
                 @if (Session["TaiKhoanAD"] == null)
                 {
+                    <li>@Html.ActionLink("Đăng nhập", "Login", "Admin/TaiKhoan", new { area = "" }, new { @class = "cusor" })</li>
                 }
                 else
                 {

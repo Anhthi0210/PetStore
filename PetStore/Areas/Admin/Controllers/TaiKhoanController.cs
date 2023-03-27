@@ -166,10 +166,10 @@ namespace PetStore.Areas.Admin.Controllers
         public ActionResult Logout()
         {
 
-            Session["TaikhoanAD"] = "";
-            Session["UserName"] = "";
+            Session["TaikhoanAD"] = null;
+            Session["UserName"] = null;
 
-            return RedirectToAction("Login", "Admin/TaiKhoan");
+            return RedirectToAction("Index", "Admin/DashBroad");
         }
     }
 }
