@@ -43,9 +43,11 @@
                                 @Html.DisplayNameFor(model => model.TenKH)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.TAIKHOAN.TenDangNhap)
+                                @Html.DisplayNameFor(model => model.TenDangNhap)
                             </th>
-
+                            <th>
+                                @Html.DisplayNameFor(model => model.MatKhau)
+                            </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.GioTinh)
                             </th>
@@ -78,9 +80,11 @@
                                     @Html.DisplayFor(modelItem => item.TenKH)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.TAIKHOAN.TenDangNhap)
+                                    @Html.DisplayFor(modelItem => item.TenDangNhap)
                                 </td>
-
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MatKhau)
+                                </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.GioTinh)
                                 </td>
@@ -105,7 +109,7 @@
                                     <a class=" btn btn-sm btn-delete fa fa-trash-alt" href="@Url.Action("Delete","KhachHang",new { id = item.MaKH })"></a>
 
                                     @*@Html.ActionLink("Sửa", "Edit", new { id = item.MaDM }) |
-            @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM })*@
+                                        @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM })*@
                                 </td>
                             </tr>
                         }

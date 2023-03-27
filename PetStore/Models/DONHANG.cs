@@ -44,7 +44,6 @@ namespace PetStore.Models
         [Display(Name = "Thành tiền")]
         public decimal? TongTien { get; set; }
         [Required]
-        [StringLength(50)]
         public int? MaKH { get; set; }
 
         [StringLength(50)]

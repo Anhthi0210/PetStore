@@ -16,7 +16,6 @@ namespace PetStore.Models
         }
 
         [Key]
-        [StringLength(50)]
         [Display(Name = "Mã Khách hàng")]
         public int MaKH { get; set; }
 

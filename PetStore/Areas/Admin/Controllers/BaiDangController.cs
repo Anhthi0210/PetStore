@@ -47,7 +47,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/BaiDang/Create
         public ActionResult Create()
         {
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap");
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "TenDangNhap");
             return View();
         }
 
@@ -60,12 +60,12 @@ namespace PetStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.BAIDANGs.Add(bAIDANG);
+                db.BAIDANG.Add(bAIDANG);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap", bAIDANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "TenDangNhap", bAIDANG.TenDangNhap);
             return View(bAIDANG);
         }
 
@@ -76,12 +76,12 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BAIDANG bAIDANG = db.BAIDANGs.Find(id);
+            BAIDANG bAIDANG = db.BAIDANG.Find(id);
             if (bAIDANG == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap", bAIDANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "TenDangNhap", bAIDANG.TenDangNhap);
             return View(bAIDANG);
         }
 
@@ -98,7 +98,7 @@ namespace PetStore.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOANs, "TenDangNhap", "TenDangNhap", bAIDANG.TenDangNhap);
+            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "TenDangNhap", bAIDANG.TenDangNhap);
             return View(bAIDANG);
         }
 
