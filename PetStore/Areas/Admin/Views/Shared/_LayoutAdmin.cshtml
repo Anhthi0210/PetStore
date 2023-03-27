@@ -144,7 +144,8 @@
                     <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                         <i class="fas fa-th-large"></i>
                     </a>
-                </li>
+                    
+                </li>               
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -949,6 +950,19 @@
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
+            <ul id="navbar">
+                @if (Session["TaiKhoanAD"] == null)
+                {
+                }
+                else
+                {
+
+                    <li>@Html.ActionLink("Xin chào " + @Session["UserName"], "Index", "DashBroad")</li>
+                    <li>@Html.ActionLink("Đăng xuất", "Logout", "TaiKhoan", new { area = "" }, new { @class = "cusor" })</li>
+
+                }
+            </ul>
+
         </aside>
         <!-- /.control-sidebar -->
     </div>
