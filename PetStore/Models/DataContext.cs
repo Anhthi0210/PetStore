@@ -39,10 +39,6 @@ namespace PetStore.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<CHITIETDONHANG>()
-                .Property(e => e.MaDH)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CHITIETDONHANG>()
                 .Property(e => e.MaSP)
                 .IsUnicode(false);
 
@@ -58,10 +54,6 @@ namespace PetStore.Models
                 .HasMany(e => e.SANPHAM)
                 .WithRequired(e => e.DANHMUC)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<DONHANG>()
-                .Property(e => e.MaDH)
-                .IsUnicode(false);
 
             modelBuilder.Entity<DONHANG>()
                 .Property(e => e.SĐT)
@@ -99,6 +91,11 @@ namespace PetStore.Models
             modelBuilder.Entity<KHACHHANG>()
                 .Property(e => e.MatKhau)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<KHACHHANG>()
+                .HasMany(e => e.DONHANG)
+                .WithRequired(e => e.KHACHHANG)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LOAIPET>()
                 .Property(e => e.MaLoaiPet)

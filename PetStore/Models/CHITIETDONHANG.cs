@@ -11,8 +11,8 @@ namespace PetStore.Models
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(50)]
-        public string MaDH { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaDH { get; set; }
 
         [Key]
         [Column(Order = 1)]

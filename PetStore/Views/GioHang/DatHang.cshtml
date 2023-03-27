@@ -117,42 +117,6 @@
             <td style="font-weight: bold">@kh.GioTinh</td>
         </tr>
         <tr style="height:40px">
-            <td>Phương thức thanh toán:</td>
-            <td style="font-weight: bold">
-                @Html.EditorFor(model => dh.MaPTTT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => dh.MaPTTT, "", new { @class = "text-danger" })
-            </td>
-        </tr>
-        @*<tr class="form-group">
-                @Html.LabelFor(model => dh.MaPTTT, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => dh.MaPTTT, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => dh.MaPTTT, "", new { @class = "text-danger" })
-                </div>
-            </tr>*@
-        <tr style="height:40px">
-            <td>Phương thức vận chuyển:</td>
-            <td style="font-weight: bold">
-                @Html.EditorFor(model => dh.MaPTGH, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => dh.MaPTGH, "", new { @class = "text-danger" })
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td>Trạng thái:</td>
-            <td style="font-weight: bold">
-                @Html.EditorFor(model => dh.MaTT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => dh.MaTT, "", new { @class = "text-danger" })
-            </td>
-        </tr>
-        @*<tr style="height:40px">
-            <td>Phương thức vận chuyển:</td>
-            <td style="font-weight: bold">@dh.MaPTGH</td>
-        </tr>
-        <tr style="height:40px">
-            <td>Trạng thái:</td>
-            <td style="font-weight: bold">@dh.MaTT</td>
-        </tr>*@
-        <tr style="height:40px">
             <td></td>
             <td style="font-weight: bold">
                 <input type="submit" value="Xác nhận" class="btn btn-success" />

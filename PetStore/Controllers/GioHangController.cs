@@ -138,14 +138,16 @@ namespace PetStore.Controllers
             PHUONGTHUCTHANHTOAN pttt = new PHUONGTHUCTHANHTOAN();
             PHUONGTHUCGIAOHANG ptgh = new PHUONGTHUCGIAOHANG();
             TRANGTHAI tt = new TRANGTHAI();
+            
 
             List<Giohang> gh = Laygiohang();
             var ngaygiao = String.Format("{0:dd/MM/yyyy}", collection["NgayGiao"]);
-            dh.MaDH = 
             dh.MaKH = kh.MaKH;
+            dh.TenNguoiNhan = kh.TenKH;
+            dh.DiaChiNhan = kh.DiaChi;
+            dh.SĐT = kh.SĐT;
             dh.NgayDatHang = DateTime.Now;
             dh.NgayGiaoHang = DateTime.Parse(ngaygiao);
-            dh.DiaChiNhan = kh.DiaChi;
             data.DONHANG.Add(dh);
             data.SaveChanges();
             foreach (var item in gh)

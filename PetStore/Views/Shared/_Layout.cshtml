@@ -107,21 +107,20 @@
                 <div class="dangnhap">
                     <a href="@Url.Action("Dangnhap","Nguoidung")"> Đăng nhập</a>
                 </div>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="nav-link"> Xin Chào @Session["Taikhoandn"]</a>
-
-                    <div class="dropdown-content">
-                        @if (Session["Taikhoan"] != null)
-                        {
-
-                            <a href="@Url.Action("Logout","Nguoidung")">
-                                Đăng xuất
-                            </a>
+                <div>
+                    <ul id="navbar">
+                        @if (Session["TaiKhoan"] == null)
+                        {                   
                         }
+                        else
+                        {
+                            <li>@Html.ActionLink("Xin chào " + @Session["TenKH"], "Index", "HomeAdmin", new { area = "", @id = Session["TaiKhoan"] }, new { @class = "cusor" })</li>
 
+                            <li>@Html.ActionLink("Đăng xuất", "Logout", "NguoiDung", new { area = "" }, new { @class = "cusor" })</li>
 
-                    </div>
-                </li>
+                        }
+                    </ul>
+                </div>             
             </div>
         </div>
     </nav>
