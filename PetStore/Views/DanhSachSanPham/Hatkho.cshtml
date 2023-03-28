@@ -1,14 +1,13 @@
-﻿@model PetStore.Models.SANPHAM
-
+﻿@model IEnumerable<PetStore.Models.SANPHAM>
 
 @{
     ViewBag.Title = "Hatkho";
     Layout = "~/Views/Shared/_Layout.cshtml";
     <link href="~/CSS/BT.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 }
+
 <h2></h2>
+
 <div class="row">
     @foreach (var item in Model)
     {
