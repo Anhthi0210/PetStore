@@ -22,7 +22,7 @@ namespace PetStore.Areas.Admin.Controllers
         }
 
         // GET: Admin/DonHang/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
@@ -69,7 +69,7 @@ namespace PetStore.Areas.Admin.Controllers
         }
 
         // GET: Admin/DonHang/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
@@ -109,7 +109,7 @@ namespace PetStore.Areas.Admin.Controllers
         }
 
         // GET: Admin/DonHang/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
@@ -126,7 +126,7 @@ namespace PetStore.Areas.Admin.Controllers
         // POST: Admin/DonHang/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             DONHANG dONHANG = db.DONHANG.Find(id);
             db.DONHANG.Remove(dONHANG);
