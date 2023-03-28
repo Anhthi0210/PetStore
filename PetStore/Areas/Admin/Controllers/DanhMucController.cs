@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using PetStore.Models;
 using PetStore.DAL;
+using System.Data.SqlClient;
 
 namespace PetStore.Areas.Admin.Controllers
 {
@@ -16,6 +17,40 @@ namespace PetStore.Areas.Admin.Controllers
         DANHMUC_DAL dANHMUC_DAL= new DANHMUC_DAL();
 
         // GET: Admin/DanhMuc
+        public void getNewId()
+        {
+
+        }
+        /*public void AddNewProduct()
+        {
+            // Kết nối tới cơ sở dữ liệu
+            SqlConnection conn = new SqlConnection("Data Source=yourServerName;Initial Catalog=yourDatabaseName;Integrated Security=True");
+            conn.Open();
+
+            // Truy vấn lấy id của sản phẩm cuối cùng có dạng SP0x
+            SqlCommand cmd = new SqlCommand("SELECT TOP 1 Id FROM Products WHERE Id LIKE 'SP0%' ORDER BY Id DESC", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            int lastProductId = 0;
+            if (reader.Read())
+            {
+                string lastId = reader["Id"].ToString();
+                lastProductId = int.Parse(lastId.Substring(3));
+            }
+            reader.Close();
+
+            // Thêm sản phẩm mới với id dạng SP0y với y=x+1
+            int newProductId = lastProductId + 1;
+            string newId = "SP0" + newProductId.ToString();
+            SqlCommand insertCmd = new SqlCommand("INSERT INTO Products (Id, Name, Price) VALUES (@Id, @Name, @Price)", conn);
+            insertCmd.Parameters.AddWithValue("@Id", newId);
+            insertCmd.Parameters.AddWithValue("@Name", "New Product");
+            insertCmd.Parameters.AddWithValue("@Price", 0.0);
+            insertCmd.ExecuteNonQuery();
+
+            // Đóng kết nối
+            conn.Close();
+        }*/
+
         public ActionResult Index()
         {
             return View(dANHMUC_DAL.getList());
@@ -39,6 +74,22 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/DanhMuc/Create
         public ActionResult Create()
         {
+            // Kết nối tới cơ sở dữ liệu
+            SqlConnection conn = new SqlConnection("Data Source=mrthawng;Initial Catalog=PetStore;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+            conn.Open();
+
+            // Truy vấn lấy id của sản phẩm cuối cùng có dạng SP0x
+            SqlCommand cmd = new SqlCommand("SELECT TOP 1 MaDM FROM DANHMUC WHERE MaDM LIKE 'DM0%' ORDER BY MaDM DESC", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            int lastProductId = 0;
+            if (reader.Read())
+            {
+                string lastId = reader["MaDM"].ToString();
+                lastProductId = int.Parse(lastId.Substring(3));
+            }
+            reader.Close();
+            conn.Close();
+            ViewBag.lastProductId = "TT";
             return View();
         }
 
