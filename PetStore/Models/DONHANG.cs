@@ -16,33 +16,29 @@ namespace PetStore.Models
         }
 
         [Key]
+        public int MaDH { get; set; }
+
         [StringLength(50)]
-        [Display(Name = "Mã Hóa đơn")]
-        public string MaDH { get; set; }
+        public string TenNguoiNhan { get; set; }
+
+        [Required]
+        public string DiaChiNhan { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Người nhận")]
-        public string TenNguoiNhan { get; set; }
-
-        public string DiaChiNhan { get; set; }
-
-        [StringLength(50)]
         public string SĐT { get; set; }
-        [Display(Name = "Ngày Đặt")]
-        public DateTime? NgayDatHang { get; set; }
-        [Display(Name = "Ngày Giao")]
-        public DateTime? NgayGiaoHang { get; set; }
+
+        public DateTime NgayDatHang { get; set; }
+
+        public DateTime NgayGiaoHang { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Ghi chú")]
         public string Note { get; set; }
 
         [Column(TypeName = "money")]
-        [Display(Name = "Thành tiền")]
         public decimal? TongTien { get; set; }
-        [Required]
-        public int? MaKH { get; set; }
+
+        public int MaKH { get; set; }
 
         [StringLength(50)]
         public string MaPTTT { get; set; }

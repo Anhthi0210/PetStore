@@ -16,41 +16,32 @@ namespace PetStore.Models
         }
 
         [Key]
-        [Display(Name = "Mã Khách hàng")]
         public int MaKH { get; set; }
-
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Họ Tên")]
         public string TenKH { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Giới tính")]
         public string GioTinh { get; set; }
 
         [Column(TypeName = "date")]
-        [Display(Name = "Ngày sinh")]
-        public DateTime? NgaySinh { get; set; }
+        public DateTime NgaySinh { get; set; }
 
         [Required]
         [StringLength(255)]
-        [Display(Name = "Địa chỉ")]
         public string DiaChi { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "SĐT")]
         public string SĐT { get; set; }
 
         [Required]
         [StringLength(100)]
-        [Display(Name = "Email")]
         public string Email { get; set; }
-        [Display(Name = "Điểm Tích Lũy")]
+
         public int? DiemTichLuy { get; set; }
-        [Required]
 
         [Required]
         [StringLength(50)]
