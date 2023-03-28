@@ -5,85 +5,105 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Delete</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>SANPHAM</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DANHMUC.TenDM)
-        </dt>
+            <!-- Default box -->
+            <div class="card pt-2">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-8  text-black">
+                            <strong class="text-danger">TIẾN HÀNH XÓA SẢN PHẨM</strong>
+                        </div>
+                        <div class="col-md-4 text-black text-right">
+                            <a class=" btn-back btn btn-sm" href="@Url.Action("Index","SanPham")"> Trở về</a>
+                            <button class="btn btn-sm btn-danger" type="submit" name="create">Xóa</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.DANHMUC.TenDM)
-        </dd>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TenSP)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LOAIPET.TenLoaiPet)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TenSP)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DANHMUC.TenDM)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LOAIPET.TenLoaiPet)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.DANHMUC.TenDM)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NHACUNGCAP.TenNCC)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LOAIPET.TenLoaiPet)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NHACUNGCAP.TenNCC)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.LOAIPET.TenLoaiPet)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenSP)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NHACUNGCAP.TenNCC)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenSP)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.NHACUNGCAP.TenNCC)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DonGia)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DonGia)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DonGia)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
+                        <dd>
+                            <p>@String.Format("{0:#,##0.000}", Model.DonGia) VNĐ</p> 
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SoLuong)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MoTa)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SoLuong)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.MoTa)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Hinh)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SoLuong)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Hinh)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.SoLuong)
+                        </dd>
 
-    </dl>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Hinh)
+                        </dt>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                        <dd>
+                            <img src="@Model.Hinh" alt="HinhSP" />
+                        </dd>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>
+                    </dl>
+                </div>
+                <!-- /.card-body -->
+
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+}

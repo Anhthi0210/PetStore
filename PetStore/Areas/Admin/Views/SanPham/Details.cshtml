@@ -5,7 +5,121 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Details</h2>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card pt-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-8  text-black">
+                        <strong>CHI TIẾT SẢN PHẨM</strong>
+                    </div>
+                    <div class="col-md-4 text-black text-right">
+                        <a class=" btn-back btn btn-sm" href="@Url.Action("Index","SanPham")"> Trở về</a>
+                        <a class=" btn-default btn btn-sm" href="@Url.Action("Edit", "SanPham", new { id = Model.MaSP })">Chỉnh sửa</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="w-25">Tên trường</th>
+                            <th>Nội dung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.TenSP)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(model => model.TenSP)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.DANHMUC.TenDM)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(model => model.DANHMUC.TenDM)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.LOAIPET.TenLoaiPet)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(model => model.LOAIPET.TenLoaiPet)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.NHACUNGCAP.TenNCC)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(model => model.NHACUNGCAP.TenNCC)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.DonGia)
+                            </td>
+
+                            <td>
+                                <p>@String.Format("{0:#,##0.000}", Model.DonGia) VNĐ</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.MoTa)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(model => model.MoTa)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.SoLuong)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(model => model.SoLuong)
+                            </td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Hinh)
+                            </td>
+
+                            <td>
+                                <img src="@Model.Hinh" alt="HinhSP" />
+                            </td>
+                        </tr>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- /.card-body -->
+
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
 
 <div>
     <h4>SANPHAM</h4>

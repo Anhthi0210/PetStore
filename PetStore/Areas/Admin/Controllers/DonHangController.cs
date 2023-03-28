@@ -57,6 +57,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.DONHANG.Add(dONHANG);
                 db.SaveChanges();
+                TempData["message"] = new PushNoti("success", "Thêm Đơn thành công !");
                 return RedirectToAction("Index");
             }
 
@@ -96,7 +97,8 @@ namespace PetStore.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(dONHANG).State = EntityState.Modified;
-                db.SaveChanges();
+                db.SaveChanges(); 
+                TempData["Message"] = new PushNoti("info", "Cập nhật Đơn thành công !");
                 return RedirectToAction("Index");
             }
             ViewBag.MaKH = new SelectList(db.KHACHHANG, "MaKH", "TenKH", dONHANG.MaKH);
@@ -129,6 +131,7 @@ namespace PetStore.Areas.Admin.Controllers
             DONHANG dONHANG = db.DONHANG.Find(id);
             db.DONHANG.Remove(dONHANG);
             db.SaveChanges();
+            TempData["message"] = new PushNoti("danger", "Xóa Đơn thành công !");
             return RedirectToAction("Index");
         }
 

@@ -54,6 +54,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.TAIKHOAN.Add(tAIKHOAN);
                 db.SaveChanges();
+                TempData["message"] = new PushNoti("success", "Thêm Tài khoản thành công !");
                 return RedirectToAction("Index");
             }
 
@@ -88,6 +89,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.Entry(tAIKHOAN).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["Message"] = new PushNoti("info", "Cập nhật Tài khoản thành công !");
                 return RedirectToAction("Index");
             }
             ViewBag.MaPQ = new SelectList(db.PHANQUYEN, "MaPQ", "TenPQ", tAIKHOAN.MaPQ);
@@ -117,6 +119,7 @@ namespace PetStore.Areas.Admin.Controllers
             TAIKHOAN tAIKHOAN = db.TAIKHOAN.Find(id);
             db.TAIKHOAN.Remove(tAIKHOAN);
             db.SaveChanges();
+            TempData["message"] = new PushNoti("danger", "Xóa Tài khoản thành công !");
             return RedirectToAction("Index");
         }
 

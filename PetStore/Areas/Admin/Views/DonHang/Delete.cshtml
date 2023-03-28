@@ -5,109 +5,129 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Delete</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>DONHANG</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.KHACHHANG.TenKH)
-        </dt>
+            <!-- Default box -->
+            <div class="card pt-2">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-8  text-black">
+                            <strong class="text-danger">TIẾN HÀNH XÓA ĐƠN HÀNG</strong>
+                        </div>
+                        <div class="col-md-4 text-black text-right">
+                            <a class=" btn-back btn btn-sm" href="@Url.Action("Index","DonHang")"> Trở về</a>
+                            <button class="btn btn-sm btn-danger" type="submit" name="create">Xóa</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.KHACHHANG.TenKH)
-        </dd>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.KHACHHANG.TenKH)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PHUONGTHUCGIAOHANG.TenPTGH)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KHACHHANG.TenKH)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PHUONGTHUCGIAOHANG.TenPTGH)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PHUONGTHUCGIAOHANG.TenPTGH)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PHUONGTHUCTHANHTOAN.TenPTTT)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.PHUONGTHUCGIAOHANG.TenPTGH)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PHUONGTHUCTHANHTOAN.TenPTTT)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PHUONGTHUCTHANHTOAN.TenPTTT)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TRANGTHAI.TenTT)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.PHUONGTHUCTHANHTOAN.TenPTTT)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TRANGTHAI.TenTT)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TRANGTHAI.TenTT)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenNguoiNhan)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TRANGTHAI.TenTT)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenNguoiNhan)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TenNguoiNhan)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChiNhan)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TenNguoiNhan)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DiaChiNhan)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DiaChiNhan)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SĐT)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.DiaChiNhan)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SĐT)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SĐT)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayDatHang)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SĐT)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayDatHang)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NgayDatHang)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayGiaoHang)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.NgayDatHang)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayGiaoHang)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NgayGiaoHang)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Note)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.NgayGiaoHang)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Note)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Note)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TongTien)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Note)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TongTien)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TongTien)
+                        </dt>
 
-    </dl>
+                        <dd>
+                            <p>@String.Format("{0:#,##0.000}", Model.TongTien) VNĐ</p>
+                        </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                    </dl>
+                </div>
+                <!-- /.card-body -->
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+}
+

@@ -5,40 +5,54 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>PHUONGTHUCTHANHTOAN</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaPTTT, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaPTTT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaPTTT, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TenPTTT, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenPTTT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenPTTT, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <!-- Default box -->
+            <div class="card pt-2">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-8  text-black">
+                            <strong>THÊM MỚI PHƯƠNG THỨC</strong>
+                        </div>
+                        <div class="col-md-4 text-black text-right">
+                            <a class=" btn-back btn btn-sm" href="@Url.Action("Index","PhuongThucThanhToan")"> Trở về</a>
+                            <button class="btn btn-sm btn-success" type="submit" name="create">Lưu</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Mã Danh mục<span class="text-danger">(*)</span></label>
+                                @Html.EditorFor(model => model.MaPTTT, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MaPTTT, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-9">
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                            <div class="form-group">
+                                <label>Tên Danh mục<span class="text-danger">(*)</span></label>
+                                @Html.EditorFor(model => model.TenPTTT, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TenPTTT, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
             </div>
-        </div>
+        </section>
+        <!-- /.content -->
     </div>
+    <!-- /.content-wrapper -->
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

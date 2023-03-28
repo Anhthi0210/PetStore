@@ -194,6 +194,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Public\css\jquery.dataTables.min.css" />
+    <Content Include="Areas\Public\css\sanpham_img.css" />
     <Content Include="Areas\Public\dist\css\adminlte.css" />
     <Content Include="Areas\Public\dist\css\adminlte.min.css" />
     <Content Include="Areas\Public\dist\css\alt\adminlte.components.css" />
@@ -248,7 +250,9 @@
     <Content Include="Areas\Public\dist\js\pages\dashboard.js" />
     <Content Include="Areas\Public\dist\js\pages\dashboard2.js" />
     <Content Include="Areas\Public\dist\js\pages\dashboard3.js" />
+    <Content Include="Areas\Public\images\acc.jpg" />
     <Content Include="Areas\Public\images\logo.jpg" />
+    <Content Include="Areas\Public\js\jquery.dataTables.min.js" />
     <Content Include="Areas\Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Areas\Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Areas\Public\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
@@ -2388,11 +2392,6 @@
     <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\KhachHang\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\KhachHang\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\KhachHang\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\KhachHang\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\KhachHang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiPet\Create.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiPet\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiPet\Details.cshtml" />
@@ -2444,7 +2443,11 @@
     <Content Include="Areas\Admin\Views\YKienKhachHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\YKienKhachHang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Message.cshtml" />
-    <Content Include="Areas\Admin\Views\TaiKhoan\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

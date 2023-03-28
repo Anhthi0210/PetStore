@@ -17,12 +17,11 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/KhachHang
         public ActionResult Index()
         {
-            var kHACHHANGs = db.KHACHHANG.Include(k => k.TenDangNhap);
-            return View(kHACHHANGs.ToList());
+            return View(db.KHACHHANG.ToList());
         }
 
         // GET: Admin/KhachHang/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -39,7 +38,6 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/KhachHang/Create
         public ActionResult Create()
         {
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau");
             return View();
         }
 
@@ -48,21 +46,21 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaKH,TenKH,GioTinh,NgaySinh,DiaChi,SĐT,Email,DiemTichLuy,TenDangNhap")] KHACHHANG kHACHHANG)
+        public ActionResult Create([Bind(Include = "MaKH,TenKH,GioTinh,NgaySinh,DiaChi,SĐT,Email,DiemTichLuy,TenDangNhap,MatKhau")] KHACHHANG kHACHHANG)
         {
             if (ModelState.IsValid)
             {
                 db.KHACHHANG.Add(kHACHHANG);
                 db.SaveChanges();
+                TempData["message"] = new PushNoti("success", "Thêm Khách hàng thành công !");
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
         // GET: Admin/KhachHang/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -73,7 +71,6 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
@@ -82,20 +79,20 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaKH,TenKH,GioTinh,NgaySinh,DiaChi,SĐT,Email,DiemTichLuy,TenDangNhap")] KHACHHANG kHACHHANG)
+        public ActionResult Edit([Bind(Include = "MaKH,TenKH,GioTinh,NgaySinh,DiaChi,SĐT,Email,DiemTichLuy,TenDangNhap,MatKhau")] KHACHHANG kHACHHANG)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(kHACHHANG).State = EntityState.Modified;
-                db.SaveChanges();
+                db.SaveChanges(); 
+                TempData["Message"] = new PushNoti("info", "Cập nhật Khách hàng thành công!");
                 return RedirectToAction("Index");
             }
-            ViewBag.TenDangNhap = new SelectList(db.TAIKHOAN, "TenDangNhap", "MatKhau", kHACHHANG.TenDangNhap);
             return View(kHACHHANG);
         }
 
         // GET: Admin/KhachHang/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -112,11 +109,12 @@ namespace PetStore.Areas.Admin.Controllers
         // POST: Admin/KhachHang/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             KHACHHANG kHACHHANG = db.KHACHHANG.Find(id);
             db.KHACHHANG.Remove(kHACHHANG);
             db.SaveChanges();
+            TempData["Message"] = new PushNoti("danger", "Xóa Khách hàng Thành công!");
             return RedirectToAction("Index");
         }
 

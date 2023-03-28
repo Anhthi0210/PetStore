@@ -20,7 +20,15 @@ namespace PetStore.Areas.Admin.Controllers
             var sANPHAMs = db.SANPHAM.Include(s => s.DANHMUC).Include(s => s.LOAIPET).Include(s => s.NHACUNGCAP);
             return View(sANPHAMs.ToList());
         }
-
+        public string ProcessUpload(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return "";
+            }
+            file.SaveAs(Server.MapPath("~/Content/images/" + file.FileName));
+            return "/Content/images/" + file.FileName;
+        }
         // GET: Admin/SanPham/Details/5
         public ActionResult Details(string id)
         {
@@ -56,6 +64,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.SANPHAM.Add(sANPHAM);
                 db.SaveChanges();
+                TempData["message"] = new PushNoti("success", "Thêm Danh mục thành công !");
                 return RedirectToAction("Index");
             }
 
@@ -94,6 +103,7 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 db.Entry(sANPHAM).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["Message"] = new PushNoti("info", "Cập nhật Danh mục thành công !");
                 return RedirectToAction("Index");
             }
             ViewBag.MaDM = new SelectList(db.DANHMUC, "MaDM", "TenDM", sANPHAM.MaDM);
@@ -125,6 +135,7 @@ namespace PetStore.Areas.Admin.Controllers
             SANPHAM sANPHAM = db.SANPHAM.Find(id);
             db.SANPHAM.Remove(sANPHAM);
             db.SaveChanges();
+            TempData["message"] = new PushNoti("danger", "Xóa Danh mục thành công !");
             return RedirectToAction("Index");
         }
 

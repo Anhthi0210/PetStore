@@ -1,4 +1,4 @@
-namespace PetStore.Models
+﻿namespace PetStore.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,10 +17,12 @@ namespace PetStore.Models
 
         [Key]
         [StringLength(50)]
+        [Display(Name = "Mã Trạng thái")] 
         public string MaTT { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Trạng thái")]
         public string TenTT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

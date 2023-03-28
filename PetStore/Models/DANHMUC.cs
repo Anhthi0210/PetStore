@@ -1,4 +1,4 @@
-namespace PetStore.Models
+﻿namespace PetStore.Models
 {
     using System;
     using System.Collections.Generic;
@@ -16,11 +16,17 @@ namespace PetStore.Models
         }
 
         [Key]
+        [Required(ErrorMessage = "Cannot be blank!")]
+        [RegularExpression(@"^[A-Za-z 0-9]*$", ErrorMessage = "Cannot use special characters in Category Name.")]
         [StringLength(50)]
+        [Display(Name = "Mã Danh mục")]
         public string MaDM { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Category Name cannot be blank!")]
         [StringLength(50)]
+        [RegularExpression(@"^[A-Za-z 0-9]*$", ErrorMessage ="Cannot use special characters in Category Name.")]
+        [MinLength(10,ErrorMessage ="Category Name should contain at least 10 characters.")]
+        [Display(Name = "Tên Danh mục")]
         public string TenDM { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
