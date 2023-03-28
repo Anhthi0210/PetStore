@@ -42,5 +42,12 @@ namespace PetStore.Controllers
 
             return View(all);
         }
+        public ActionResult Hatkho(string id)
+        {
+
+            var all = db.SANPHAM.Where(x => x.MaDM == "MD01");
+
+            return View(all);
+        }
     }
 }

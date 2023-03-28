@@ -1,0 +1,49 @@
+﻿@model PetStore.Models.SANPHAM
+
+
+@{
+    ViewBag.Title = "Hatkho";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/CSS/BT.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+}
+<h2></h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="container bootdey">
+                <div class="product-list">
+                    <div class="col-md-4">
+                        <div class="card border-info mb-3" style="max-width: 15rem;">
+                            <section class="panel">
+                                <div class="pro-img-box">
+                                    <img src="@item.Hinh" alt="" />
+                                </div>
+                                <div class="xemthem">
+                                    <div class="DatMua" style="display: inline-block; justify-content: left">
+                                        <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
+                                                    new { @id = item.MaSP, @strURL = Request.Url.ToString() })">Đặt mua</a>
+                                    </div>
+                                    <div class="detail" style="; display: inline-block; justify-content: right">
+                                        <a class="btn btn-success" href="@Url.Action("Detail", "DanhSachSanPham",
+                                                    new { @id = item.MaSP, @strURL = Request.Url.ToString() })">Detail</a>
+                                    </div>
+                                </div>
+                                <div class="panel-body text-center">
+                                    <h4>
+                                        <a href="" class="pro-title">
+                                            @item.TenSP
+                                        </a>
+                                    </h4>
+                                    <p class="price">@String.Format("{0:#,##0.000}", item.DonGia) VNĐ</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
