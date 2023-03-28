@@ -89,7 +89,7 @@ namespace PetStore.Areas.Admin.Controllers
             }
             reader.Close();
             conn.Close();
-            ViewBag.lastProductId = "TT";
+            ViewBag.lastProductId = lastProductId;
             return View();
         }
 
