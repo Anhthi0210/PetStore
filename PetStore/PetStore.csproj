@@ -2448,6 +2448,7 @@
     <Content Include="Areas\Admin\Views\KhachHang\Details.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoan\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
