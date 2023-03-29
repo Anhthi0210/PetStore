@@ -1,13 +1,12 @@
 ﻿@model IEnumerable<PetStore.Models.SANPHAM>
 
 @{
-    ViewBag.Title = "Hatkho";
+    ViewBag.Title = "AllCho";
     Layout = "~/Views/Shared/_Layout.cshtml";
     <link href="~/CSS/BT.css" rel="stylesheet" />
 }
 
-<h2></h2>
-
+<h2>DÀNH CHO CHÓ</h2>
 <div class="row">
     @foreach (var item in Model)
     {
@@ -46,3 +45,13 @@
         </div>
     }
 </div>
+<style>
+    .pro-title {
+        overflow: hidden;
+        display: block;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+</style>
+

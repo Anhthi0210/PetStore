@@ -2481,7 +2481,9 @@
     <Content Include="Views\GioHang\XacnhanDonhang.cshtml" />
     <Content Include="Views\NguoiDung\Dangky.cshtml" />
     <Content Include="Views\NguoiDung\Dangnhap.cshtml" />
-    <Content Include="Views\DanhSachSanPham\Hatkho.cshtml" />
+    <Content Include="Views\DanhSachSanPham\ThucAnKho.cshtml" />
+    <Content Include="Views\DanhSachSanPham\ThucAnUot.cshtml" />
+    <Content Include="Views\DanhSachSanPham\AllCho.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

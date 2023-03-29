@@ -42,12 +42,26 @@ namespace PetStore.Controllers
 
             return View(all);
         }
-        public ActionResult Hatkho(string id)
+        public ActionResult ThucAnKho(string id)
         {
             id = "DM01";
-            var all = db.SANPHAM.Where(x => x.MaDM == id);
+            var all = db.SANPHAM.Where(x => x.MaDM == id && x.MaLoaiPet == "PET01");
 
             return View(all);
         }
+        public ActionResult ThucAnUot(string id)
+        {
+            id = "DM02";
+            var all = db.SANPHAM.Where(x => x.MaDM == id && x.MaLoaiPet == "PET01");
+
+            return View(all);
+        }
+        public ActionResult AllCho()
+        {
+            var all = db.SANPHAM.Where(x => x.MaLoaiPet == "PET01");
+
+            return View(all);
+        }
+
     }
 }

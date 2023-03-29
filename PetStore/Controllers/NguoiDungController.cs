@@ -106,6 +106,7 @@ namespace PetStore.Controllers
             var email = collection["Email"];
             var mk = collection["MatKhau"];
             KHACHHANG kh = data.KHACHHANG.SingleOrDefault(n => n.Email.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());
+            TAIKHOAN tk = data.TAIKHOAN.SingleOrDefault(n => n.TenDangNhap.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());
             if (kh != null)
             {
                 ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
