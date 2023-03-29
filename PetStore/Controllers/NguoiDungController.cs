@@ -103,9 +103,9 @@ namespace PetStore.Controllers
         [HttpPost]
         public ActionResult Dangnhap(FormCollection collection)
         {
-            var email = collection["Email"];
+            var email = collection["TenDN"];
             var mk = collection["MatKhau"];
-            KHACHHANG kh = data.KHACHHANG.SingleOrDefault(n => n.Email.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());
+            KHACHHANG kh = data.KHACHHANG.SingleOrDefault(n => n.TenDangNhap.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());
             TAIKHOAN tk = data.TAIKHOAN.SingleOrDefault(n => n.TenDangNhap.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());
             if (kh != null)
             {
@@ -113,6 +113,17 @@ namespace PetStore.Controllers
                 Session["TaiKhoan"] = kh;
                 Session["Tenkh"] = kh.TenKH;
 
+                return RedirectToAction("Index", "DanhSachSanPham");
+            }
+            if (tk != null)
+            {
+                ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
+                Session["TaikhoanAD"] = tk;
+                Session["UserName"] = tk.TenDangNhap;
+                Session["PhanQuyen"] = tk.PHANQUYEN.TenPQ;
+
+
+                return RedirectToAction("Index", "Admin/Dashbroad");
             }
             else if (kh == null)
             {
@@ -124,7 +135,7 @@ namespace PetStore.Controllers
                 ViewData["ErrorPass"] = "Mật khẩu không đúng";
                 return this.Dangnhap();
             }
-            return RedirectToAction("GioHang", "GioHang");
+            return View();
         }
         public ActionResult Logout()
         {
