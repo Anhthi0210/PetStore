@@ -40,11 +40,18 @@ namespace PetStore.Controllers
             Match matchMail = regexMail.Match(email);
             Regex regexPhone = new Regex(@"^(84|0[3|5|7|8|9])+([0-9]{8})\b");
             Match matchPhone = regexPhone.Match(dienthoai);
+            Regex regexTen = new Regex(@"^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)
+            ((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$");
+            Match matchTen = regexTen.Match(hoten);
             var checkEmail = data.KHACHHANG.FirstOrDefault(x => x.Email == email);
             if (checkEmail != null)
             {
                 ViewData["Loiemail"] = "email đã tồn tại, vui long nha email khac";
                 return this.DangKy();
+            }
+            if (!matchTen.Success && hoten.LongCount() < 8)
+            {
+                ViewData["Loi1"] = "Họ tên chỉ được nhập chữ và dài ít nhất 8 kí tự";
             }
             if (tempt != null)
             {
