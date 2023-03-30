@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using PetStore.Models;
 
@@ -20,16 +21,13 @@ namespace PetStore.Areas.Admin.Controllers
             var tAIKHOANs = db.TAIKHOAN.Include(t => t.PHANQUYEN);
             return View(tAIKHOANs.ToList());
         }
-
+        public ActionResult Baoloi()
+        {
+            return View();
+        }
         // GET: Admin/TaiKhoan/Details/5
         public ActionResult Details(string id)
         {
-            //if (tk.MaPQ != "PQ02")
-            //{
-            //    di
-            //}
-            //else
-            //{
                 if (id == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -40,7 +38,7 @@ namespace PetStore.Areas.Admin.Controllers
                     return HttpNotFound();
                 }
                 return View(tAIKHOAN);
-            //}
+                
 
         }
 

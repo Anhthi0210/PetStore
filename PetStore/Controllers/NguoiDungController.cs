@@ -103,11 +103,12 @@ namespace PetStore.Controllers
         [HttpPost]
         public ActionResult Dangnhap(FormCollection collection)
         {
-            var email = collection["TenDN"];
-            var mk = collection["MatKhau"];
+            var tendn = collection["TenDN"];
+            var mk = collection["MatKhau"];       
             
-            KHACHHANG kh = data.KHACHHANG.SingleOrDefault(n => n.TenDangNhap.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());
-            TAIKHOAN tk = data.TAIKHOAN.SingleOrDefault(n => n.TenDangNhap.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());            
+            KHACHHANG kh = data.KHACHHANG.SingleOrDefault(n => n.TenDangNhap.Trim() == tendn.Trim() && n.MatKhau.Trim() == mk.Trim());
+            TAIKHOAN tk = data.TAIKHOAN.SingleOrDefault(n => n.TenDangNhap.Trim() == tendn.Trim() && n.MatKhau.Trim() == mk.Trim());
+            
             if (tk != null && tk.MaPQ != "PQ03")
             {
                 ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";

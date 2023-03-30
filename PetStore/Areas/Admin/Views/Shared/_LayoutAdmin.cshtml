@@ -305,11 +305,11 @@
                                 </li>
                             </ul>
                         </li>
-                        @{
+                        @*@{
                             //HttpContext.Current.Session["QuanTri"] = "PQ02";
                             string sessionValue = HttpContext.Current.Session["QuanTri"] as string;
-                        }
-                        @if (Session["QuanTri"] == "PQ02")
+                        }*@
+                        @if (Session["QuanTri"] != null)
                         {
 
                             <li class="nav-item" id="quantri">
