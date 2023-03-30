@@ -167,12 +167,13 @@
                     <div class="info">
                         @if (Session["TaiKhoanAD"] == null)
                         {
-                           
+
                         }
                         else
                         {
 
-                            <li>@Html.ActionLink("Xin chào " + @Session["UserName"], "Index", "DashBroad")</li>                          
+                            <li>@Html.ActionLink("Xin chào " + @Session["UserName"], "Index", "DashBroad")</li>
+                            
                         }
                     </div>
                 </div>
@@ -193,7 +194,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                         @*San Pham*@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -304,42 +305,96 @@
                                 </li>
                             </ul>
                         </li>
+                        @{
+                            //HttpContext.Current.Session["QuanTri"] = "PQ02";
+                            string sessionValue = HttpContext.Current.Session["QuanTri"] as string;
+                        }
+                        @if (Session["QuanTri"] == "PQ02")
+                        {
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-user-check"></i>
-                                <p>
-                                    Quản trị
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="@Url.Action("Index","PhanQuyen")" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Phân quyền</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="@Url.Action("Index","TaiKhoan")" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tài khoản</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="@Url.Action("Index","BaiDang")" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Bài đăng</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="@Url.Action("Index","TrangThai")" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách Trạng thái</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="nav-item" id="quantri">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-user-check"></i>
+                                    <p>
+                                        Quản trị
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="@Url.Action("Index","PhanQuyen")" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Phân quyền</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="@Url.Action("Index","TaiKhoan")" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Tài khoản</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="@Url.Action("Index","BaiDang")" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Bài đăng</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="@Url.Action("Index","TrangThai")" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Danh sách Trạng thái</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                        <style>
+                            #quantri{
+                                display: none;
+                            }
+                        </style>
+                        }
+                        @*@if (!User.IsInRole("PQ02"))
+        {
+            <li class="nav-item" style="display: none;">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-user-check"></i>
+                    <p>
+                        Quản trị
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index","PhanQuyen")" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Phân quyền</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index","TaiKhoan")" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Tài khoản</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index","BaiDang")" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Bài đăng</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index","TrangThai")" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Danh sách Trạng thái</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        }*@
+
 
 
                     </ul>
@@ -369,7 +424,8 @@
                 {
 
                     <li>@Html.ActionLink("Phân quyền " + @Session["PhanQuyen"], "Index", "DashBroad")</li>
-                    <li>@Html.ActionLink("Đăng xuất", "Logout", "Admin/TaiKhoan/Login", new { area = "" }, new { @class = "cusor" })</li>
+                    <li>@Html.ActionLink("Đăng xuất", "Logout2", "NguoiDung", new { area = "" }, new { @class = "cusor" })</li>
+                    @*<li>@Html.ActionLink("Đăng xuất", "Logout", "Admin/TaiKhoan", new { area = "" }, new { @class = "cusor" })</li>*@
 
                 }
             </ul>

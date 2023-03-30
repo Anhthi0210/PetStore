@@ -105,25 +105,25 @@ namespace PetStore.Controllers
         {
             var email = collection["TenDN"];
             var mk = collection["MatKhau"];
+            
             KHACHHANG kh = data.KHACHHANG.SingleOrDefault(n => n.TenDangNhap.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());
-            TAIKHOAN tk = data.TAIKHOAN.SingleOrDefault(n => n.TenDangNhap.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());
-            if (kh != null)
+            TAIKHOAN tk = data.TAIKHOAN.SingleOrDefault(n => n.TenDangNhap.Trim() == email.Trim() && n.MatKhau.Trim() == mk.Trim());            
+            if (tk != null && tk.MaPQ != "PQ03")
+            {
+                ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
+                Session["TaikhoanAD"] = tk;
+                Session["UserName"] = tk.TenDangNhap;
+                Session["PhanQuyen"] = tk.PHANQUYEN.TenPQ;
+                Session["QuanTri"] = tk.MaPQ;
+                return RedirectToAction("Index", "Admin/Dashbroad");
+            }
+            else if (kh != null)
             {
                 ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
                 Session["TaiKhoan"] = kh;
                 Session["Tenkh"] = kh.TenKH;
 
                 return RedirectToAction("Index", "DanhSachSanPham");
-            }
-            if (tk != null)
-            {
-                ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
-                Session["TaikhoanAD"] = tk;
-                Session["UserName"] = tk.TenDangNhap;
-                Session["PhanQuyen"] = tk.PHANQUYEN.TenPQ;
-
-
-                return RedirectToAction("Index", "Admin/Dashbroad");
             }
             else if (kh == null)
             {
@@ -135,15 +135,20 @@ namespace PetStore.Controllers
                 ViewData["ErrorPass"] = "Mật khẩu không đúng";
                 return this.Dangnhap();
             }
-            return View();
         }
         public ActionResult Logout()
         {
 
             Session["TaiKhoan"] = null;
             Session["Taikhoandn"] = null;
-
             return RedirectToAction("Index", "DanhSachSanPham");
+        }
+        public ActionResult Logout2()
+        {
+
+            Session["TaiKhoanAD"] = null;
+            Session["Taikhoandn"] = null;
+            return RedirectToAction("Dangnhap", "NguoiDung");
         }
     }
 }

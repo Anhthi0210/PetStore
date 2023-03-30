@@ -13,7 +13,7 @@ namespace PetStore.Areas.Admin.Controllers
     public class TaiKhoanController : Controller
     {
         private DataContext db = new DataContext();
-
+        TAIKHOAN tk = new TAIKHOAN();
         // GET: Admin/TaiKhoan
         public ActionResult Index()
         {
@@ -24,16 +24,24 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/TaiKhoan/Details/5
         public ActionResult Details(string id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TAIKHOAN tAIKHOAN = db.TAIKHOAN.Find(id);
-            if (tAIKHOAN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tAIKHOAN);
+            //if (tk.MaPQ != "PQ02")
+            //{
+            //    di
+            //}
+            //else
+            //{
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TAIKHOAN tAIKHOAN = db.TAIKHOAN.Find(id);
+                if (tAIKHOAN == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tAIKHOAN);
+            //}
+
         }
 
         // GET: Admin/TaiKhoan/Create
@@ -131,48 +139,48 @@ namespace PetStore.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Login(FormCollection collection)
-        {
-            var tendn = collection["TenDN"];
-            var matkhau = collection["Matkhau"];
-            if (String.IsNullOrEmpty(tendn))
-            {
-                ViewData["Loi1"] = "Phải nhập tên đăng nhập";
-            }
-            else if (String.IsNullOrEmpty(matkhau))
-            {
-                ViewData["Loi2"] = "Phải nhập mật khẩu";
-            }
-            else
-            {
-                TAIKHOAN ad = db.TAIKHOAN.SingleOrDefault(n => n.TenDangNhap.Trim() == tendn.Trim() && n.MatKhau.Trim() == matkhau.Trim());
-                if (ad != null)
-                {
-                    ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
-                    Session["TaikhoanAD"] = ad;
-                    Session["UserName"] = ad.TenDangNhap;
-                    Session["PhanQuyen"] = ad.PHANQUYEN.TenPQ;
+        //public ActionResult Login()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult Login(FormCollection collection)
+        //{
+        //    var tendn = collection["TenDN"];
+        //    var matkhau = collection["Matkhau"];
+        //    if (String.IsNullOrEmpty(tendn))
+        //    {
+        //        ViewData["Loi1"] = "Phải nhập tên đăng nhập";
+        //    }
+        //    else if (String.IsNullOrEmpty(matkhau))
+        //    {
+        //        ViewData["Loi2"] = "Phải nhập mật khẩu";
+        //    }
+        //    else
+        //    {
+        //        TAIKHOAN ad = db.TAIKHOAN.SingleOrDefault(n => n.TenDangNhap.Trim() == tendn.Trim() && n.MatKhau.Trim() == matkhau.Trim());
+        //        if (ad != null)
+        //        {
+        //            ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
+        //            Session["TaikhoanAD"] = ad;
+        //            Session["UserName"] = ad.TenDangNhap;
+        //            Session["PhanQuyen"] = ad.PHANQUYEN.TenPQ;
 
 
-                    return RedirectToAction("Index", "Dashbroad");
-                }
-                else
-                    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
-            }
-            return View();
-        }
-        public ActionResult Logout()
-        {
+        //            return RedirectToAction("Index", "Dashbroad");
+        //        }
+        //        else
+        //            ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+        //    }
+        //    return View();
+        //}
+        //public ActionResult Logout()
+        //{
 
-            Session["TaikhoanAD"] = null;
-            Session["UserName"] = null;
+        //    Session["TaikhoanAD"] = null;
+        //    Session["UserName"] = null;
 
-            return RedirectToAction("Index", "Admin/DashBroad");
-        }
+        //    return RedirectToAction("Dangnhap", "NguoiDung");
+        //}
     }
 }

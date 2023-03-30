@@ -147,7 +147,7 @@ namespace PetStore.Controllers
             dh.DiaChiNhan = kh.DiaChi;
             dh.SĐT = kh.SĐT;
             dh.NgayDatHang = DateTime.Now;
-            dh.NgayGiaoHang = DateTime.Parse(ngaygiao);
+            dh.NgayGiaoHang =  dh.NgayDatHang.AddDays(5)/*DateTime.Parse(ngaygiao)*/;
             data.DONHANG.Add(dh);
             data.SaveChanges();
             foreach (var item in gh)

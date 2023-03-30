@@ -102,16 +102,19 @@
                         </div>
                     </div>
                 </ul>
-                <div class="dangky" style="margin: 10px;">
-                    <a href="@Url.Action("Dangky","Nguoidung")">Đăng ký</a>
-                </div>
-                <div class="dangnhap">
-                    <a href="@Url.Action("Dangnhap","Nguoidung")"> Đăng nhập</a>
-                </div>
+                
                 <div>
                     <ul id="navbar">
                         @if (Session["TaiKhoan"] == null)
-                        {                   
+                        {
+                            <div class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="margin: 10px;">
+                                <div class="dangky" >
+                                    <a href="@Url.Action("Dangky","Nguoidung")">Đăng ký</a>
+                                </div>
+                                <div class="dangnhap" style="">
+                                    <a href="@Url.Action("Dangnhap","Nguoidung")"> Đăng nhập</a>
+                                </div>
+                            </div>                          
                         }
                         else
                         {
