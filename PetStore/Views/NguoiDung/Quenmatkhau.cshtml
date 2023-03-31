@@ -1,0 +1,99 @@
+﻿@model PetStore.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Quenmatkhau";
+
+}
+
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quên mật khẩu</title>
+    <title> Quên mật khẩu</title>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/Content/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/Content/style.css">
+</head>
+<body1>
+
+    <div class="main">
+
+        <section class="signup">
+
+            <div class="container">
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form">
+                        <h2 class="form-title">Quên mật khẩu</h2>
+                        @Html.ValidationSummary(true)
+
+                        <span class="label">
+                            @*<span style="color:red; padding-left:10px">@ViewData["Loi"] </span>
+                            <div class="form-group">
+                                <input type="text" class="form-input" name="TenDN" id="username" placeholder="Tên Đăng Nhập đã đăng ký" required />
+                            </div>*@
+
+
+                            <div class="form-group">
+                                <div class="col-md-10" name="email" required>
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            @*<div class="form-group">
+                                <input type="text" class="form-input" name="Dienthoai" placeholder="Số điện thoại đã đăng ký" required size="12" maxlength="12" />
+                            </div>*@
+                            <div class="form-group">
+                                <div class="col-md-10" name="Matkhau" required>
+                                    @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mật khẩu" } })
+                                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <span style="color:red; padding-left:10px">@ViewData["Loi1"] </span>
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <input class="form-control text-box single-line input-validation-error" placeholder="Nhập lại mật khẩu"
+                                           data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!" id="nhaplaimatkhau" name="NhaplaiMatkhau" type="password" value="" ariadescribedby="nhaplaimatkhau-error" aria-invalid="true">
+                                    @ViewData["MatKhauGiongNhau"]
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" name="submit" id="submit" class="form-submit" value="Đồng ý" required />
+                            </div>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+
+</body1>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+
+<script src="~/Scripts/jquery.min.js"></script>
+<script type="text/javascript">
+    (function ($) {
+
+        $(".toggle-password").click(function () {
+
+            $(this).toggleClass("zmdi-eye zmdi-eye-off");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+
+    })(jQuery);
+</script>

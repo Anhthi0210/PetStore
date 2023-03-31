@@ -309,7 +309,7 @@
                             //HttpContext.Current.Session["QuanTri"] = "PQ02";
                             string sessionValue = HttpContext.Current.Session["QuanTri"] as string;
                         }*@
-                        @if (Session["PhanQuyen"] == "Quản Trị")
+                        @if (Session["QuanTri"].Equals("PQ02"))
                         {
 
                             <li class="nav-item" id="quantri">
@@ -348,14 +348,7 @@
                                 </ul>
                             </li>
                         }
-                        else
-                        {
-                        <style>
-                            #quantri{
-                                display: none;
-                            }
-                        </style>
-                        }
+
                         @*@if (!User.IsInRole("PQ02"))
         {
             <li class="nav-item" style="display: none;">

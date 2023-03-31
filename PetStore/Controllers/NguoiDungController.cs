@@ -53,9 +53,9 @@ namespace PetStore.Controllers
             {
                 ViewData["Loitendn"] = "Tên đăng nhập đã tồn tại, vui long xử dụng tên khác";
             }
-            if (!matchTen.Success && hoten.LongCount() < 8)
+            if (hoten == "")
             {
-                ViewData["Loi1"] = "Họ tên chỉ được nhập chữ và dài ít nhất 8 kí tự";
+                ViewData["Loi1"] = "Họ tên không được trống";
             }
             if (tempt != null)
             {
@@ -66,9 +66,9 @@ namespace PetStore.Controllers
                 ViewData["NhapMKXN"] = "phải nhập mật khẩu xác nhận";
             }
             //so sánh ngày hiện tại và ngày sinh
-            if (dienthoai.LongCount() < 10 || dienthoai.LongCount() > 10)
+            if (dienthoai.LongCount() < 10 && dienthoai.LongCount() > 10 && dienthoai == kh.SĐT)
             {
-                ViewData["loi4"] = "Sdt phải có 10 số";
+                ViewData["loi4"] = "Sdt sai";
             }
              if (dienthoai == kh.SĐT)
             {
@@ -162,6 +162,41 @@ namespace PetStore.Controllers
             Session["TaiKhoanAD"] = null;
             Session["Taikhoandn"] = null;
             return RedirectToAction("Index", "DanhSachSanPham");
+        }
+        public ActionResult Quenmatkhau(FormCollection collection)
+        {
+            var email = collection["Email"];
+            var matkhau = collection["Matkhau"];
+            var nhaplaimatkhau = collection["NhaplaiMatkhau"];
+
+            KHACHHANG kh = data.KHACHHANG.SingleOrDefault(n => n.Email.Trim() == email.Trim());
+            if (kh != null)
+            {
+                if (kh.Email.Trim() == email.Trim())
+                {
+                    if (matkhau != nhaplaimatkhau)
+                    {
+                        ViewData["Loi1"] = "Nhập lại mật khẩu không đúng";
+                        return View();
+                    }
+                    else
+                    if (matkhau.Trim() == nhaplaimatkhau.Trim())
+                    {
+
+                        kh.MatKhau = matkhau;
+                        data.SaveChanges();
+                        return RedirectToAction("Dangnhap", "NguoiDung");
+                    }
+
+                }
+                ViewData["Loi"] = "Email sai vui lòng nhập lại!!";
+            }
+            else
+            {
+               
+            }
+
+            return View();
         }
     }
 }

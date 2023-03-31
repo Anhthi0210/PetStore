@@ -24,7 +24,7 @@ namespace PetStore.Models
         [Display(Name = "Thành tiền")]
         public Double dThanhtien
         {
-            get { return iSoluong * DonGia * (DiemTichLuy /100); }
+            get { return iSoluong * DonGia ; }
         }
         public Giohang(string id)
         {

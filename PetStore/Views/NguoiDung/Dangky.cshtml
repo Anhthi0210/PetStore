@@ -17,17 +17,16 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.TenKH, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenKH, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10">            
+                @Html.EditorFor(model => model.TenKH, new { htmlAttributes = new { @class = "form-control" , @placeholder="Họ và tên"
+                    } })
                 @Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "text-danger" })
-
+                @ViewData["Loi1"]
             </div>
-            @ViewData["Loi1"]
+            
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GioTinh, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.GioTinh, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.DropDownListFor(model => model.GioTinh, new List<SelectListItem>
@@ -45,69 +44,63 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.NgaySinh, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", type="date" , @placeholder = "Ngày sinh" } })
                 @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
-
+                @ViewData["Loi3"]
             </div>
-            @ViewData["Loi3"]
+            
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control", @placeholder="Địa chỉ" } })
                 @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SĐT, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SĐT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SĐT, "", new { @class = "text-danger" })
 
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SĐT, new { htmlAttributes = new { @class = "form-control", @placeholder= "Số điện thoại" } })
+                @Html.ValidationMessageFor(model => model.SĐT, "", new { @class = "text-danger" })
+                @ViewData["Loi4"]
             </div>
-            @ViewData["Loi4"]
-            @ViewData["Loi5"]
+            
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder="Email" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.TenDangNhap, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
 
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control", @placeholder="Tên đăng nhập" } })
+                @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
+                @ViewData["Loi2"]
             </div>
-            @ViewData["Loitendn"]
-            @ViewData["Loi2"]
+            
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MatKhau, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control", @placeholder="Mật khẩu" } })
                 @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-md-2" for="MatKhauXacNhan">
-                Mật khẩu xác nhận:
+
             </label>
             <div class="col-md-10">
-                <input class="form-control text-box single-line input-validation-error"
+                <input class="form-control text-box single-line input-validation-error" placeholder="Nhập lại mật khẩu"
                        data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!" id="nhaplaimatkhau" name="nhaplaimatkhau" type="password" value="" ariadescribedby="nhaplaimatkhau-error" aria-invalid="true">
-
+                @ViewData["MatKhauGiongNhau"]
             </div>
-            @ViewData["NhapMKXN"]
-            @ViewData["MatKhauGiongNhau"]
+            
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
