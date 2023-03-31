@@ -19,10 +19,12 @@ namespace PetStore.Models
         public Double DonGia { get; set; }
         [Display(Name = "Số lượng")]
         public int iSoluong { get; set; }
+        [Display(Name = "Giảm giá")]
+        public int DiemTichLuy { get; set; }
         [Display(Name = "Thành tiền")]
         public Double dThanhtien
         {
-            get { return iSoluong * DonGia; }
+            get { return iSoluong * DonGia * (DiemTichLuy /100); }
         }
         public Giohang(string id)
         {

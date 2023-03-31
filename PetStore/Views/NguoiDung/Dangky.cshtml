@@ -21,13 +21,26 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TenKH, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "text-danger" })
-                <span style="color:red; padding-left:10px">@ViewData["Loi1"] </span>
+
             </div>
+            @ViewData["Loi1"]
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.GioTinh, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.GioTinh, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.GioTinh, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.GioTinh, new List<SelectListItem>
+               {
+                 new SelectListItem { Text = "Nam", Value = "Nam"},
+                 new SelectListItem { Text = "Nữ", Value = "Nữ"},
+                 new SelectListItem { Text = "Khác", Value = "Khác"},
+              }, "Chọn giới tính",
+              new
+                   {
+                       @Style = "Width:500px;height:40px;",
+              @class = "form-control input-lg"
+                   })
                 @Html.ValidationMessageFor(model => model.GioTinh, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,9 +49,11 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
-                @ViewData["Loi3"]
+
             </div>
+            @ViewData["Loi3"]
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -52,9 +67,10 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SĐT, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SĐT, "", new { @class = "text-danger" })
-                @ViewData["Loi4"]
-                @ViewData["Loi5"]
+
             </div>
+            @ViewData["Loi4"]
+            @ViewData["Loi5"]
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -68,9 +84,12 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
-                @ViewData["Loi2"]
+
             </div>
+            @ViewData["Loitendn"]
+            @ViewData["Loi2"]
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.MatKhau, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -85,9 +104,10 @@
             <div class="col-md-10">
                 <input class="form-control text-box single-line input-validation-error"
                        data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!" id="nhaplaimatkhau" name="nhaplaimatkhau" type="password" value="" ariadescribedby="nhaplaimatkhau-error" aria-invalid="true">
-                @ViewData["NhapMKXN"]
-                @ViewData["MatKhauGiongNhau"]
+
             </div>
+            @ViewData["NhapMKXN"]
+            @ViewData["MatKhauGiongNhau"]
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

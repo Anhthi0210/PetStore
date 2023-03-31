@@ -309,7 +309,7 @@
                             //HttpContext.Current.Session["QuanTri"] = "PQ02";
                             string sessionValue = HttpContext.Current.Session["QuanTri"] as string;
                         }*@
-                        @if (Session["QuanTri"] != null)
+                        @if (Session["PhanQuyen"] == "Quản Trị")
                         {
 
                             <li class="nav-item" id="quantri">

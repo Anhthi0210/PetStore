@@ -17,7 +17,7 @@ namespace PetStore.Controllers
         private DataContext data = new DataContext();
 
         
-        [HttpGet]
+  
         // GET: NguoiDung
         public ActionResult DangKy()
         {
@@ -44,10 +44,14 @@ namespace PetStore.Controllers
             ((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$");
             Match matchTen = regexTen.Match(hoten);
             var checkEmail = data.KHACHHANG.FirstOrDefault(x => x.Email == email);
+            var checkTendn = data.KHACHHANG.FirstOrDefault(x => x.TenDangNhap == tendn);
             if (checkEmail != null)
             {
-                ViewData["Loiemail"] = "email đã tồn tại, vui long nha email khac";
-                return this.DangKy();
+                ViewData["Loiemail"] = "email đã tồn tại, vui lòng nhập email khác";
+            }
+            if (checkTendn != null)
+            {
+                ViewData["Loitendn"] = "Tên đăng nhập đã tồn tại, vui long xử dụng tên khác";
             }
             if (!matchTen.Success && hoten.LongCount() < 8)
             {
@@ -66,11 +70,11 @@ namespace PetStore.Controllers
             {
                 ViewData["loi4"] = "Sdt phải có 10 số";
             }
-            else if (dienthoai == kh.SĐT)
+             if (dienthoai == kh.SĐT)
             {
                 ViewData["loi5"] = "SDT đã có người sử dụng";
             }
-            if (DateTime.Compare(DateTime.Now, DateTime.Parse(collection["Ngaysinh"])) == -1)
+             if (DateTime.Compare(DateTime.Now, DateTime.Parse(collection["Ngaysinh"])) == -1)
             {
                 ViewData["Loi3"] = "Ngày sinh không được lớn hơn hiện tại";
 
@@ -88,6 +92,7 @@ namespace PetStore.Controllers
                     kh.TenDangNhap = tendn;
                     kh.MatKhau = matkhau;
                     kh.Email = email;
+                    kh.DiemTichLuy = 0;
                     kh.SĐT = dienthoai;
                     kh.DiaChi = diachi;
                     kh.NgaySinh = DateTime.Parse(ngaysinh);
@@ -95,7 +100,7 @@ namespace PetStore.Controllers
                     data.KHACHHANG.Add(kh);
                     data.SaveChanges();
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "DanhSachSanPham");
 
                 }
             }
@@ -156,7 +161,7 @@ namespace PetStore.Controllers
 
             Session["TaiKhoanAD"] = null;
             Session["Taikhoandn"] = null;
-            return RedirectToAction("Dangnhap", "NguoiDung");
+            return RedirectToAction("Index", "DanhSachSanPham");
         }
     }
 }
