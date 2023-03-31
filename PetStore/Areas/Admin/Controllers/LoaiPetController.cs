@@ -14,6 +14,22 @@ namespace PetStore.Areas.Admin.Controllers
     public class LoaiPetController : Controller
     {
         LOAIPET_DAL lOAIPET_DAL=new LOAIPET_DAL();
+        DataContext dt= new DataContext();
+        public void getNewId()
+        {
+            // Kết nối tới cơ sở dữ liệu
+            // Truy vấn lấy id của sản phẩm cuối cùng có dạng SP0x
+            var reader = dt.LOAIPET
+                        .Where(d => d.MaLoaiPet.StartsWith("PET"))
+                        .OrderByDescending(d => d.MaLoaiPet)
+                        .Select(d => d.MaLoaiPet)
+                        .FirstOrDefault(); ;
+            int lastId = 0;
+            lastId = int.Parse(reader.Substring(3));
+            lastId += 1;
+            string id = "PET0" + lastId.ToString();
+            ViewBag.lastId = id.ToString();
+        }
         // GET: Admin/LoaiPet
         public ActionResult Index()
         {
@@ -38,6 +54,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/LoaiPet/Create
         public ActionResult Create()
         {
+            getNewId();
             return View();
         }
 
@@ -46,8 +63,15 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaLoaiPet,TenLoaiPet")] LOAIPET lOAIPET)
+        public ActionResult Create([Bind(Include = "MaLoaiPet,TenLoaiPet")] LOAIPET lOAIPET,FormCollection collection)
         {
+            string name = collection["TenLoaiPet"].ToString();
+            var reader = dt.LOAIPET.FirstOrDefault(x => x.TenLoaiPet == name);
+            if (reader != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Loài '" + name + "' đã tồn tại!");
+                return RedirectToAction("Create");
+            }
             if (ModelState.IsValid)
             {
                 lOAIPET_DAL.Insert(lOAIPET);
@@ -78,8 +102,15 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaLoaiPet,TenLoaiPet")] LOAIPET lOAIPET)
+        public ActionResult Edit([Bind(Include = "MaLoaiPet,TenLoaiPet")] LOAIPET lOAIPET,FormCollection collection)
         {
+            string name = collection["TenLoaiPet"].ToString();
+            var reader = dt.LOAIPET.FirstOrDefault(x => x.TenLoaiPet == name);
+            if (reader != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Loài '" + name + "' đã tồn tại!");
+                return RedirectToAction("Edit");
+            }
             if (ModelState.IsValid)
             {
                 lOAIPET_DAL.Edit(lOAIPET);

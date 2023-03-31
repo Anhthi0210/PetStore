@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace PetStore.Models
@@ -11,6 +12,8 @@ namespace PetStore.Models
             : base("name=DataContext")
         {
         }
+        public SqlConnection conn = new SqlConnection(@"Data Source=mrthawng;Initial Catalog=PetStore;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+
 
         public virtual DbSet<BAIDANG> BAIDANG { get; set; }
         public virtual DbSet<CHITIETDONHANG> CHITIETDONHANG { get; set; }
