@@ -105,13 +105,6 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MaDM,TenDM")] DANHMUC dANHMUC, FormCollection collection)
         {
-            string name = collection["TenDM"].ToString();
-            var reader = dt.DANHMUC.FirstOrDefault(x => x.TenDM == name);
-            if (reader != null)
-            {
-                TempData["message"] = new PushNoti("danger", "Danh mục '" + name + "' đã tồn tại!");
-                return RedirectToAction("Edit");
-            }
             if (ModelState.IsValid)
             {
                 dANHMUC_DAL.Edit(dANHMUC);

@@ -79,7 +79,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.NgayDatHang, htmlAttributes: new { @class = "control-label " })
                                         <div class="col-md-10">
-                                            @Html.EditorFor(model => model.NgayDatHang, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.EditorFor(model => model.NgayDatHang, new { htmlAttributes = new { @class = "form-control" ,@readonly="readonly"} })
                                             @Html.ValidationMessageFor(model => model.NgayDatHang, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.NgayGiaoHang, htmlAttributes: new { @class = "control-label " })
                                         <div class="col-md-10">
-                                            @Html.EditorFor(model => model.NgayGiaoHang, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.EditorFor(model => model.NgayGiaoHang, new { htmlAttributes = new { @class = "form-control" ,@type = "datetime-local", @Value = DateTime.Now.ToString("MM-dd-YYYYHH:mm") } })
                                             @Html.ValidationMessageFor(model => model.NgayGiaoHang, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -154,4 +154,3 @@
     </div>
     <!-- /.content-wrapper -->
 }
-

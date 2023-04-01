@@ -40,16 +40,16 @@
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.KHACHHANG.TenKH)
+                                <label>Khách hàng</label>
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.PHUONGTHUCGIAOHANG.TenPTGH)
+                                <label>Giao Hàng</label>
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.PHUONGTHUCTHANHTOAN.TenPTTT)
+                                <label>Thanh toán</label>
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.TRANGTHAI.TenTT)
+                                <label>Trạng thái Đơn hàng</label>
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.TenNguoiNhan)
@@ -121,7 +121,7 @@
                                     <a class=" btn btn-sm btn-delete fa fa-trash-alt" href="@Url.Action("Delete","DonHang",new { id = item.MaDH })"></a>
 
                                     @*@Html.ActionLink("Sửa", "Edit", new { id = item.MaDM }) |
-            @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM })*@
+                                        @Html.ActionLink("Xóa", "Delete", new { id = item.MaDM })*@
                                 </td>
                             </tr>
                         }
