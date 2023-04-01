@@ -1,4 +1,4 @@
-namespace PetStore.Models
+﻿namespace PetStore.Models
 {
     using System;
     using System.Collections.Generic;
@@ -18,13 +18,17 @@ namespace PetStore.Models
 
         [Key]
         [StringLength(50)]
+        [Required(ErrorMessage ="Cannot be blank!")]
+        [Display(Name = "Tên Đăng nhập")]
         public string TenDangNhap { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Cannot be blank!")]
         [StringLength(50)]
+        [Display(Name = "Mật khẩu")]
+        [RegularExpression("^(?=.*[a-z])(?=.*[!@#$%^&*+=])(?=.{8,})\\S+$", ErrorMessage = "Mật khẩu phải có ít nhất 8 kí tự và gồm ít nhất 1 kí tự đặc biệt và 1 chữ in")]
         public string MatKhau { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Chọn Loại Tài khoản!")]
         [StringLength(50)]
         public string MaPQ { get; set; }
 

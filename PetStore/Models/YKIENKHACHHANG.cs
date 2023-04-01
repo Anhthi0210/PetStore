@@ -5,6 +5,7 @@ namespace PetStore.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Runtime.InteropServices;
 
     [Table("YKIENKHACHHANG")]
     public partial class YKIENKHACHHANG

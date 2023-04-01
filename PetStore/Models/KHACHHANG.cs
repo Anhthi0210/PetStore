@@ -5,6 +5,7 @@ namespace PetStore.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Runtime.InteropServices;
 
     [Table("KHACHHANG")]
     public partial class KHACHHANG
@@ -16,14 +17,16 @@ namespace PetStore.Models
         }
 
         [Key]
+        [Required]
         public int MaKH { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Cannot be blank!")]
+        [RegularExpression(@"^[a-zA-Z\sàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ]+$", ErrorMessage = "Danh muc cannot use special characters!")]
         [StringLength(50)]
         public string TenKH { get; set; }
 
-        [Required]
         [StringLength(50)]
+        [Required(ErrorMessage = "Cannot be blank!")]
         public string GioTinh { get; set; }
 
         [Column(TypeName = "date")]
