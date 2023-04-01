@@ -13,7 +13,21 @@ namespace PetStore.Areas.Admin.Controllers
     public class SanPhamController : Controller
     {
         private DataContext db = new DataContext();
-
+        public void getNewId()
+        {
+            // Kết nối tới cơ sở dữ liệu
+            // Truy vấn lấy id của sản phẩm cuối cùng có dạng SP0x
+            var reader = db.SANPHAM
+                        .Where(d => d.MaSP.StartsWith("SP"))
+                        .OrderByDescending(d => d.MaSP )
+                        .Select(d => d.MaSP)
+                        .FirstOrDefault(); ;
+            int lastId = 0;
+            lastId = int.Parse(reader.Substring(2));
+            lastId += 1;
+            string id = "SP" + lastId.ToString();
+            ViewBag.lastId = id.ToString();
+        }
         // GET: Admin/SanPham
         public ActionResult Index()
         {
@@ -47,6 +61,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/SanPham/Create
         public ActionResult Create()
         {
+            getNewId();
             ViewBag.MaDM = new SelectList(db.DANHMUC, "MaDM", "TenDM");
             ViewBag.MaLoaiPet = new SelectList(db.LOAIPET, "MaLoaiPet", "TenLoaiPet");
             ViewBag.MaNCC = new SelectList(db.NHACUNGCAP, "MaNCC", "TenNCC");
@@ -58,8 +73,15 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaSP,TenSP,DonGia,MoTa,SoLuong,Hinh,MaLoaiPet,MaNCC,MaDM")] SANPHAM sANPHAM)
+        public ActionResult Create([Bind(Include = "MaSP,TenSP,DonGia,MoTa,SoLuong,Hinh,MaLoaiPet,MaNCC,MaDM")] SANPHAM sANPHAM, FormCollection collection)
         {
+            string name = collection["TenSP"].ToString();
+            var rname = db.SANPHAM.FirstOrDefault(x => x.TenSP == name);
+            if (rname != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Sản phẩm '" + name + "' đã tồn tại!");
+                return RedirectToAction("Create");
+            }
             if (ModelState.IsValid)
             {
                 db.SANPHAM.Add(sANPHAM);

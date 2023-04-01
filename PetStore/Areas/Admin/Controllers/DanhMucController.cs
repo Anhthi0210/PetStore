@@ -14,43 +14,24 @@ namespace PetStore.Areas.Admin.Controllers
 {
     public class DanhMucController : Controller
     {
-        DANHMUC_DAL dANHMUC_DAL= new DANHMUC_DAL();
-
+        DANHMUC_DAL dANHMUC_DAL = new DANHMUC_DAL();
+        DataContext dt = new DataContext();
         // GET: Admin/DanhMuc
         public void getNewId()
         {
-
-        }
-        /*public void AddNewProduct()
-        {
             // Kết nối tới cơ sở dữ liệu
-            SqlConnection conn = new SqlConnection("Data Source=yourServerName;Initial Catalog=yourDatabaseName;Integrated Security=True");
-            conn.Open();
-
             // Truy vấn lấy id của sản phẩm cuối cùng có dạng SP0x
-            SqlCommand cmd = new SqlCommand("SELECT TOP 1 Id FROM Products WHERE Id LIKE 'SP0%' ORDER BY Id DESC", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            int lastProductId = 0;
-            if (reader.Read())
-            {
-                string lastId = reader["Id"].ToString();
-                lastProductId = int.Parse(lastId.Substring(3));
-            }
-            reader.Close();
-
-            // Thêm sản phẩm mới với id dạng SP0y với y=x+1
-            int newProductId = lastProductId + 1;
-            string newId = "SP0" + newProductId.ToString();
-            SqlCommand insertCmd = new SqlCommand("INSERT INTO Products (Id, Name, Price) VALUES (@Id, @Name, @Price)", conn);
-            insertCmd.Parameters.AddWithValue("@Id", newId);
-            insertCmd.Parameters.AddWithValue("@Name", "New Product");
-            insertCmd.Parameters.AddWithValue("@Price", 0.0);
-            insertCmd.ExecuteNonQuery();
-
-            // Đóng kết nối
-            conn.Close();
-        }*/
-
+            var reader = dt.DANHMUC
+                        .Where(d => d.MaDM.StartsWith("DM"))
+                        .OrderByDescending(d => d.MaDM)
+                        .Select(d => d.MaDM)
+                        .FirstOrDefault(); ;
+            int lastId = 0;
+            lastId = int.Parse(reader.Substring(2));
+            lastId += 1;
+            string id = "DM" + lastId.ToString();
+            ViewBag.lastId = id.ToString();
+        }
         public ActionResult Index()
         {
             return View(dANHMUC_DAL.getList());
@@ -74,22 +55,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/DanhMuc/Create
         public ActionResult Create()
         {
-            // Kết nối tới cơ sở dữ liệu
-            SqlConnection conn = new SqlConnection("Data Source=mrthawng;Initial Catalog=PetStore;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
-            conn.Open();
-
-            // Truy vấn lấy id của sản phẩm cuối cùng có dạng SP0x
-            SqlCommand cmd = new SqlCommand("SELECT TOP 1 MaDM FROM DANHMUC WHERE MaDM LIKE 'DM0%' ORDER BY MaDM DESC", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            int lastProductId = 0;
-            if (reader.Read())
-            {
-                string lastId = reader["MaDM"].ToString();
-                lastProductId = int.Parse(lastId.Substring(3));
-            }
-            reader.Close();
-            conn.Close();
-            ViewBag.lastProductId = lastProductId;
+            getNewId();
             return View();
         }
 
@@ -98,8 +64,15 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaDM,TenDM")] DANHMUC dANHMUC)
+        public ActionResult Create([Bind(Include = "MaDM,TenDM")] DANHMUC dANHMUC,FormCollection collection)
         {
+            string name = collection["TenDM"].ToString();
+            var reader = dt.DANHMUC.FirstOrDefault(x => x.TenDM == name);
+            if (reader != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Danh mục '"+name+ "' đã tồn tại!");
+                return RedirectToAction("Create");
+            }
             if (ModelState.IsValid)
             {
                 dANHMUC_DAL.Insert(dANHMUC);
@@ -130,7 +103,7 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaDM,TenDM")] DANHMUC dANHMUC)
+        public ActionResult Edit([Bind(Include = "MaDM,TenDM")] DANHMUC dANHMUC, FormCollection collection)
         {
             if (ModelState.IsValid)
             {

@@ -13,7 +13,21 @@ namespace PetStore.Areas.Admin.Controllers
     public class NhaCungCapController : Controller
     {
         private DataContext db = new DataContext();
-
+        public void getNewId()
+        {
+            // Kết nối tới cơ sở dữ liệu
+            // Truy vấn lấy id của sản phẩm cuối cùng có dạng SP0x
+            var reader = db.NHACUNGCAP
+                        .Where(d => d.MaNCC.StartsWith("NCC"))
+                        .OrderByDescending(d => d.MaNCC)
+                        .Select(d => d.MaNCC)
+                        .FirstOrDefault(); ;
+            int lastId = 0;
+            lastId = int.Parse(reader.Substring(3));
+            lastId += 1;
+            string id = "NCC" + lastId.ToString();
+            ViewBag.lastId = id.ToString();
+        }
         // GET: Admin/NhaCungCap
         public ActionResult Index()
         {
@@ -38,6 +52,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/NhaCungCap/Create
         public ActionResult Create()
         {
+            getNewId();
             return View();
         }
 
@@ -46,13 +61,34 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaNCC,TenNCC,SĐT,DiaChi")] NHACUNGCAP nHACUNGCAP)
+        public ActionResult Create([Bind(Include = "MaNCC,TenNCC,SĐT,DiaChi")] NHACUNGCAP nHACUNGCAP, FormCollection collection)
         {
+            string name = collection["TenNCC"].ToString();
+            var rname = db.NHACUNGCAP.FirstOrDefault(x => x.TenNCC == name);
+            if (rname != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Nhà Cung Cấp '" + name + "' đã tồn tại!");
+                return RedirectToAction("Create");
+            }
+            string num = collection["SĐT"].ToString();
+            var rnum = db.NHACUNGCAP.FirstOrDefault(x => x.SĐT == num);
+            if (rnum != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Liên hệ bị trùng '" + rnum + "' !");
+                return RedirectToAction("Create");
+            }
+            string addr = collection["DiaChi"].ToString();
+            var raddr = db.NHACUNGCAP.FirstOrDefault(x => x.DiaChi == addr);
+            if (raddr != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Địa chỉ bị trùng '" + raddr + "' !");
+                return RedirectToAction("Create");
+            }
             if (ModelState.IsValid)
             {
                 db.NHACUNGCAP.Add(nHACUNGCAP);
                 db.SaveChanges();
-                TempData["message"] = new PushNoti("success", "Thêm Danh mục thành công !");
+                TempData["message"] = new PushNoti("success", "Thêm Nhà Cung cấp thành công !");
                 return RedirectToAction("Index");
             }
 
@@ -79,8 +115,29 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaNCC,TenNCC,SĐT,DiaChi")] NHACUNGCAP nHACUNGCAP)
+        public ActionResult Edit([Bind(Include = "MaNCC,TenNCC,SĐT,DiaChi")] NHACUNGCAP nHACUNGCAP, FormCollection collection)
         {
+            /*string name = collection["TenNCC"].ToString();
+            var rname = db.NHACUNGCAP.FirstOrDefault(x => x.TenNCC == name);
+            if (rname != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Nhà Cung Cấp '" + name + "' đã tồn tại!");
+                return RedirectToAction("Edit");
+            }
+            string num = collection["SĐT"].ToString();
+            var rnum = db.NHACUNGCAP.FirstOrDefault(x => x.SĐT == num);
+            if (rnum != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Liên hệ bị trùng '" + num + "' !");
+                return RedirectToAction("Edit");
+            }
+            string addr = collection["DiaChi"].ToString();
+            var raddr = db.NHACUNGCAP.FirstOrDefault(x => x.DiaChi == addr);
+            if (raddr != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Địa chỉ bị trùng '" + addr + "' !");
+                return RedirectToAction("Edit");
+            }*/
             if (ModelState.IsValid)
             {
                 db.Entry(nHACUNGCAP).State = EntityState.Modified;

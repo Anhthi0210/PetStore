@@ -11,6 +11,7 @@
     <div class="content-wrapper">
         <!-- Main content -->
         <section class="content">
+            <div id="card">@Html.Partial("Message")</div>
 
             <!-- Default box -->
             <div class="card pt-2">
@@ -30,7 +31,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Mã Loài Pet<span class="text-danger">(*)</span></label>
-                                @Html.EditorFor(model => model.MaLoaiPet, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.MaLoaiPet, new { htmlAttributes = new { @class = "form-control"  ,@Value = @ViewBag.lastId ,@readonly="readonly"} })
                                 @Html.ValidationMessageFor(model => model.MaLoaiPet, "", new { @class = "text-danger" })
                             </div>
                         </div>

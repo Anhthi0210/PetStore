@@ -13,7 +13,21 @@ namespace PetStore.Areas.Admin.Controllers
     public class PhanQuyenController : Controller
     {
         private DataContext db = new DataContext();
-
+        public void getNewId()
+        {
+            // Kết nối tới cơ sở dữ liệu
+            // Truy vấn lấy id của sản phẩm cuối cùng có dạng SP0x
+            var reader = db.PHANQUYEN
+                        .Where(d => d.MaPQ.StartsWith("PQ0"))
+                        .OrderByDescending(d => d.MaPQ)
+                        .Select(d => d.MaPQ)
+                        .FirstOrDefault(); ;
+            int lastId = 0;
+            lastId = int.Parse(reader.Substring(3));
+            lastId += 1;
+            string id = "PQ0" + lastId.ToString();
+            ViewBag.lastId = id.ToString();
+        }
         // GET: Admin/PhanQuyen
         public ActionResult Index()
         {
@@ -38,6 +52,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/PhanQuyen/Create
         public ActionResult Create()
         {
+            getNewId();
             return View();
         }
 
@@ -46,8 +61,15 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaPQ,TenPQ")] PHANQUYEN pHANQUYEN)
+        public ActionResult Create([Bind(Include = "MaPQ,TenPQ")] PHANQUYEN pHANQUYEN, FormCollection collection)
         {
+            string name = collection["TenPQ"].ToString();
+            var rname = db.PHANQUYEN.FirstOrDefault(x => x.TenPQ == name);
+            if (rname != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Loại quyền '" + name + "' đã tồn tại!");
+                return RedirectToAction("Create");
+            }
             if (ModelState.IsValid)
             {
                 db.PHANQUYEN.Add(pHANQUYEN);
@@ -78,8 +100,15 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaPQ,TenPQ")] PHANQUYEN pHANQUYEN)
+        public ActionResult Edit([Bind(Include = "MaPQ,TenPQ")] PHANQUYEN pHANQUYEN,FormCollection collection)
         {
+            string name = collection["TenPQ"].ToString();
+            var rname = db.PHANQUYEN.FirstOrDefault(x => x.TenPQ == name);
+            if (rname != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Loại quyền '" + name + "' đã tồn tại!");
+                return RedirectToAction("Create");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(pHANQUYEN).State = EntityState.Modified;

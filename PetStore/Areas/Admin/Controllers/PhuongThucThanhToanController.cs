@@ -13,7 +13,21 @@ namespace PetStore.Areas.Admin.Controllers
     public class PhuongThucThanhToanController : Controller
     {
         private DataContext db = new DataContext();
-
+        public void getNewId()
+        {
+            // Kết nối tới cơ sở dữ liệu
+            // Truy vấn lấy id của sản phẩm cuối cùng có dạng SP0x
+            var reader = db.PHUONGTHUCTHANHTOAN
+                        .Where(d => d.MaPTTT.StartsWith("PTTT"))
+                        .OrderByDescending(d => d.MaPTTT)
+                        .Select(d => d.MaPTTT)
+                        .FirstOrDefault(); ;
+            int lastId = 0;
+            lastId = int.Parse(reader.Substring(4));
+            lastId += 1;
+            string id = "PTTT" + lastId.ToString();
+            ViewBag.lastId = id.ToString();
+        }
         // GET: Admin/PhuongThucThanhToan
         public ActionResult Index()
         {
@@ -38,6 +52,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/PhuongThucThanhToan/Create
         public ActionResult Create()
         {
+            getNewId();
             return View();
         }
 
@@ -46,8 +61,15 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaPTTT,TenPTTT")] PHUONGTHUCTHANHTOAN pHUONGTHUCTHANHTOAN)
+        public ActionResult Create([Bind(Include = "MaPTTT,TenPTTT")] PHUONGTHUCTHANHTOAN pHUONGTHUCTHANHTOAN,FormCollection collection)
         {
+            string name = collection["TenPTTT"].ToString();
+            var rname = db.PHUONGTHUCTHANHTOAN.FirstOrDefault(x => x.TenPTTT == name);
+            if (rname != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Phương thức '" + name + "' đã tồn tại!");
+                return RedirectToAction("Create");
+            }
             if (ModelState.IsValid)
             {
                 db.PHUONGTHUCTHANHTOAN.Add(pHUONGTHUCTHANHTOAN);

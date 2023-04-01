@@ -8,11 +8,12 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Main content -->
         <section class="content">
-
+            @Html.Partial("Message")
             <!-- Default box -->
             <div class="card pt-2">
                 <div class="card-header">
@@ -33,7 +34,6 @@
                         </thead>
 
                         <tbody>
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             @Html.HiddenFor(model => model.MaNCC)
 
                             <div class="form-group">

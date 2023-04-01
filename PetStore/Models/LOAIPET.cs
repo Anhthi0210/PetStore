@@ -1,4 +1,4 @@
-namespace PetStore.Models
+﻿namespace PetStore.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,10 +17,14 @@ namespace PetStore.Models
 
         [Key]
         [StringLength(50)]
+        [Required(ErrorMessage ="Cannot be blank!")]
+        [Display(Name = "Mã Loài Pet")]
         public string MaLoaiPet { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Cannot be blank!")]
         [StringLength(50)]
+        [RegularExpression(@"^[a-zA-Z0-9\sàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ]+$", ErrorMessage = "Ten Loai cannot use special characters!")]
+        [Display(Name = "Tên Loài")]
         public string TenLoaiPet { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

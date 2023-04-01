@@ -13,7 +13,7 @@
     <div class="content-wrapper">
         <!-- Main content -->
         <section class="content">
-
+            @Html.Partial("Message")
             <!-- Default box -->
             <div class="card pt-2">
                 <div class="card-header">
@@ -32,7 +32,15 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Mã Danh mục<span class="text-danger">(*)</span></label>
-                                @Html.EditorFor(model => model.MaDM, new { htmlAttributes = new { @class = "form-control", @ViewBag.lastProductId } })
+                                @Html.EditorFor(model => model.MaDM, new
+                           {
+                               htmlAttributes = new
+                               {
+                                   @class = "form-control",
+                                   @Value = @ViewBag.lastId,
+                                   @readonly = "readonly"
+                                    }
+                               })
                                 @Html.ValidationMessageFor(model => model.MaDM, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -45,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <!-- /.card-body -->
             </div>
