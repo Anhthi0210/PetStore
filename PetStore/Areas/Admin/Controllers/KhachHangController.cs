@@ -13,7 +13,20 @@ namespace PetStore.Areas.Admin.Controllers
     public class KhachHangController : Controller
     {
         private DataContext db = new DataContext();
-
+        public void getNewId()
+        {
+            // Kết nối tới cơ sở dữ liệu
+            // Truy vấn lấy id của sản phẩm cuối cùng có dạng SP0x
+            var reader = db.KHACHHANG
+                        .OrderByDescending(d => d.MaKH)
+                        .Select(d => d.MaKH)
+                        .FirstOrDefault(); ;
+            int lastId = 0;
+            lastId = int.Parse(reader.ToString());
+            lastId += 1;
+            string id = lastId.ToString();
+            ViewBag.lastId = id.ToString();
+        }
         // GET: Admin/KhachHang
         public ActionResult Index()
         {
@@ -38,6 +51,7 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/KhachHang/Create
         public ActionResult Create()
         {
+            getNewId();
             return View();
         }
 
@@ -46,8 +60,30 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaKH,TenKH,GioTinh,NgaySinh,DiaChi,SĐT,Email,DiemTichLuy,TenDangNhap,MatKhau")] KHACHHANG kHACHHANG)
+        public ActionResult Create([Bind(Include = "MaKH,TenKH,GioTinh,NgaySinh,DiaChi,SĐT,Email,DiemTichLuy,TenDangNhap,MatKhau")] KHACHHANG kHACHHANG,FormCollection collection)
         {
+            string mail = collection["Email"].ToString();
+            var rmail = db.KHACHHANG.FirstOrDefault(x => x.Email == mail);
+            if (rmail != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Email '" + mail + "' trùng!");
+                return RedirectToAction("Create");
+            }
+            string num = collection["SĐT"].ToString();
+            var rnum = db.KHACHHANG.FirstOrDefault(x => x.SĐT == num);
+            if (rnum != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Liên hệ bị trùng '" + rnum + "' !");
+                return RedirectToAction("Create");
+            }
+            var currentDate = DateTime.Today;
+
+            // Kiểm tra ngày sinh của khách hàng có ít nhất 1 năm trước so với ngày hiện tại hay không
+            if (kHACHHANG.NgaySinh.AddYears(1) > currentDate)
+            {
+                ModelState.AddModelError("NgaySinh", "Ngày sinh phải ít nhất 1 năm trước ngày hiện tại");
+                return View(kHACHHANG);
+            }
             if (ModelState.IsValid)
             {
                 db.KHACHHANG.Add(kHACHHANG);
@@ -79,8 +115,30 @@ namespace PetStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaKH,TenKH,GioTinh,NgaySinh,DiaChi,SĐT,Email,DiemTichLuy,TenDangNhap,MatKhau")] KHACHHANG kHACHHANG)
+        public ActionResult Edit([Bind(Include = "MaKH,TenKH,GioTinh,NgaySinh,DiaChi,SĐT,Email,DiemTichLuy,TenDangNhap,MatKhau")] KHACHHANG kHACHHANG,FormCollection collection)
         {
+            string mail = collection["Email"].ToString();
+            var rmail = db.KHACHHANG.FirstOrDefault(x => x.Email == mail);
+            if (rmail != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Email '" + mail + "' trùng!");
+                return RedirectToAction("Create");
+            }
+            string num = collection["SĐT"].ToString();
+            var rnum = db.KHACHHANG.FirstOrDefault(x => x.SĐT == num);
+            if (rnum != null)
+            {
+                TempData["message"] = new PushNoti("danger", "Liên hệ bị trùng '" + rnum + "' !");
+                return RedirectToAction("Create");
+            }
+            var currentDate = DateTime.Today;
+
+            // Kiểm tra ngày sinh của khách hàng có ít nhất 1 năm trước so với ngày hiện tại hay không
+            if (kHACHHANG.NgaySinh.AddYears(1) > currentDate)
+            {
+                ModelState.AddModelError("NgaySinh", "Ngày sinh phải ít nhất 1 năm trước ngày hiện tại");
+                return View(kHACHHANG);
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(kHACHHANG).State = EntityState.Modified;
