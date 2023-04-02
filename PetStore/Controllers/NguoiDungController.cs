@@ -85,11 +85,9 @@ namespace PetStore.Controllers
                 }
                 else
                 {
-                    string gioiTinh = Request.Form["GioTinh"];
 
-                    // Gán giá trị cho thuộc tính GioiTinh của đối tượng SinhVien
+
                     kh.TenKH = hoten;
-                    kh.GioTinh = gioitinh;
                     kh.NgaySinh = DateTime.Parse(ngaysinh);
                     kh.DiaChi = diachi;
                     kh.SĐT = dienthoai;

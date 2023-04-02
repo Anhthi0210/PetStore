@@ -54,7 +54,7 @@ namespace PetStore.Models
         [RegularExpression(@"^[a-zA-Z0-9]+@gmail\.com$", ErrorMessage = "Địa chỉ email không hợp lệ!")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Cannot be blank!")]
+        //[Required(ErrorMessage = "Cannot be blank!")]
         [Display(Name = "Điểm tích lũy")]
         public int? DiemTichLuy { get; set; }
 
