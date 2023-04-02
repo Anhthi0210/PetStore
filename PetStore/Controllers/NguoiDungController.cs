@@ -41,8 +41,7 @@ namespace PetStore.Controllers
             Match matchMail = regexMail.Match(email);
             Regex regexPhone = new Regex(@"^(84|0[3|5|7|8|9])+([0-9]{8})\b");
             Match matchPhone = regexPhone.Match(dienthoai);
-            Regex regexTen = new Regex(@"^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)
-            ((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$");
+            Regex regexTen = new Regex(@"^[a-zA-Z\p{L}\s]{1,26}$");
             Match matchTen = regexTen.Match(hoten);
             var checkEmail = data.KHACHHANG.FirstOrDefault(x => x.Email == email);
             if (checkEmail != null)
@@ -51,9 +50,9 @@ namespace PetStore.Controllers
             }
             if (!matchTen.Success)
             {
-                ViewData["Loi1"] = "Họ tên sai định dạng";
+                ViewData["Loi1"] = "Họ tên không hợp lệ";
             }
-            if (tempt != null)
+            if (tendn != null)
             {
                 ViewData["Loi2"] = "Username đã tồn tại";
             }
