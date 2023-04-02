@@ -40,11 +40,17 @@ namespace PetStore.Controllers
             Match matchMail = regexMail.Match(email);
             Regex regexPhone = new Regex(@"^(84|0[3|5|7|8|9])+([0-9]{8})\b");
             Match matchPhone = regexPhone.Match(dienthoai);
+            Regex regexTen = new Regex(@"^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)
+            ((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$");
+            Match matchTen = regexTen.Match(hoten);
             var checkEmail = data.KHACHHANG.FirstOrDefault(x => x.Email == email);
             if (checkEmail != null)
             {
-                ViewData["Loiemail"] = "email đã tồn tại, vui long nha email khac";
-                return this.DangKy();
+                ViewData["Loiemail"] = "email đã tồn tại, vui lòng nhập email khác";
+            }
+            if (!matchTen.Success)
+            {
+                ViewData["Loi1"] = "Họ tên sai định dạng";
             }
             if (tempt != null)
             {
@@ -55,11 +61,11 @@ namespace PetStore.Controllers
                 ViewData["NhapMKXN"] = "phải nhập mật khẩu xác nhận";
             }
             //so sánh ngày hiện tại và ngày sinh
-            if (dienthoai.LongCount() < 10 || dienthoai.LongCount() > 10)
+            if (!matchPhone.Success)
             {
-                ViewData["loi4"] = "Sdt phải có 10 số";
+                ViewData["loi4"] = "Sdt sai định dạng";
             }
-            else if (dienthoai == kh.SĐT)
+            if (dienthoai == kh.SĐT)
             {
                 ViewData["loi5"] = "SDT đã có người sử dụng";
             }
@@ -81,6 +87,7 @@ namespace PetStore.Controllers
                     kh.TenDangNhap = tendn;
                     kh.MatKhau = matkhau;
                     kh.Email = email;
+                    kh.DiemTichLuy = 0;
                     kh.SĐT = dienthoai;
                     kh.DiaChi = diachi;
                     kh.NgaySinh = DateTime.Parse(ngaysinh);
@@ -88,7 +95,7 @@ namespace PetStore.Controllers
                     data.KHACHHANG.Add(kh);
                     data.SaveChanges();
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "DanhSachSanPham");
 
                 }
             }
