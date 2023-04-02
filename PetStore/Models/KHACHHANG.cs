@@ -22,8 +22,7 @@ namespace PetStore.Models
         public int MaKH { get; set; }
 
         [Required(ErrorMessage ="Cannot be blank!")]
-        [RegularExpression(@"^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)
-            ((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$", ErrorMessage = "cannot use special characters!")]
+        [RegularExpression(@"^[a-zA-Z\sàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ]+$", ErrorMessage = "Danh muc cannot use special characters!")]
         [StringLength(50)]
         [Display(Name = "Tên Khách hàng")]
         public string TenKH { get; set; }
