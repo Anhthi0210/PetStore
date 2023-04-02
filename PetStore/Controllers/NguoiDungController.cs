@@ -16,9 +16,10 @@ namespace PetStore.Controllers
     {
         private DataContext data = new DataContext();
 
-        
-  
+
+
         // GET: NguoiDung
+        [HttpGet]
         public ActionResult DangKy()
         {
             return View();
@@ -44,18 +45,13 @@ namespace PetStore.Controllers
             ((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$");
             Match matchTen = regexTen.Match(hoten);
             var checkEmail = data.KHACHHANG.FirstOrDefault(x => x.Email == email);
-            var checkTendn = data.KHACHHANG.FirstOrDefault(x => x.TenDangNhap == tendn);
             if (checkEmail != null)
             {
                 ViewData["Loiemail"] = "email đã tồn tại, vui lòng nhập email khác";
             }
-            if (checkTendn != null)
+            if (!matchTen.Success)
             {
-                ViewData["Loitendn"] = "Tên đăng nhập đã tồn tại, vui long xử dụng tên khác";
-            }
-            if (hoten == "")
-            {
-                ViewData["Loi1"] = "Họ tên không được trống";
+                ViewData["Loi1"] = "Họ tên sai định dạng";
             }
             if (tempt != null)
             {
@@ -66,15 +62,15 @@ namespace PetStore.Controllers
                 ViewData["NhapMKXN"] = "phải nhập mật khẩu xác nhận";
             }
             //so sánh ngày hiện tại và ngày sinh
-            if (dienthoai.LongCount() < 10 && dienthoai.LongCount() > 10 && dienthoai == kh.SĐT)
+            if (!matchPhone.Success)
             {
-                ViewData["loi4"] = "Sdt sai";
+                ViewData["loi4"] = "Sdt sai định dạng";
             }
-             if (dienthoai == kh.SĐT)
+            if (dienthoai == kh.SĐT)
             {
                 ViewData["loi5"] = "SDT đã có người sử dụng";
             }
-             if (DateTime.Compare(DateTime.Now, DateTime.Parse(collection["Ngaysinh"])) == -1)
+            if (DateTime.Compare(DateTime.Now, DateTime.Parse(collection["Ngaysinh"])) == -1)
             {
                 ViewData["Loi3"] = "Ngày sinh không được lớn hơn hiện tại";
 
