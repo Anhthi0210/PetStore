@@ -2,7 +2,7 @@
 body {
     transition: background 0.2s linear;
     margin-top: 20px;
-    background: #f1f2f7;
+    background: white;
 }
 /*menu 1*/
 .menu1 {
@@ -164,7 +164,7 @@ img{
 }
 /*footer*/
 .footer {
-    background-color: #cdb8cc;
+    background-color: #7286D3;
 }
 .footer .footer-socila-icon a {
     width: 30px;
@@ -457,3 +457,11 @@ a {
     width: 800px;
 }
 /*form dang nhap*/
+
+
+.btn-add-cat {
+    background-color: #8EA7E9;
+}
+.btn-details-item {
+    background-color: #8EA7E9;
+}
