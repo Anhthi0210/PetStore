@@ -148,10 +148,10 @@ namespace PetStore.Controllers
             dh.SĐT = kh.SĐT;
             dh.NgayDatHang = DateTime.Now;
             dh.NgayGiaoHang =  dh.NgayDatHang.AddDays(5)/*DateTime.Parse(ngaygiao)*/;
-            ViewBag.MaPTTT = new SelectList(data.PHUONGTHUCTHANHTOAN,"TenPTTT", dh.MaPTTT);
             //dh.MaPTTT = pttt.MaPTTT;
-            dh.MaPTGH = ptgh.MaPTGH;
-            dh.MaTT = tt.MaTT;
+            //dh.MaPTGH = ptgh.MaPTGH;
+            dh.MaTT = "TT02";
+            dh.Note = "Trống";
             data.DONHANG.Add(dh);
             data.SaveChanges();
             foreach (var item in gh)

@@ -43,7 +43,7 @@ namespace PetStore.Models
         [Display(Name = "Ngày Giao")]
         public DateTime NgayGiaoHang { get; set; }
 
-        [Required(ErrorMessage = "Cannot be blank!")]
+        //[Required(ErrorMessage = "Cannot be blank!")]
         [Display(Name = "Note")]
         [StringLength(50)]
         public string Note { get; set; }
