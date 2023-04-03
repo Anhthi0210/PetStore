@@ -458,10 +458,20 @@ a {
 }
 /*form dang nhap*/
 
-
+/*Undo icon cat*/
 .btn-add-cat {
     background-color: #8EA7E9;
 }
 .btn-details-item {
     background-color: #8EA7E9;
 }
+/*Undo icon cat*/
+
+/*Undo font - form Login*/
+.h2 {
+    font-family: "Times New Roman", Times, serif;
+}
+.d-flex a {
+    margin-right: 7px;
+}
+/*Undo font - form Login*/

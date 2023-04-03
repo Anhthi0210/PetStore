@@ -98,6 +98,7 @@ namespace PetStore.Areas.Admin.Controllers
                 TempData["Message"] = new PushNoti("info", "Cập nhật Tài khoản thành công !");
                 return RedirectToAction("Index");
             }
+            TempData["Message"] = new PushNoti("danger", "Cập nhật Tài kh khoản thành công !");
             ViewBag.MaPQ = new SelectList(db.PHANQUYEN, "MaPQ", "TenPQ", tAIKHOAN.MaPQ);
             return View(tAIKHOAN);
         }

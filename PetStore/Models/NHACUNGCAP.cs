@@ -35,7 +35,6 @@ namespace PetStore.Models
 
         [Required(ErrorMessage = "Cannot be blank!")]
         [Display(Name = "Địa chỉ")]
-        [RegularExpression("^[\\p{L}0-9\\s\\-\\/\\,\\(\\)]+$", ErrorMessage = "Dia chi cannot use special characters!")]
         public string DiaChi { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

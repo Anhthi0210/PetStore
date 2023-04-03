@@ -26,7 +26,7 @@
         [Required(ErrorMessage = "Cannot be blank!")]
         [StringLength(50)]
         [Display(Name = "Mật khẩu")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[!@#$%^&*+=])(?=.{8,})\\S+$", ErrorMessage = "Mật khẩu phải có ít nhất 8 kí tự và gồm ít nhất 1 kí tự đặc biệt và 1 chữ in")]
+        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=_!])(?!.*\s).{8,}$", ErrorMessage = "Mật khẩu phải có ít nhất 8 kí tự và gồm ít nhất 1 kí tự đặc biệt, 1 chữ in, 1 chữ thường")]
         public string MatKhau { get; set; }
 
         [Required(ErrorMessage = "Chọn Loại Tài khoản!")]
