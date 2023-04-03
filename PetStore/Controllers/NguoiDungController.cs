@@ -38,22 +38,20 @@ namespace PetStore.Controllers
             var ngaysinh = String.Format("{0:MM/dd/yyyy}", collection["NgaySinh"]);
 
             KHACHHANG tempt = data.KHACHHANG.SingleOrDefault(n => n.TenDangNhap.Trim() == tendn.Trim());
-            Regex regexMail = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            Match matchMail = regexMail.Match(email);
-            Regex regexPhone = new Regex(@"^(84|0[3|5|7|8|9])+([0-9]{8})\b");
-            Match matchPhone = regexPhone.Match(dienthoai);
-            Regex regexTen = new Regex(@"^[a-zA-Z\p{L}\s]{1,26}$");
-            Match matchTen = regexTen.Match(hoten);
+            //Regex regexPhone = new Regex(@"^(84|0[3|5|7|8|9])+([0-9]{8})\b");
+            //Match matchPhone = regexPhone.Match(dienthoai);
+            //Regex regexTen = new Regex(@"^[a-zA-Z\p{L}\s]{1,26}$");
+            //Match matchTen = regexTen.Match(hoten);
             var checkEmail = data.KHACHHANG.FirstOrDefault(x => x.Email == email);
             var checksdt = data.KHACHHANG.FirstOrDefault(x => x.SĐT == dienthoai);
             if (checkEmail != null)
             {
                 ViewData["Loiemail"] = "email đã tồn tại, vui lòng nhập email khác";
             }
-            if (!matchTen.Success)
-            {
-                ViewData["Loi1"] = "Họ tên không hợp lệ";
-            }
+            //if (!matchTen.Success)
+            //{
+            //    ViewData["Loi1"] = "Họ tên không hợp lệ";
+            //}
             else if (tempt != null)
             {
                 ViewData["Loi2"] = "Username đã tồn tại";
@@ -63,10 +61,10 @@ namespace PetStore.Controllers
                 ViewData["NhapMKXN"] = "phải nhập mật khẩu xác nhận";
             }
             //so sánh ngày hiện tại và ngày sinh
-            if (!matchPhone.Success)
-            {
-                ViewData["loi4"] = "Sdt sai định dạng";
-            }
+            //if (!matchPhone.Success)
+            //{
+            //    ViewData["loi4"] = "Sdt sai định dạng";
+            //}
             else if (checksdt != null)
             {
                 ViewData["loi5"] = "SDT đã có người sử dụng";
