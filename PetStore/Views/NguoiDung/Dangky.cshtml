@@ -5,122 +5,171 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     <link href="~/CSS/BT.css" rel="stylesheet" />
 }
-
-<h2>DangKy</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
 
-    <div class="form-horizontal">
-        <h4>KHACHHANG</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <div class="col-md-10" name="TenKH" required>
-                @Html.EditorFor(model => model.TenKH, new
-                {
-                    htmlAttributes = new
-                    {
-                        @class = "form-control",
-                        @placeholder = "Họ và tên"
-                    }
-                })
-                @Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "text-danger" })
-                @ViewData["Loi1"]
+            <!-- Default box -->
+            <div class="card pt-2">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-11  text-black text-center">
+                            <h4>Thông tin Khách hàng</h4>
+                        </div>
+                        <div class="col-md-1 text-black text-right">
+                            <button class="btn btn-sm btn-success" type="submit" name="create">Đăng ký</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Tên đăng nhập: </label>
+                                <div class="col-md-10" name="TenDangNhap" required>
+                                    @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên đăng nhập" } })
+                                    @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
+                                    @ViewData["Loi2"]
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Họ và tên: </label>
+                                <div class="col-md-12" name="TenKH" required>
+                                    @Html.EditorFor(model => model.TenKH, new
+                                    {
+                                        htmlAttributes = new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Full Name"
+                                        }
+                                    })
+                                    @Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "text-danger" })
+                                    @ViewData["Loi1"]
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Email: </label>
+                                <div class="col-md-10" name="Email" required>
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    @ViewData["Loiemail"]
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Số điện thoại: </label>
+                                <div class="col-md-10" name="SĐT" required>
+                                    @Html.EditorFor(model => model.SĐT, new { htmlAttributes = new { @class = "form-control", @placeholder = "Số điện thoại" } })
+                                    @Html.ValidationMessageFor(model => model.SĐT, "", new { @class = "text-danger" })
+                                    @ViewData["Loi4"]
+                                    @ViewData["Loi5"]
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Mật khẩu: </label>
+                                <div class="col-md-10" name="MatKhau" required>
+                                    @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mật khẩu" } })
+                                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Giới tính: </label>
+                                <div class="col-md-10" required>
+
+                                    @Html.DropDownListFor(model => model.GioTinh, new List<SelectListItem>
+                             {
+                               new SelectListItem { Text = "Nam", Value = "Nam"},
+                               new SelectListItem { Text = "Nữ", Value = "Nữ"},
+                               new SelectListItem { Text = "Khác", Value = "Khác"},
+                            }, "Chọn giới tính",
+                            new
+                                 {
+                                     @Style = "Width:500px;height:40px;",
+                            @class = "form-control input-lg"
+                                 })
+                                    @*@Html.EditorFor(model => model.GioTinh, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @Html.ValidationMessageFor(model => model.GioTinh, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Ngày sinh: </label>
+                                <div class="col-md-10" name="Ngaysinh" required>
+                                    @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", type = "date", @placeholder = "Ngày sinh" } })
+                                    @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+                                    @ViewData["Loi3"]
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Mật khẩu xác nhận: </label>
+                                <label class="control-label col-md-2" for="MatKhauXacNhan">
+
+                                </label>
+                                <div class="col-md-10">
+                                    <input class="form-control text-box single-line input-validation-error" placeholder="Nhập lại mật khẩu"
+                                           data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!" id="nhaplaimatkhau" name="nhaplaimatkhau" type="password" value="" ariadescribedby="nhaplaimatkhau-error" aria-invalid="true">
+                                    @ViewData["NhapMKXN"]
+                                    @ViewData["MatKhauGiongNhau"]
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="form-label">Địa chỉ: </label>
+                                    <div class="col-md-10" name="DiaChi" required>
+                                        @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control", @placeholder = "Địa chỉ" } })
+                                        @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
             </div>
-
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-10" required>
-
-                @Html.DropDownListFor(model => model.GioTinh, new List<SelectListItem>
-         {
-           new SelectListItem { Text = "Nam", Value = "Nam"},
-           new SelectListItem { Text = "Nữ", Value = "Nữ"},
-           new SelectListItem { Text = "Khác", Value = "Khác"},
-        }, "Chọn giới tính",
-        new
-             {
-                 @Style = "Width:500px;height:40px;",
-        @class = "form-control input-lg"
-             })
-                @*@Html.EditorFor(model => model.GioTinh, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.ValidationMessageFor(model => model.GioTinh, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10" name="Ngaysinh" required>
-                Ngày sinh:
-                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", type = "date", @placeholder = "Ngày sinh" } })
-                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
-                @ViewData["Loi3"]
-            </div>
-
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-10" name="DiaChi" required>
-                @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control", @placeholder = "Địa chỉ" } })
-                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-
-            <div class="col-md-10" name="SĐT" required>
-                @Html.EditorFor(model => model.SĐT, new { htmlAttributes = new { @class = "form-control", @placeholder = "Số điện thoại" } })
-                @Html.ValidationMessageFor(model => model.SĐT, "", new { @class = "text-danger" })
-                @ViewData["Loi4"]
-                @ViewData["Loi5"]
-            </div>
-
-        </div>
-        <div class="form-group">
-
-            <div class="col-md-10" name="Email" required>
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                @ViewData["Loiemail"]
-            </div>
-        </div>
-        <div class="form-group">
-
-            <div class="col-md-10" name="TenDangNhap" required>
-                @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên đăng nhập" } })
-                @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
-                @ViewData["Loi2"]
-            </div>
-
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-10" name="MatKhau" required>
-                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mật khẩu" } })
-                @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2" for="MatKhauXacNhan">
-
-            </label>
-            <div class="col-md-10">
-                <input class="form-control text-box single-line input-validation-error" placeholder="Nhập lại mật khẩu"
-                       data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!" id="nhaplaimatkhau" name="nhaplaimatkhau" type="password" value="" ariadescribedby="nhaplaimatkhau-error" aria-invalid="true">
-                @ViewData["NhapMKXN"]
-                @ViewData["MatKhauGiongNhau"]
-            </div>
-
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+        </section>
+        <!-- /.content -->
     </div>
+    <!-- /.content-wrapper -->
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

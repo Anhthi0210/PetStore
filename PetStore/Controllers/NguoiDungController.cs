@@ -125,7 +125,7 @@ namespace PetStore.Controllers
                 Session["UserName"] = tk.TenDangNhap;
                 Session["PhanQuyen"] = tk.PHANQUYEN.TenPQ;
                 Session["QuanTri"] = tk.MaPQ;
-                return RedirectToAction("Index", "Admin/Dashbroad");
+                return RedirectToAction("Index", "Admin/DanhMuc");
             }
             else if (kh != null)
             {
@@ -137,7 +137,7 @@ namespace PetStore.Controllers
             }
             else if (kh == null)
             {
-                ViewData["ErrorAccount"] = "sai mật khẩu hoặc Tên đăng nhập không tồn tại vui lòng nhập lại";
+                ViewData["ErrorAccount"] = "Tên đăng nhập - Mật khẩu không đúng! Vui lòng nhập lại.";
                 return this.Dangnhap();
             }
             else

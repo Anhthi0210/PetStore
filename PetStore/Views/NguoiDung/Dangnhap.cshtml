@@ -29,13 +29,13 @@
                                     <div class="form-outline form-white mb-4">
                                         <label class="form-label text-dark" for="">Tên Đăng nhập</label>
                                         <input type="" name="TenDN" id="" class="form-control form-text" placeholder="Username" required />
-                                        @ViewData["ErrorAccount"]
+                                        <label class="text-danger">@ViewData["ErrorAccount"]</label>
                                     </div>
 
                                     <div class="form-outline form-white mb-4">
                                         <label class="form-label-sm text-dark" for="typePasswordX">Mật khẩu</label>
                                         <input type="password" name="MatKhau" id="typePasswordX" class="form-control form-text form" placeholder="Password" required />
-                                        @ViewData["ErrorPass"]
+                                        <label class="text-danger">@ViewData["ErrorPass"]</label>
                                     </div>
 
                                     <p class="small mb-5 pb-lg-2"><a class="text-dark" href="/NguoiDung/Quenmatkhau">Quên mật khẩu?</a></p>
