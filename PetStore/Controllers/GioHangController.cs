@@ -157,6 +157,7 @@ namespace PetStore.Controllers
                 ctdh.MaSP = item.MaSP;
                 ctdh.SoLuongDat = item.iSoluong;
                 ctdh.DonGia = (decimal)item.DonGia;
+                dh.TongTien = (decimal)item.DonGia;
                 s = data.SANPHAM.Single(n => n.MaSP == item.MaSP);
                 s.SoLuong -= ctdh.SoLuongDat;
                 data.SaveChanges();
