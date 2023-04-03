@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<PetStore.Models.Giohang>
 
+
 @{
     ViewBag.Title = "DatHang";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,9 +9,6 @@
 
 <h2>DatHang</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -155,11 +153,6 @@
         <tr style="height:40px">
             <td>Trạng thái:</td>
             <td style="font-weight: bold">Chờ xác nhận</td>
-        </tr>
-        <tr style="height:40px">
-            <td>Ghi chú:</td>
-            @Html.EditorFor(model => dh.Note, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => dh.Note, "", new { @class = "text-danger" })
         </tr>
         <tr style="height:40px">
             <td></td>
