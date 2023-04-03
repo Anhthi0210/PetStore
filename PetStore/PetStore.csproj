@@ -2208,6 +2208,7 @@
     <Content Include="Content\images\sp9.jpg" />
     <Content Include="Content\images\vongco.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Areas\Public\css\Admin.css" />
     <Content Include="CSS\BT.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

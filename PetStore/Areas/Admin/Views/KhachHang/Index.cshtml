@@ -89,7 +89,9 @@
                                     @Html.DisplayFor(modelItem => item.GioTinh)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.NgaySinh)
+                                    @{ var formattedDate = item.NgaySinh.ToString("dd/MM/yyyy"); }
+                                    @Html.DisplayFor(modelItem => formattedDate)
+
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.DiaChi)

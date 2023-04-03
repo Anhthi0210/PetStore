@@ -16,20 +16,20 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
                         <div class="container bootdey">
                             <div class="product-list">
-                                <div class="col-md-4">
-                                    <div class="card border-info mb-3" style="max-width: 15rem;">
+                                <div class="col-md-7">
+                                    <div class="card border-dark mb-3" style="max-width: 15rem;">
                                         <section class="panel">
                                             <div class="pro-img-box">
                                                 <img src="@item.Hinh" alt="" />
                                             </div>
-                                            <div class="xemthem">
-                                                <div class="DatMua"  style="display: inline-block; justify-content: left">
-                                                    <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
-                                                    new { @id = item.MaSP, @strURL = Request.Url.ToString() })">Đặt mua</a>
+                                            <div class="xemthem ">
+                                                <div class="DatMua"  style="display: inline-block; justify-content: flex-end">
+                                                    <a title="Đặt hàng" class="btn-add-cat btn btn-outline-secondary fa fa-shopping-cart text-black " href="@Url.Action("ThemGioHang", "GioHang",
+                                                    new { @id = item.MaSP, @strURL = Request.Url.ToString() })"></a>
                                                 </div>
-                                                <div class="detail" style="; display: inline-block; justify-content: right">
-                                                    <a class="btn btn-success" href="@Url.Action("Detail", "DanhSachSanPham",
-                                                    new { @id = item.MaSP, @strURL = Request.Url.ToString() })">Detail</a>
+                                                <div title="Xem chi tiết" class="detail" style="display: inline-block; justify-content: flex-end">
+                                                    <a class="btn-details-item btn btn-outline-secondary fa fa-eye text-black" href="@Url.Action("Detail", "DanhSachSanPham",
+                                                    new { @id = item.MaSP, @strURL = Request.Url.ToString() })"></a>
                                                 </div>
                                             </div>                                     
                                             <div class="panel-body text-center">
@@ -38,7 +38,7 @@
                                                         @item.TenSP
                                                     </a>
                                                 </h4>
-                                                <p class="price">@String.Format("{0:#,##0.000}", item.DonGia) VNĐ</p>
+                                                <p class="price"><b>@String.Format("{0:#,##0.000}", item.DonGia) VNĐ</b></p>
                                             </div>
                                         </section>
                                     </div>

@@ -22,7 +22,7 @@ namespace PetStore.Models
         public int MaKH { get; set; }
 
         [Required(ErrorMessage ="Cannot be blank!")]
-        [RegularExpression(@"^[a-zA-Z\sàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ]+$", ErrorMessage = "Danh muc cannot use special characters!")]
+        [RegularExpression(@"^[a-zA-Z\sàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ]+$", ErrorMessage = "Tên khách cannot use special characters!")]
         [StringLength(50)]
         [Display(Name = "Tên Khách hàng")]
         public string TenKH { get; set; }
@@ -67,7 +67,7 @@ namespace PetStore.Models
         [Required(ErrorMessage = "Cannot be blank!")]
         [Display(Name = "Mật khẩu")]
         [StringLength(50)]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[!@#$%^&*+=])(?=.{8,})\\S+$", ErrorMessage = "Mật khẩu phải có ít nhất 8 kí tự và gồm ít nhất 1 kí tự đặc biệt và 1 chữ in")]
+        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=_!])(?!.*\s).{8,}$", ErrorMessage = "Mật khẩu phải có ít nhất 8 kí tự và gồm ít nhất 1 kí tự đặc biệt, 1 chữ in, 1 chữ thường")]
         public string MatKhau { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
