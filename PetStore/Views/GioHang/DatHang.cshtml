@@ -106,15 +106,60 @@
             <td>Ngày đặt:</td>
             <td style="font-weight: bold">@DateTime.Now.ToShortDateString()</td>
         </tr>
+        @*<tr style="height:40px">
+                <td>Ngày giao:</td>
+                <td style="font-weight: bold">
+                    <input type="date" name="NgayGiao" />
+                </td>
+            </tr>*@
         <tr style="height:40px">
-            <td>Ngày giao:</td>
-            <td style="font-weight: bold">
-                <input type="date" name="NgayGiao" />
-            </td>
+            <td>Dự kiến giao:</td>
+            <td style="font-weight: bold">@DateTime.Now.AddDays(6).ToShortDateString()</td>
         </tr>
         <tr style="height:40px">
             <td>Giới tính:</td>
             <td style="font-weight: bold">@kh.GioTinh</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Phương thức thanh toán:</td>
+            <td style="font-weight: bold">
+                @Html.DropDownListFor(model => dh.MaPTTT, new List<SelectListItem>
+                             {
+                               new SelectListItem { Text = "Thanh toán khi nhận hàng", Value = "PTTT01"},
+                               new SelectListItem { Text = "Thanh toán qua ví điện tử", Value = "PTTT02"},
+                               new SelectListItem { Text = "Thanh toán ngân hàng", Value = "PTTT03"},
+                            }, "Chọn phương thức thanh toán",
+                            new
+                                 {
+                                     @Style = "Width:500px;height:40px;",
+                            @class = "form-control input-lg"
+                                 })
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Phương thức giao hàng:</td>
+            <td style="font-weight: bold">
+                @Html.DropDownListFor(model => dh.MaPTGH, new List<SelectListItem>
+                             {
+                               new SelectListItem { Text = "Chuyển phát nhanh", Value = "PTGH01"},
+                               new SelectListItem { Text = "Dịch vụ ship COD", Value = "PTGH02"},
+                               new SelectListItem { Text = "Giao hàng tiết kiệm", Value = "PTGH03"},
+                            }, "Chọn phương thức giao hàng",
+                            new
+                                 {
+                                     @Style = "Width:500px;height:40px;",
+                            @class = "form-control input-lg"
+                                 })
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Trạng thái:</td>
+            <td style="font-weight: bold">Chờ xác nhận</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ghi chú:</td>
+            @Html.EditorFor(model => dh.Note, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => dh.Note, "", new { @class = "text-danger" })
         </tr>
         <tr style="height:40px">
             <td></td>
@@ -124,4 +169,9 @@
         </tr>
     }
 </table>
+<style>
+    img {
+        width: 180px;
+    }
+</style>
 
