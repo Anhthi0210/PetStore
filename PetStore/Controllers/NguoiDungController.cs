@@ -28,32 +28,31 @@ namespace PetStore.Controllers
         public ActionResult DangKy(FormCollection collection, KHACHHANG kh)
         {
             var hoten = collection["TenKH"];
+            var gioitinh = collection["GioiTinh"];
             var tendn = collection["TenDangNhap"];
             var matkhau = collection["MatKhau"];
             var nhaplaimatkhau = collection["NhaplaiMatkhau"];
             var email = collection["Email"];
             var dienthoai = collection["SĐT"];
             var diachi = collection["DiaChi"];
-
             var ngaysinh = String.Format("{0:MM/dd/yyyy}", collection["NgaySinh"]);
+
             KHACHHANG tempt = data.KHACHHANG.SingleOrDefault(n => n.TenDangNhap.Trim() == tendn.Trim());
-            Regex regexMail = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            Match matchMail = regexMail.Match(email);
-            Regex regexPhone = new Regex(@"^(84|0[3|5|7|8|9])+([0-9]{8})\b");
-            Match matchPhone = regexPhone.Match(dienthoai);
-            Regex regexTen = new Regex(@"^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)
-            ((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$");
-            Match matchTen = regexTen.Match(hoten);
+            //Regex regexPhone = new Regex(@"^(84|0[3|5|7|8|9])+([0-9]{8})\b");
+            //Match matchPhone = regexPhone.Match(dienthoai);
+            //Regex regexTen = new Regex(@"^[a-zA-Z\p{L}\s]{1,26}$");
+            //Match matchTen = regexTen.Match(hoten);
             var checkEmail = data.KHACHHANG.FirstOrDefault(x => x.Email == email);
+            var checksdt = data.KHACHHANG.FirstOrDefault(x => x.SĐT == dienthoai);
             if (checkEmail != null)
             {
                 ViewData["Loiemail"] = "email đã tồn tại, vui lòng nhập email khác";
             }
-            if (!matchTen.Success)
-            {
-                ViewData["Loi1"] = "Họ tên sai định dạng";
-            }
-            if (tempt != null)
+            //if (!matchTen.Success)
+            //{
+            //    ViewData["Loi1"] = "Họ tên không hợp lệ";
+            //}
+            else if (tempt != null)
             {
                 ViewData["Loi2"] = "Username đã tồn tại";
             }
@@ -62,11 +61,11 @@ namespace PetStore.Controllers
                 ViewData["NhapMKXN"] = "phải nhập mật khẩu xác nhận";
             }
             //so sánh ngày hiện tại và ngày sinh
-            if (!matchPhone.Success)
-            {
-                ViewData["loi4"] = "Sdt sai định dạng";
-            }
-            if (dienthoai == kh.SĐT)
+            //if (!matchPhone.Success)
+            //{
+            //    ViewData["loi4"] = "Sdt sai định dạng";
+            //}
+            else if (checksdt != null)
             {
                 ViewData["loi5"] = "SDT đã có người sử dụng";
             }
@@ -84,14 +83,16 @@ namespace PetStore.Controllers
                 }
                 else
                 {
+
+
                     kh.TenKH = hoten;
-                    kh.TenDangNhap = tendn;
-                    kh.MatKhau = matkhau;
+                    kh.NgaySinh = DateTime.Parse(ngaysinh);
+                    kh.DiaChi = diachi;
+                    kh.SĐT = dienthoai;
                     kh.Email = email;
                     kh.DiemTichLuy = 0;
-                    kh.SĐT = dienthoai;
-                    kh.DiaChi = diachi;
-                    kh.NgaySinh = DateTime.Parse(ngaysinh);
+                    kh.TenDangNhap = tendn;
+                    kh.MatKhau = matkhau;
 
                     data.KHACHHANG.Add(kh);
                     data.SaveChanges();
