@@ -148,6 +148,11 @@ namespace PetStore.Controllers
             dh.SĐT = kh.SĐT;
             dh.NgayDatHang = DateTime.Now;
             dh.NgayGiaoHang =  dh.NgayDatHang.AddDays(5)/*DateTime.Parse(ngaygiao)*/;
+            dh.Note = "222";
+            dh.MaPTGH = "PTGH01";
+            dh.MaPTTT = "PTTT01";
+            dh.MaTT = "TT01";
+            dh.TongTien = 2000;
             data.DONHANG.Add(dh);
             data.SaveChanges();
             foreach (var item in gh)

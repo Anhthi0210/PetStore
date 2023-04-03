@@ -109,7 +109,7 @@
                     <ul id="navbar">
                         @if (Session["TaiKhoan"] == null)
                         {
-                            <div class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="margin: 10px;">
+                            <div class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll  " style="margin: 10px;">
                                 <div class="dangky" >
                                     <a class="text-black" href="@Url.Action("Dangky","Nguoidung")">Đăng ký | </a>
                                 </div>
@@ -120,9 +120,9 @@
                         }
                         else
                         {
-                            <li>@Html.ActionLink("" + @Session["TenKH"], "Index", "DanhSachSanPham", new { area = "", @id = Session["TaiKhoan"] }, new { @class = "cusor" })</li>
-
-                            <li>@Html.ActionLink("Đăng xuất", "Logout", "NguoiDung", new { area = "" }, new { @class = "cusor" })</li>
+                            <li>@Html.ActionLink("" + @Session["TenKH"], "Index", "DanhSachSanPham", new { area = "", @id = Session["TaiKhoan"] }, new { @class = "cusor text-white text-decoration-underline" })</li>
+                            
+                            <li>@Html.ActionLink("Log out", "Logout", "NguoiDung", new { area = "" }, new { @class = "cusor text-white  " })</li>
 
                         }
                     </ul>

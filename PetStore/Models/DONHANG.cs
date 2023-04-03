@@ -48,7 +48,6 @@ namespace PetStore.Models
         [StringLength(50)]
         public string Note { get; set; }
 
-        [Required(ErrorMessage = "Cannot be blank!")]
         [Display(Name = "Tổng tiền")]
         [Column(TypeName = "money")]
         public decimal? TongTien { get; set; }

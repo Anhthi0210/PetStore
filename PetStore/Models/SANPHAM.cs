@@ -52,12 +52,12 @@
         public string MaLoaiPet { get; set; }
 
         [Required(ErrorMessage = "Cannot be blank!")]
-        [Display(Name = "Mã Sản phẩm")]
+        [Display(Name = "Mã Nhà cung cấp")]
         [StringLength(50)]
         public string MaNCC { get; set; }
 
         [Required(ErrorMessage = "Cannot be blank!")]
-        [Display(Name = "Mã Sản phẩm")]
+        [Display(Name = "Mã Danh mục")]
         [StringLength(50)]
         public string MaDM { get; set; }
 
