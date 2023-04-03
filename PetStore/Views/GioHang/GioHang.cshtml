@@ -45,7 +45,7 @@
             {
                 <td> @String.Format("{0:#,##0.000}", item.DonGia) VNĐ</td>
                 <td> <input type="number" min="1" name="txtSoLg" value="@item.iSoluong" /></td>
-                <td> @Html.DisplayFor( modelItem => item.dThanhtien, "{0:C}")  VNĐ </td>
+                <td> @String.Format("{0:#,##0.000}", item.dThanhtien)  VNĐ </td>
                 <td>
                     <a href="@Url.Action("Detail", "DanhSachSanPham", new { id = item.MaSP })">
                         Chi
