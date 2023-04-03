@@ -121,6 +121,12 @@
             <td style="font-weight: bold">@kh.GioTinh</td>
         </tr>
         <tr style="height:40px">
+            <td>Phương thức thanh toán:</td>
+            <td style="font-weight: bold">
+                @Html.DropDownList("MaPTTT", null, htmlAttributes: new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr style="height:40px">
             <td></td>
             <td style="font-weight: bold">
                 <input type="submit" value="Xác nhận" class="btn btn-success" />
